@@ -7,6 +7,10 @@ from modules.response_name.name_response_module import NameResponseModule
 from core.phenotype_fusion import PhenotypeFusion
 from core.risk_engine import RiskEngine
 from core.report_generator import ReportGenerator
+from core.dataset_exporter import DatasetExporter
+from core.feature_cleaner import FeatureCleaner
+from core.label_manager import LabelManager
+from core.session_validator import SessionValidator
 
 class AppController:
 
@@ -80,6 +84,18 @@ class AppController:
             "phenotype_vector.json",
             self.session["phenotype_vector"]
         )
+
+        self.session["session_quality"] = (
+            SessionValidator.validate(
+                self.session
+            )
+        )
+
+        self.session_manager.save_json(
+            "session_quality.json",
+            self.session["session_quality"]
+        )
+
         self.session["risk_assessment"] = (
             RiskEngine.build(
                 self.session["phenotype_vector"]
@@ -100,6 +116,16 @@ class AppController:
         self.session_manager.save_json(
             "report_summary.json",
             self.session["report_summary"]
+        )
+
+        DatasetExporter.append_session(
+            self.session
+        )
+
+        FeatureCleaner.clean_dataset()
+
+        LabelManager.label_session(
+            self.session
         )
 
         # Step 7: Save complete final session
@@ -146,12 +172,18 @@ class AppController:
 
             "phenotype_vector":
                 self.session.get("phenotype_vector"),
+
+            "session_quality":
+                self.session.get("session_quality"),
             
             "risk_assessment":
                 self.session.get("risk_assessment"),
 
             "report_summary":
-                self.session.get("report_summary")
+                self.session.get("report_summary"),
+
+            "label":
+                self.session.get("label")
         }
 
         self.session_manager.save_json(

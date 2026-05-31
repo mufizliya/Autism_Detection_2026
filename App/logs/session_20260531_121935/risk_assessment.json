@@ -1,0 +1,17 @@
+{
+    "overall_risk_score": 0.441,
+    "risk_level": "Low",
+    "domain_scores": {
+        "scq_risk": 0.715,
+        "game_risk": 0.068,
+        "gaze_risk": 0.009,
+        "expression_risk": 1.0,
+        "pose_risk": 0.368,
+        "motor_risk": 0.187
+    },
+    "primary_concerns": [
+        "SCQ score indicates need for further evaluation",
+        "Reduced smiling or facial expressiveness"
+    ],
+    "note": "This is a rule-based screening support score, not a clinical diagnosis."
+}
