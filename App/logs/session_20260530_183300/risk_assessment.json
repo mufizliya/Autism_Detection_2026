@@ -1,0 +1,18 @@
+{
+    "overall_risk_score": 0.53,
+    "risk_level": "Moderate",
+    "domain_scores": {
+        "scq_risk": 0.715,
+        "game_risk": 0.09,
+        "gaze_risk": 0.054,
+        "expression_risk": 0.846,
+        "pose_risk": 0.781,
+        "motor_risk": 0.59
+    },
+    "primary_concerns": [
+        "SCQ score indicates need for further evaluation",
+        "Low body stability score / increased movement variability",
+        "Elevated repetitive motor movement index"
+    ],
+    "note": "This is a rule-based screening support score, not a clinical diagnosis."
+}

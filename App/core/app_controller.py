@@ -1,0 +1,160 @@
+from core.session_manager import SessionManager
+from core.tracker_manager import TrackerManager
+
+from modules.questionnaire.questionnaire_module import QuestionnaireModule
+from modules.bubble_game.bubble_game_module import BubbleGameModule
+from modules.response_name.name_response_module import NameResponseModule
+from core.phenotype_fusion import PhenotypeFusion
+from core.risk_engine import RiskEngine
+from core.report_generator import ReportGenerator
+
+class AppController:
+
+    def __init__(self):
+
+        self.session_manager = SessionManager()
+
+        self.tracker_manager = TrackerManager()
+
+        self.session = {}
+
+        self.session["session_manager"] = (
+            self.session_manager
+        )
+
+        self.session["session_id"] = (
+            self.session_manager.session_id
+        )
+
+        self.questionnaire_module = (
+            QuestionnaireModule()
+        )
+
+        self.name_response_module = (
+            NameResponseModule()
+        )
+
+        self.bubble_game_module = (
+            BubbleGameModule()
+        )
+
+    def run(self):
+
+        print(
+            "Starting Session:",
+            self.session["session_id"]
+        )
+
+        # Step 1: Info + SCQ
+        self.questionnaire_module.run(
+            self.session
+        )
+
+        # Step 2: Start passive phenotype trackers
+        self.tracker_manager.start(
+            self.session,
+            show_window=False
+        )
+
+        # Step 3: Name response task
+        self.name_response_module.run(
+            self.session
+        )
+
+        # Step 4: Bubble game task
+        self.bubble_game_module.run(
+            self.session
+        )
+
+        # Step 5: Stop passive phenotype trackers
+        self.tracker_manager.stop()
+
+# Step 6: Build unified phenotype vector
+        self.session["phenotype_vector"] = (
+            PhenotypeFusion.build(
+                self.session
+            )
+        )
+
+        self.session_manager.save_json(
+            "phenotype_vector.json",
+            self.session["phenotype_vector"]
+        )
+        self.session["risk_assessment"] = (
+            RiskEngine.build(
+                self.session["phenotype_vector"]
+            )
+        )
+
+        self.session_manager.save_json(
+            "risk_assessment.json",
+            self.session["risk_assessment"]
+        )
+
+        self.session["report_summary"] = (
+            ReportGenerator.build(
+                self.session
+            )
+        )
+
+        self.session_manager.save_json(
+            "report_summary.json",
+            self.session["report_summary"]
+        )
+
+        # Step 7: Save complete final session
+        self.save_final_session()
+
+        print("Session Completed")
+
+        print(self.session)
+
+    def save_final_session(self):
+
+        final_session = {
+            "session_id":
+                self.session.get("session_id"),
+
+            "child_info":
+                self.session.get("child_info"),
+
+            "questionnaire":
+                self.session.get("questionnaire"),
+
+            "scq_results":
+                self.session.get("scq_results"),
+
+            "name_response":
+                self.session.get("name_response"),
+
+            "game_metrics":
+                self.session.get("game_metrics"),
+
+            "gaze_metrics":
+                self.session.get("gaze_metrics"),
+
+            "facial_expression_metrics":
+                self.session.get(
+                    "facial_expression_metrics"
+                ),
+
+            "pose_metrics":
+                self.session.get("pose_metrics"),
+
+            "motor_metrics":
+                self.session.get("motor_metrics"),
+
+            "phenotype_vector":
+                self.session.get("phenotype_vector"),
+            
+            "risk_assessment":
+                self.session.get("risk_assessment"),
+
+            "report_summary":
+                self.session.get("report_summary")
+        }
+
+        self.session_manager.save_json(
+            "final_session.json",
+            final_session
+        )

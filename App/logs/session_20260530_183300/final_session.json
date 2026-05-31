@@ -1,0 +1,414 @@
+{
+    "session_id": "session_20260530_183300",
+    "child_info": {
+        "name": "Saad",
+        "age": "2",
+        "gender": "Male",
+        "timestamp": "2026-05-30T18:33:04.564094"
+    },
+    "questionnaire": {
+        "score": 21,
+        "outcome": "Further evaluation recommended",
+        "answers": {
+            "Q1": "Yes",
+            "Q2": "Yes",
+            "Q3": "Yes",
+            "Q4": "Yes",
+            "Q5": "Yes",
+            "Q6": "Yes",
+            "Q7": "Yes",
+            "Q8": "Yes",
+            "Q9": "Yes",
+            "Q10": "Yes",
+            "Q11": "Yes",
+            "Q12": "Yes",
+            "Q13": "Yes",
+            "Q14": "Yes",
+            "Q15": "Yes",
+            "Q16": "Yes",
+            "Q17": "Yes",
+            "Q18": "Yes",
+            "Q19": "Yes",
+            "Q20": "Yes",
+            "Q21": "Yes",
+            "Q22": "Yes",
+            "Q23": "Yes",
+            "Q24": "Yes",
+            "Q25": "Yes",
+            "Q26": "Yes",
+            "Q27": "Yes",
+            "Q28": "Yes",
+            "Q29": "Yes",
+            "Q30": "Yes",
+            "Q31": "Yes",
+            "Q32": "Yes",
+            "Q33": "Yes",
+            "Q34": "Yes",
+            "Q35": "Yes",
+            "Q36": "Yes",
+            "Q37": "Yes",
+            "Q38": "Yes",
+            "Q39": "Yes",
+            "Q40": "Yes"
+        },
+        "phenotypes": {
+            "social_communication": {
+                "raw_score": 2,
+                "max_score": 19,
+                "severity": 0.11
+            },
+            "sensory_sensitivity": {
+                "raw_score": 4,
+                "max_score": 4,
+                "severity": 1.0
+            },
+            "repetitive_behavior": {
+                "raw_score": 9,
+                "max_score": 9,
+                "severity": 1.0
+            },
+            "emotional_regulation": {
+                "raw_score": 4,
+                "max_score": 4,
+                "severity": 1.0
+            },
+            "motor_behavior": {
+                "raw_score": 2,
+                "max_score": 2,
+                "severity": 1.0
+            }
+        }
+    },
+    "scq_results": {
+        "timestamp": "2026-05-30T18:33:06.908255",
+        "name": "Saad",
+        "age": "2",
+        "gender": "Male",
+        "scq_score": 21,
+        "outcome": "Further evaluation recommended",
+        "phenotypes": {
+            "social_communication": {
+                "raw_score": 2,
+                "max_score": 19,
+                "severity": 0.11
+            },
+            "sensory_sensitivity": {
+                "raw_score": 4,
+                "max_score": 4,
+                "severity": 1.0
+            },
+            "repetitive_behavior": {
+                "raw_score": 9,
+                "max_score": 9,
+                "severity": 1.0
+            },
+            "emotional_regulation": {
+                "raw_score": 4,
+                "max_score": 4,
+                "severity": 1.0
+            },
+            "motor_behavior": {
+                "raw_score": 2,
+                "max_score": 2,
+                "severity": 1.0
+            }
+        },
+        "answers": "{\"Q1\": \"Yes\", \"Q2\": \"Yes\", \"Q3\": \"Yes\", \"Q4\": \"Yes\", \"Q5\": \"Yes\", \"Q6\": \"Yes\", \"Q7\": \"Yes\", \"Q8\": \"Yes\", \"Q9\": \"Yes\", \"Q10\": \"Yes\", \"Q11\": \"Yes\", \"Q12\": \"Yes\", \"Q13\": \"Yes\", \"Q14\": \"Yes\", \"Q15\": \"Yes\", \"Q16\": \"Yes\", \"Q17\": \"Yes\", \"Q18\": \"Yes\", \"Q19\": \"Yes\", \"Q20\": \"Yes\", \"Q21\": \"Yes\", \"Q22\": \"Yes\", \"Q23\": \"Yes\", \"Q24\": \"Yes\", \"Q25\": \"Yes\", \"Q26\": \"Yes\", \"Q27\": \"Yes\", \"Q28\": \"Yes\", \"Q29\": \"Yes\", \"Q30\": \"Yes\", \"Q31\": \"Yes\", \"Q32\": \"Yes\", \"Q33\": \"Yes\", \"Q34\": \"Yes\", \"Q35\": \"Yes\", \"Q36\": \"Yes\", \"Q37\": \"Yes\", \"Q38\": \"Yes\", \"Q39\": \"Yes\", \"Q40\": \"Yes\"}"
+    },
+    "name_response": {
+        "response": "not_good",
+        "response_time": 1.6845309734344482,
+        "emotional_phenotypes": {
+            "emotional_distress": 1.0,
+            "social_hesitation": 0.17,
+            "interaction_engagement": 1.0,
+            "emotional_responsiveness": 0.83
+        }
+    },
+    "game_metrics": {
+        "score": 22,
+        "total_reactions": 22,
+        "reaction_data": [
+            {
+                "x": 1607,
+                "y": 164,
+                "reaction_time_sec": 1.55,
+                "timestamp": "2026-05-30 18:33:19",
+                "status": "popped"
+            },
+            {
+                "x": 536,
+                "y": 468,
+                "reaction_time_sec": 1.45,
+                "timestamp": "2026-05-30 18:33:20",
+                "status": "popped"
+            },
+            {
+                "x": 403,
+                "y": 823,
+                "reaction_time_sec": 1.64,
+                "timestamp": "2026-05-30 18:33:22",
+                "status": "popped"
+            },
+            {
+                "x": 488,
+                "y": 1038,
+                "reaction_time_sec": 1.21,
+                "timestamp": "2026-05-30 18:33:23",
+                "status": "popped"
+            },
+            {
+                "x": 1474,
+                "y": 726,
+                "reaction_time_sec": 1.38,
+                "timestamp": "2026-05-30 18:33:24",
+                "status": "popped"
+            },
+            {
+                "x": 261,
+                "y": 295,
+                "reaction_time_sec": 1.45,
+                "timestamp": "2026-05-30 18:33:26",
+                "status": "popped"
+            },
+            {
+                "x": 1606,
+                "y": 663,
+                "reaction_time_sec": 1.22,
+                "timestamp": "2026-05-30 18:33:27",
+                "status": "popped"
+            },
+            {
+                "x": 1507,
+                "y": 604,
+                "reaction_time_sec": 0.99,
+                "timestamp": "2026-05-30 18:33:29",
+                "status": "popped"
+            },
+            {
+                "x": 1249,
+                "y": 760,
+                "reaction_time_sec": 0.86,
+                "timestamp": "2026-05-30 18:33:30",
+                "status": "popped"
+            },
+            {
+                "x": 882,
+                "y": 370,
+                "reaction_time_sec": 1.08,
+                "timestamp": "2026-05-30 18:33:32",
+                "status": "popped"
+            },
+            {
+                "x": 943,
+                "y": 211,
+                "reaction_time_sec": 0.95,
+                "timestamp": "2026-05-30 18:33:33",
+                "status": "popped"
+            },
+            {
+                "x": 1733,
+                "y": 372,
+                "reaction_time_sec": 1.44,
+                "timestamp": "2026-05-30 18:33:35",
+                "status": "popped"
+            },
+            {
+                "x": 622,
+                "y": 277,
+                "reaction_time_sec": 1.78,
+                "timestamp": "2026-05-30 18:33:37",
+                "status": "popped"
+            },
+            {
+                "x": 1701,
+                "y": 93,
+                "reaction_time_sec": 2.17,
+                "timestamp": "2026-05-30 18:33:39",
+                "status": "popped"
+            },
+            {
+                "x": 1367,
+                "y": 312,
+                "reaction_time_sec": 1.75,
+                "timestamp": "2026-05-30 18:33:40",
+                "status": "popped"
+            },
+            {
+                "x": 508,
+                "y": 881,
+                "reaction_time_sec": 1.23,
+                "timestamp": "2026-05-30 18:33:41",
+                "status": "popped"
+            },
+            {
+                "x": 1708,
+                "y": 1032,
+                "reaction_time_sec": 1.43,
+                "timestamp": "2026-05-30 18:33:43",
+                "status": "popped"
+            },
+            {
+                "x": 1082,
+                "y": 725,
+                "reaction_time_sec": 1.15,
+                "timestamp": "2026-05-30 18:33:44",
+                "status": "popped"
+            },
+            {
+                "x": 437,
+                "y": 551,
+                "reaction_time_sec": 1.02,
+                "timestamp": "2026-05-30 18:33:45",
+                "status": "popped"
+            },
+            {
+                "x": 1370,
+                "y": 92,
+                "reaction_time_sec": 1.65,
+                "timestamp": "2026-05-30 18:33:47",
+                "status": "popped"
+            },
+            {
+                "x": 1537,
+                "y": 120,
+                "reaction_time_sec": 1.03,
+                "timestamp": "2026-05-30 18:33:48",
+                "status": "popped"
+            },
+            {
+                "x": 1396,
+                "y": 703,
+                "reaction_time_sec": 0.97,
+                "timestamp": "2026-05-30 18:33:50",
+                "status": "popped"
+            }
+        ],
+        "behavioral_phenotypes": {
+            "attention_deficit": 0.45,
+            "disengagement": 0.0,
+            "motor_irregularity": 0.11,
+            "responsiveness": 1
+        }
+    },
+    "gaze_metrics": {
+        "total_frames": 1198,
+        "face_detected_frames": 1137,
+        "eye_landmark_frames": 1137,
+        "face_presence_ratio": 0.949,
+        "blink_count": 1,
+        "blink_rate_per_min": 1.38,
+        "away_time_sec": 1.71,
+        "attention_ratio": 0.958,
+        "yaw_variability": 1.79,
+        "pitch_variability": 2.3,
+        "eye_contact_ratio": 0.991,
+        "gaze_variability": 0.076
+    },
+    "facial_expression_metrics": {
+        "total_frames": 1197,
+        "face_frames": 1135,
+        "avg_smile_score": 4.555,
+        "baseline_smile": 4.22,
+        "smile_threshold": 5.02,
+        "smiling_frames": 123,
+        "smile_ratio": 0.108
+    },
+    "pose_metrics": {
+        "total_frames": 803,
+        "pose_frames": 802,
+        "pose_presence_ratio": 0.999,
+        "head_variability": 8.311,
+        "shoulder_variability": 4.376,
+        "body_stability_score": 0.073
+    },
+    "motor_metrics": {
+        "total_frames": 878,
+        "pose_frames": 877,
+        "pose_presence_ratio": 0.999,
+        "left_arm_variability": 46.83,
+        "right_arm_variability": 26.53,
+        "arm_stereotypy_score": 36.68,
+        "left_frequency_hz": 1.11,
+        "right_frequency_hz": 0.6,
+        "oscillation_frequency_hz": 0.85,
+        "stereotypy_index": 31.29
+    },
+    "phenotype_vector": {
+        "scq_score": 21,
+        "scq_outcome": "Further evaluation recommended",
+        "scq_social_communication_raw": 2,
+        "scq_social_communication_severity": 0.11,
+        "scq_sensory_sensitivity_raw": 4,
+        "scq_sensory_sensitivity_severity": 1.0,
+        "scq_repetitive_behavior_raw": 9,
+        "scq_repetitive_behavior_severity": 1.0,
+        "scq_emotional_regulation_raw": 4,
+        "scq_emotional_regulation_severity": 1.0,
+        "scq_motor_behavior_raw": 2,
+        "scq_motor_behavior_severity": 1.0,
+        "name_response_time": 1.6845309734344482,
+        "name_response_good": 0,
+        "name_response_not_good": 1,
+        "emotion_emotional_distress": 1.0,
+        "emotion_social_hesitation": 0.17,
+        "emotion_interaction_engagement": 1.0,
+        "emotion_emotional_responsiveness": 0.83,
+        "game_score": 22,
+        "game_total_reactions": 22,
+        "game_avg_reaction_time": 1.3363636363636362,
+        "game_min_reaction_time": 0.86,
+        "game_max_reaction_time": 2.17,
+        "game_popped_count": 22,
+        "game_missed_count": 0,
+        "game_miss_ratio": 0.0,
+        "game_attention_deficit": 0.45,
+        "game_disengagement": 0.0,
+        "game_motor_irregularity": 0.11,
+        "game_responsiveness": 1,
+        "gaze_face_presence_ratio": 0.949,
+        "gaze_blink_count": 1,
+        "gaze_blink_rate_per_min": 1.38,
+        "gaze_away_time_sec": 1.71,
+        "gaze_attention_ratio": 0.958,
+        "gaze_yaw_variability": 1.79,
+        "gaze_pitch_variability": 2.3,
+        "gaze_eye_contact_ratio": 0.991,
+        "gaze_gaze_variability": 0.076,
+        "expression_avg_smile_score": 4.555,
+        "expression_baseline_smile": 4.22,
+        "expression_smile_threshold": 5.02,
+        "expression_smiling_frames": 123,
+        "expression_smile_ratio": 0.108,
+        "pose_pose_presence_ratio": 0.999,
+        "pose_head_variability": 8.311,
+        "pose_shoulder_variability": 4.376,
+        "pose_body_stability_score": 0.073,
+        "motor_pose_presence_ratio": 0.999,
+        "motor_left_arm_variability": 46.83,
+        "motor_right_arm_variability": 26.53,
+        "motor_arm_stereotypy_score": 36.68,
+        "motor_left_frequency_hz": 1.11,
+        "motor_right_frequency_hz": 0.6,
+        "motor_oscillation_frequency_hz": 0.85,
+        "motor_stereotypy_index": 31.29
+    },
+    "risk_assessment": {
+        "overall_risk_score": 0.53,
+        "risk_level": "Moderate",
+        "domain_scores": {
+            "scq_risk": 0.715,
+            "game_risk": 0.09,
+            "gaze_risk": 0.054,
+            "expression_risk": 0.846,
+            "pose_risk": 0.781,
+            "motor_risk": 0.59
+        },
+        "primary_concerns": [
+            "SCQ score indicates need for further evaluation",
+            "Low body stability score / increased movement variability",
+            "Elevated repetitive motor movement index"
+        ],
+        "note": "This is a rule-based screening support score, not a clinical diagnosis."
+    }
+}

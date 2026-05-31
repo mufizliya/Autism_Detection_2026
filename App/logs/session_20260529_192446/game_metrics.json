@@ -1,0 +1,153 @@
+{
+    "score": 2,
+    "total_reactions": 21,
+    "reaction_data": [
+        {
+            "x": 1527,
+            "y": 477,
+            "reaction_time_sec": 2.4,
+            "timestamp": "2026-05-29 19:25:05",
+            "status": "popped"
+        },
+        {
+            "x": 629,
+            "y": 317,
+            "reaction_time_sec": 1.92,
+            "timestamp": "2026-05-29 19:25:06",
+            "status": "popped"
+        },
+        {
+            "x": 88,
+            "y": 788,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:09",
+            "status": "missed"
+        },
+        {
+            "x": 355,
+            "y": 397,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:10",
+            "status": "missed"
+        },
+        {
+            "x": 1699,
+            "y": 935,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:12",
+            "status": "missed"
+        },
+        {
+            "x": 355,
+            "y": 103,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:13",
+            "status": "missed"
+        },
+        {
+            "x": 1630,
+            "y": 939,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:15",
+            "status": "missed"
+        },
+        {
+            "x": 391,
+            "y": 270,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:16",
+            "status": "missed"
+        },
+        {
+            "x": 362,
+            "y": 840,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:18",
+            "status": "missed"
+        },
+        {
+            "x": 310,
+            "y": 886,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:19",
+            "status": "missed"
+        },
+        {
+            "x": 580,
+            "y": 314,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:21",
+            "status": "missed"
+        },
+        {
+            "x": 1457,
+            "y": 369,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:22",
+            "status": "missed"
+        },
+        {
+            "x": 684,
+            "y": 217,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:24",
+            "status": "missed"
+        },
+        {
+            "x": 860,
+            "y": 742,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:25",
+            "status": "missed"
+        },
+        {
+            "x": 1192,
+            "y": 526,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:27",
+            "status": "missed"
+        },
+        {
+            "x": 847,
+            "y": 429,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:28",
+            "status": "missed"
+        },
+        {
+            "x": 380,
+            "y": 1003,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:30",
+            "status": "missed"
+        },
+        {
+            "x": 988,
+            "y": 1013,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:31",
+            "status": "missed"
+        },
+        {
+            "x": 884,
+            "y": 693,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:33",
+            "status": "missed"
+        },
+        {
+            "x": 1381,
+            "y": 78,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:34",
+            "status": "missed"
+        },
+        {
+            "x": 1131,
+            "y": 902,
+            "reaction_time_sec": null,
+            "timestamp": "2026-05-29 19:25:36",
+            "status": "missed"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "timestamp": "2026-05-29T19:35:14.923112",
+    "name": "Saad",
+    "age": "2",
+    "gender": "Male",
+    "scq_score": 21,
+    "outcome": "Further evaluation recommended",
+    "phenotypes": {
+        "social_communication": {
+            "raw_score": 2,
+            "max_score": 19,
+            "severity": 0.11
+        },
+        "sensory_sensitivity": {
+            "raw_score": 4,
+            "max_score": 4,
+            "severity": 1.0
+        },
+        "repetitive_behavior": {
+            "raw_score": 9,
+            "max_score": 9,
+            "severity": 1.0
+        },
+        "emotional_regulation": {
+            "raw_score": 4,
+            "max_score": 4,
+            "severity": 1.0
+        },
+        "motor_behavior": {
+            "raw_score": 2,
+            "max_score": 2,
+            "severity": 1.0
+        }
+    },
+    "answers": "{\"Q1\": \"Yes\", \"Q2\": \"Yes\", \"Q3\": \"Yes\", \"Q4\": \"Yes\", \"Q5\": \"Yes\", \"Q6\": \"Yes\", \"Q7\": \"Yes\", \"Q8\": \"Yes\", \"Q9\": \"Yes\", \"Q10\": \"Yes\", \"Q11\": \"Yes\", \"Q12\": \"Yes\", \"Q13\": \"Yes\", \"Q14\": \"Yes\", \"Q15\": \"Yes\", \"Q16\": \"Yes\", \"Q17\": \"Yes\", \"Q18\": \"Yes\", \"Q19\": \"Yes\", \"Q20\": \"Yes\", \"Q21\": \"Yes\", \"Q22\": \"Yes\", \"Q23\": \"Yes\", \"Q24\": \"Yes\", \"Q25\": \"Yes\", \"Q26\": \"Yes\", \"Q27\": \"Yes\", \"Q28\": \"Yes\", \"Q29\": \"Yes\", \"Q30\": \"Yes\", \"Q31\": \"Yes\", \"Q32\": \"Yes\", \"Q33\": \"Yes\", \"Q34\": \"Yes\", \"Q35\": \"Yes\", \"Q36\": \"Yes\", \"Q37\": \"Yes\", \"Q38\": \"Yes\", \"Q39\": \"Yes\", \"Q40\": \"Yes\"}"
+}
