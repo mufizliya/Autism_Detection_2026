@@ -1,0 +1,9 @@
+{
+    "total_frames": 1133,
+    "face_frames": 1105,
+    "avg_smile_score": 3.501,
+    "baseline_smile": 3.572,
+    "smile_threshold": 4.372,
+    "smiling_frames": 329,
+    "smile_ratio": 0.298
+}

@@ -49,40 +49,41 @@ class AppController:
 
     def run(self):
 
-        print(
-            "Starting Session:",
-            self.session["session_id"]
-        )
+        print("Starting Session:", self.session["session_id"])
 
-        # Step 1: Info + SCQ
         self.questionnaire_module.run(
             self.session
         )
 
-        # Step 2: Start passive phenotype trackers
+        # Track physical phenotype during name response
         self.tracker_manager.start(
             self.session,
             show_window=False
         )
 
-        # Step 3: Name response task
         self.name_response_module.run(
             self.session
         )
 
-        # Step 4: Bubble game task
-        self.bubble_game_module.run(
-            self.session
-        )
+        self.tracker_manager.stop()
 
+        # Video test has its own separate tracking
         self.social_video_test_module.run(
             self.session
         )
 
-        # Step 5: Stop passive phenotype trackers
+        # Track physical phenotype during bubble game
+        self.tracker_manager.start(
+            self.session,
+            show_window=False
+        )
+
+        self.bubble_game_module.run(
+            self.session
+        )
+
         self.tracker_manager.stop()
 
-# Step 6: Build unified phenotype vector
         self.session["phenotype_vector"] = (
             PhenotypeFusion.build(
                 self.session
@@ -137,13 +138,11 @@ class AppController:
             self.session
         )
 
-        # Step 7: Save complete final session
         self.save_final_session()
 
         print("Session Completed")
-
         print(self.session)
-
+        
     def save_final_session(self):
 
         final_session = {

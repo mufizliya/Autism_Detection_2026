@@ -1,3 +1,5 @@
+from core.video_phenotype_extractor import VideoPhenotypeExtractor
+
 class PhenotypeFusion:
 
     @staticmethod
@@ -344,6 +346,13 @@ class PhenotypeFusion:
             PhenotypeFusion.extract_motor_features(
                 session.get("motor_metrics")
             )
+        )
+        video_features = VideoPhenotypeExtractor.build(
+            session
+        )
+
+        phenotype_vector.update(
+            video_features
         )
 
         return phenotype_vector

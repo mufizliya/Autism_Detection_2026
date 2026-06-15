@@ -1,0 +1,159 @@
+{
+    "score": 7,
+    "total_reactions": 21,
+    "reaction_data": [
+        {
+            "x": 1662,
+            "y": 402,
+            "reaction_time_sec": 1.3,
+            "timestamp": "2026-06-15 13:02:39",
+            "status": "popped"
+        },
+        {
+            "x": 616,
+            "y": 561,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:02:42",
+            "status": "missed"
+        },
+        {
+            "x": 621,
+            "y": 605,
+            "reaction_time_sec": 1.99,
+            "timestamp": "2026-06-15 13:02:42",
+            "status": "popped"
+        },
+        {
+            "x": 1180,
+            "y": 160,
+            "reaction_time_sec": 1.88,
+            "timestamp": "2026-06-15 13:02:44",
+            "status": "popped"
+        },
+        {
+            "x": 345,
+            "y": 891,
+            "reaction_time_sec": 1.31,
+            "timestamp": "2026-06-15 13:02:45",
+            "status": "popped"
+        },
+        {
+            "x": 1329,
+            "y": 231,
+            "reaction_time_sec": 2.39,
+            "timestamp": "2026-06-15 13:02:47",
+            "status": "popped"
+        },
+        {
+            "x": 884,
+            "y": 739,
+            "reaction_time_sec": 2.8,
+            "timestamp": "2026-06-15 13:02:49",
+            "status": "popped"
+        },
+        {
+            "x": 86,
+            "y": 761,
+            "reaction_time_sec": 2.24,
+            "timestamp": "2026-06-15 13:02:50",
+            "status": "popped"
+        },
+        {
+            "x": 1560,
+            "y": 873,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:02:52",
+            "status": "missed"
+        },
+        {
+            "x": 554,
+            "y": 631,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:02:54",
+            "status": "missed"
+        },
+        {
+            "x": 231,
+            "y": 565,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:02:55",
+            "status": "missed"
+        },
+        {
+            "x": 542,
+            "y": 437,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:02:57",
+            "status": "missed"
+        },
+        {
+            "x": 244,
+            "y": 917,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:02:58",
+            "status": "missed"
+        },
+        {
+            "x": 304,
+            "y": 359,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:03:00",
+            "status": "missed"
+        },
+        {
+            "x": 352,
+            "y": 937,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:03:01",
+            "status": "missed"
+        },
+        {
+            "x": 664,
+            "y": 1011,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:03:03",
+            "status": "missed"
+        },
+        {
+            "x": 1685,
+            "y": 324,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:03:04",
+            "status": "missed"
+        },
+        {
+            "x": 885,
+            "y": 673,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:03:06",
+            "status": "missed"
+        },
+        {
+            "x": 450,
+            "y": 146,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:03:07",
+            "status": "missed"
+        },
+        {
+            "x": 539,
+            "y": 602,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:03:09",
+            "status": "missed"
+        },
+        {
+            "x": 99,
+            "y": 328,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-15 13:03:10",
+            "status": "missed"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.66,
+        "disengagement": 0.67,
+        "motor_irregularity": 0.26,
+        "responsiveness": 0.35
+    }
+}

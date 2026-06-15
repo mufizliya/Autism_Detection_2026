@@ -1,0 +1,122 @@
+{
+    "social_video": {
+        "video_metrics": {
+            "video_type": "social",
+            "video_path": "temp/peekaboo.mp4",
+            "start_timestamp": 1781508727.259304,
+            "end_timestamp": 1781508739.686864,
+            "duration_seconds": 12.43,
+            "completed": true
+        },
+        "gaze_metrics": {
+            "total_frames": 315,
+            "face_detected_frames": 314,
+            "eye_landmark_frames": 314,
+            "face_presence_ratio": 0.997,
+            "blink_count": 3,
+            "blink_rate_per_min": 15.73,
+            "away_time_sec": 0,
+            "attention_ratio": 1.0,
+            "yaw_variability": 0.11,
+            "pitch_variability": 0.18,
+            "eye_contact_ratio": 1.0,
+            "gaze_variability": 0.014
+        },
+        "facial_expression_metrics": {
+            "total_frames": 317,
+            "face_frames": 315,
+            "avg_smile_score": 3.66,
+            "baseline_smile": 3.679,
+            "smile_threshold": 4.479,
+            "smiling_frames": 0,
+            "smile_ratio": 0.0
+        },
+        "pose_metrics": {
+            "total_frames": 314,
+            "pose_frames": 304,
+            "pose_presence_ratio": 0.968,
+            "head_variability": 0.616,
+            "shoulder_variability": 4.228,
+            "body_stability_score": 0.171
+        },
+        "motor_metrics": {
+            "total_frames": 313,
+            "pose_frames": 303,
+            "pose_presence_ratio": 0.968,
+            "left_arm_variability": 24.27,
+            "right_arm_variability": 16.78,
+            "arm_stereotypy_score": 20.52,
+            "left_frequency_hz": 3.16,
+            "right_frequency_hz": 2.98,
+            "oscillation_frequency_hz": 3.07,
+            "stereotypy_index": 63.02
+        }
+    },
+    "nonsocial_video": {
+        "video_metrics": {
+            "video_type": "nonsocial",
+            "video_path": "temp/domino.mp4",
+            "start_timestamp": 1781508740.911366,
+            "end_timestamp": 1781508753.283884,
+            "duration_seconds": 12.37,
+            "completed": true
+        },
+        "gaze_metrics": {
+            "total_frames": 311,
+            "face_detected_frames": 309,
+            "eye_landmark_frames": 309,
+            "face_presence_ratio": 0.994,
+            "blink_count": 1,
+            "blink_rate_per_min": 5.33,
+            "away_time_sec": 0,
+            "attention_ratio": 1.0,
+            "yaw_variability": 0.15,
+            "pitch_variability": 0.22,
+            "eye_contact_ratio": 1.0,
+            "gaze_variability": 0.028
+        },
+        "facial_expression_metrics": {
+            "total_frames": 312,
+            "face_frames": 310,
+            "avg_smile_score": 3.367,
+            "baseline_smile": 3.456,
+            "smile_threshold": 4.256,
+            "smiling_frames": 2,
+            "smile_ratio": 0.006
+        },
+        "pose_metrics": {
+            "total_frames": 309,
+            "pose_frames": 308,
+            "pose_presence_ratio": 0.997,
+            "head_variability": 1.247,
+            "shoulder_variability": 13.122,
+            "body_stability_score": 0.065
+        },
+        "motor_metrics": {
+            "total_frames": 304,
+            "pose_frames": 303,
+            "pose_presence_ratio": 0.997,
+            "left_arm_variability": 25.47,
+            "right_arm_variability": 46.8,
+            "arm_stereotypy_score": 36.13,
+            "left_frequency_hz": 3.56,
+            "right_frequency_hz": 3.39,
+            "oscillation_frequency_hz": 3.47,
+            "stereotypy_index": 125.55
+        }
+    },
+    "comparison": {
+        "social_attention_ratio": 1.0,
+        "nonsocial_attention_ratio": 1.0,
+        "social_preference_score": 0.0,
+        "social_smile_ratio": 0.0,
+        "nonsocial_smile_ratio": 0.006,
+        "smile_response_difference": -0.006,
+        "social_body_stability_score": 0.171,
+        "nonsocial_body_stability_score": 0.065,
+        "social_motor_stereotypy_index": 63.02,
+        "nonsocial_motor_stereotypy_index": 125.55,
+        "motor_difference": -62.53,
+        "attention_interpretation": "Similar attention across social and non-social videos."
+    }
+}
