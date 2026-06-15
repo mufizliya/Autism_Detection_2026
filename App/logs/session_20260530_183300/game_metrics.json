@@ -1,0 +1,166 @@
+{
+    "score": 22,
+    "total_reactions": 22,
+    "reaction_data": [
+        {
+            "x": 1607,
+            "y": 164,
+            "reaction_time_sec": 1.55,
+            "timestamp": "2026-05-30 18:33:19",
+            "status": "popped"
+        },
+        {
+            "x": 536,
+            "y": 468,
+            "reaction_time_sec": 1.45,
+            "timestamp": "2026-05-30 18:33:20",
+            "status": "popped"
+        },
+        {
+            "x": 403,
+            "y": 823,
+            "reaction_time_sec": 1.64,
+            "timestamp": "2026-05-30 18:33:22",
+            "status": "popped"
+        },
+        {
+            "x": 488,
+            "y": 1038,
+            "reaction_time_sec": 1.21,
+            "timestamp": "2026-05-30 18:33:23",
+            "status": "popped"
+        },
+        {
+            "x": 1474,
+            "y": 726,
+            "reaction_time_sec": 1.38,
+            "timestamp": "2026-05-30 18:33:24",
+            "status": "popped"
+        },
+        {
+            "x": 261,
+            "y": 295,
+            "reaction_time_sec": 1.45,
+            "timestamp": "2026-05-30 18:33:26",
+            "status": "popped"
+        },
+        {
+            "x": 1606,
+            "y": 663,
+            "reaction_time_sec": 1.22,
+            "timestamp": "2026-05-30 18:33:27",
+            "status": "popped"
+        },
+        {
+            "x": 1507,
+            "y": 604,
+            "reaction_time_sec": 0.99,
+            "timestamp": "2026-05-30 18:33:29",
+            "status": "popped"
+        },
+        {
+            "x": 1249,
+            "y": 760,
+            "reaction_time_sec": 0.86,
+            "timestamp": "2026-05-30 18:33:30",
+            "status": "popped"
+        },
+        {
+            "x": 882,
+            "y": 370,
+            "reaction_time_sec": 1.08,
+            "timestamp": "2026-05-30 18:33:32",
+            "status": "popped"
+        },
+        {
+            "x": 943,
+            "y": 211,
+            "reaction_time_sec": 0.95,
+            "timestamp": "2026-05-30 18:33:33",
+            "status": "popped"
+        },
+        {
+            "x": 1733,
+            "y": 372,
+            "reaction_time_sec": 1.44,
+            "timestamp": "2026-05-30 18:33:35",
+            "status": "popped"
+        },
+        {
+            "x": 622,
+            "y": 277,
+            "reaction_time_sec": 1.78,
+            "timestamp": "2026-05-30 18:33:37",
+            "status": "popped"
+        },
+        {
+            "x": 1701,
+            "y": 93,
+            "reaction_time_sec": 2.17,
+            "timestamp": "2026-05-30 18:33:39",
+            "status": "popped"
+        },
+        {
+            "x": 1367,
+            "y": 312,
+            "reaction_time_sec": 1.75,
+            "timestamp": "2026-05-30 18:33:40",
+            "status": "popped"
+        },
+        {
+            "x": 508,
+            "y": 881,
+            "reaction_time_sec": 1.23,
+            "timestamp": "2026-05-30 18:33:41",
+            "status": "popped"
+        },
+        {
+            "x": 1708,
+            "y": 1032,
+            "reaction_time_sec": 1.43,
+            "timestamp": "2026-05-30 18:33:43",
+            "status": "popped"
+        },
+        {
+            "x": 1082,
+            "y": 725,
+            "reaction_time_sec": 1.15,
+            "timestamp": "2026-05-30 18:33:44",
+            "status": "popped"
+        },
+        {
+            "x": 437,
+            "y": 551,
+            "reaction_time_sec": 1.02,
+            "timestamp": "2026-05-30 18:33:45",
+            "status": "popped"
+        },
+        {
+            "x": 1370,
+            "y": 92,
+            "reaction_time_sec": 1.65,
+            "timestamp": "2026-05-30 18:33:47",
+            "status": "popped"
+        },
+        {
+            "x": 1537,
+            "y": 120,
+            "reaction_time_sec": 1.03,
+            "timestamp": "2026-05-30 18:33:48",
+            "status": "popped"
+        },
+        {
+            "x": 1396,
+            "y": 703,
+            "reaction_time_sec": 0.97,
+            "timestamp": "2026-05-30 18:33:50",
+            "status": "popped"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.45,
+        "disengagement": 0.0,
+        "motor_irregularity": 0.11,
+        "responsiveness": 1
+    }
+}

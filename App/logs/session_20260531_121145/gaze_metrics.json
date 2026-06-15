@@ -1,0 +1,14 @@
+{
+    "total_frames": 1228,
+    "face_detected_frames": 1217,
+    "eye_landmark_frames": 1217,
+    "face_presence_ratio": 0.991,
+    "blink_count": 18,
+    "blink_rate_per_min": 24.22,
+    "away_time_sec": 0,
+    "attention_ratio": 1.0,
+    "yaw_variability": 1.45,
+    "pitch_variability": 1.18,
+    "eye_contact_ratio": 0.998,
+    "gaze_variability": 0.042
+}

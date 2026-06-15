@@ -1,0 +1,33 @@
+{
+    "score": 3,
+    "total_reactions": 3,
+    "reaction_data": [
+        {
+            "x": 1437,
+            "y": 992,
+            "reaction_time_sec": 0.87,
+            "timestamp": "2026-06-08 12:48:32",
+            "status": "popped"
+        },
+        {
+            "x": 1631,
+            "y": 285,
+            "reaction_time_sec": 1.06,
+            "timestamp": "2026-06-08 12:48:34",
+            "status": "popped"
+        },
+        {
+            "x": 346,
+            "y": 89,
+            "reaction_time_sec": 0.78,
+            "timestamp": "2026-06-08 12:48:35",
+            "status": "popped"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.3,
+        "disengagement": 0.0,
+        "motor_irregularity": 0.01,
+        "responsiveness": 0.15
+    }
+}

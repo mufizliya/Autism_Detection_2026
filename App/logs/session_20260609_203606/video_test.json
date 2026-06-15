@@ -1,0 +1,16 @@
+{
+    "social_video": {
+        "video_type": "social",
+        "video_path": "temp/peekaboo.mp4",
+        "start_timestamp": 1781017632.603745,
+        "end_timestamp": 1781017642.0429509,
+        "duration_seconds": 9.44
+    },
+    "nonsocial_video": {
+        "video_type": "nonsocial",
+        "video_path": "temp/domino.mp4",
+        "start_timestamp": 1781017643.103582,
+        "end_timestamp": 1781017652.46098,
+        "duration_seconds": 9.36
+    }
+}

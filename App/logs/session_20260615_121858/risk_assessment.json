@@ -1,0 +1,21 @@
+{
+    "overall_risk_score": 0.591,
+    "risk_level": "Moderate",
+    "domain_scores": {
+        "scq_risk": 0.715,
+        "game_risk": 0.655,
+        "gaze_risk": 0.051,
+        "expression_risk": 0.934,
+        "pose_risk": 0.554,
+        "motor_risk": 0.501
+    },
+    "primary_concerns": [
+        "SCQ score indicates need for further evaluation",
+        "High missed-response ratio during game task",
+        "Low responsiveness during game task",
+        "Reduced smiling or facial expressiveness",
+        "Low body stability score / increased movement variability",
+        "Elevated repetitive motor movement index"
+    ],
+    "note": "This is a rule-based screening support score, not a clinical diagnosis."
+}

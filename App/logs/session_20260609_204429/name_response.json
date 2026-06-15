@@ -1,0 +1,10 @@
+{
+    "response": "good",
+    "response_time": 3.2005319595336914,
+    "emotional_phenotypes": {
+        "emotional_distress": 0.0,
+        "social_hesitation": 0.32,
+        "interaction_engagement": 1.0,
+        "emotional_responsiveness": 0.68
+    }
+}

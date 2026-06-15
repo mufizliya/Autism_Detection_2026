@@ -1,0 +1,12 @@
+{
+    "total_frames": 1436,
+    "pose_frames": 1436,
+    "pose_presence_ratio": 1.0,
+    "left_arm_variability": 12.44,
+    "right_arm_variability": 18.84,
+    "arm_stereotypy_score": 15.64,
+    "left_frequency_hz": 1.89,
+    "right_frequency_hz": 2.95,
+    "oscillation_frequency_hz": 2.42,
+    "stereotypy_index": 37.91
+}

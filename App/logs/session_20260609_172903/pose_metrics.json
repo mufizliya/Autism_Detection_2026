@@ -1,0 +1,8 @@
+{
+    "total_frames": 1978,
+    "pose_frames": 1974,
+    "pose_presence_ratio": 0.998,
+    "head_variability": 0.437,
+    "shoulder_variability": 4.034,
+    "body_stability_score": 0.183
+}

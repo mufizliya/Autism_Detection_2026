@@ -1,0 +1,68 @@
+{
+    "score": 4,
+    "total_reactions": 8,
+    "reaction_data": [
+        {
+            "x": 904,
+            "y": 621,
+            "reaction_time_sec": 0.91,
+            "timestamp": "2026-06-09 17:40:26",
+            "status": "popped"
+        },
+        {
+            "x": 1833,
+            "y": 552,
+            "reaction_time_sec": 1.01,
+            "timestamp": "2026-06-09 17:40:27",
+            "status": "popped"
+        },
+        {
+            "x": 796,
+            "y": 479,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-09 17:40:31",
+            "status": "missed"
+        },
+        {
+            "x": 1481,
+            "y": 95,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-09 17:40:32",
+            "status": "missed"
+        },
+        {
+            "x": 1769,
+            "y": 1005,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-09 17:40:34",
+            "status": "missed"
+        },
+        {
+            "x": 866,
+            "y": 618,
+            "reaction_time_sec": 0.63,
+            "timestamp": "2026-06-09 17:40:34",
+            "status": "popped"
+        },
+        {
+            "x": 1404,
+            "y": 587,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-09 17:40:35",
+            "status": "missed"
+        },
+        {
+            "x": 127,
+            "y": 640,
+            "reaction_time_sec": 1.51,
+            "timestamp": "2026-06-09 17:40:37",
+            "status": "popped"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.34,
+        "disengagement": 0.5,
+        "motor_irregularity": 0.1,
+        "responsiveness": 0.2
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "is_valid": false,
+    "quality_score": 0.733,
+    "quality_level": "Usable with caution",
+    "issues": [
+        "Gaze face presence ratio is too low; gaze metrics may be unreliable.",
+        "Facial expression face presence is too low.",
+        "Pose presence ratio is too low; pose metrics may be unreliable."
+    ],
+    "warnings": [
+        "Game produced limited reaction events.",
+        "Blink rate is zero; eye tracking or test duration may need review.",
+        "Smile ratio is zero; this may be valid but should be reviewed."
+    ]
+}

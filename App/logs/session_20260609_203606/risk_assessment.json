@@ -1,0 +1,16 @@
+{
+    "overall_risk_score": 0.436,
+    "risk_level": "Low",
+    "domain_scores": {
+        "scq_risk": 0.715,
+        "game_risk": 0.287,
+        "gaze_risk": 0.015,
+        "expression_risk": 0.721,
+        "pose_risk": 0.277,
+        "motor_risk": 0.269
+    },
+    "primary_concerns": [
+        "SCQ score indicates need for further evaluation"
+    ],
+    "note": "This is a rule-based screening support score, not a clinical diagnosis."
+}
