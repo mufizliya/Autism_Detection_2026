@@ -1,0 +1,945 @@
+{
+    "protocol_summary": {
+        "protocol_name": "paper_match_sensetoknow_like_v1",
+        "target_device": "android_ios_tablet",
+        "camera": {
+            "position": "front_facing",
+            "target_fps": 30,
+            "target_resolution": "1280x720",
+            "recommended_distance_cm": 60
+        },
+        "total_stimuli": 12,
+        "video_stimuli_count": 9,
+        "name_call_count": 3
+    },
+    "stimulus_results": [
+        {
+            "stimulus": {
+                "id": "floating_bubbles",
+                "type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 9,
+                "clip_end_sec": 15,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "floating_bubbles",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 9,
+                "clip_end_sec": 15,
+                "start_timestamp": 1781595018.1232572,
+                "end_timestamp": 1781595026.11064,
+                "duration_seconds": 7.987,
+                "frame_count": 181,
+                "completed": true,
+                "social_aoi": null,
+                "nonsocial_aoi": null,
+                "speaker_turns": [],
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "floating_bubbles",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "total_frames": 188,
+                "face_frames": 186,
+                "duration_seconds": 6.422,
+                "face_presence_ratio": 0.9894,
+                "blink_count": 2,
+                "blink_rate_per_min": 18.685,
+                "avg_ear": 0.2978,
+                "avg_gaze_x": 0.6016,
+                "avg_gaze_y": 0.5969,
+                "gaze_variability": 0.0243,
+                "yaw_variability": 0.0598,
+                "pitch_variability": 0.0208,
+                "roll_variability": 9.9652,
+                "head_movement_mean": 0.0032,
+                "head_movement_complexity_proxy": 0.0017,
+                "head_acceleration_mean": 0.0014,
+                "head_acceleration_variability": 0.0012,
+                "mouth_open_mean": 0.0494,
+                "mouth_complexity_proxy": 0.0347,
+                "eyebrow_signal_mean": 0.1376,
+                "eyebrow_complexity_proxy": 0.0067
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.9894,
+                "blink_count": 2,
+                "blink_rate_per_min": 18.685,
+                "attention_ratio": 0.9894,
+                "gaze_variability": 0.0243,
+                "yaw_variability": 0.0598,
+                "pitch_variability": 0.0208
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0494,
+                "smile_ratio": 0.0494,
+                "mouth_complexity_proxy": 0.0347,
+                "eyebrow_complexity_proxy": 0.0067
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.9894,
+                "head_variability": 0.0032,
+                "head_movement_complexity_proxy": 0.0017,
+                "head_acceleration_mean": 0.0014
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.9894,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        },
+        {
+            "stimulus": {
+                "id": "dog_in_grass",
+                "type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 18,
+                "clip_end_sec": 21,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "dog_in_grass",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 18,
+                "clip_end_sec": 21,
+                "start_timestamp": 1781595026.72293,
+                "end_timestamp": 1781595030.771955,
+                "duration_seconds": 4.049,
+                "frame_count": 91,
+                "completed": true,
+                "social_aoi": null,
+                "nonsocial_aoi": null,
+                "speaker_turns": [],
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "dog_in_grass",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "total_frames": 71,
+                "face_frames": 69,
+                "duration_seconds": 2.397,
+                "face_presence_ratio": 0.9718,
+                "blink_count": 1,
+                "blink_rate_per_min": 25.0303,
+                "avg_ear": 0.3375,
+                "avg_gaze_x": 0.6253,
+                "avg_gaze_y": 0.6086,
+                "gaze_variability": 0.0249,
+                "yaw_variability": 0.0348,
+                "pitch_variability": 0.0186,
+                "roll_variability": 4.3964,
+                "head_movement_mean": 0.0027,
+                "head_movement_complexity_proxy": 0.0018,
+                "head_acceleration_mean": 0.0015,
+                "head_acceleration_variability": 0.0012,
+                "mouth_open_mean": 0.0562,
+                "mouth_complexity_proxy": 0.0247,
+                "eyebrow_signal_mean": 0.1356,
+                "eyebrow_complexity_proxy": 0.006
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.9718,
+                "blink_count": 1,
+                "blink_rate_per_min": 25.0303,
+                "attention_ratio": 0.9718,
+                "gaze_variability": 0.0249,
+                "yaw_variability": 0.0348,
+                "pitch_variability": 0.0186
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0562,
+                "smile_ratio": 0.0562,
+                "mouth_complexity_proxy": 0.0247,
+                "eyebrow_complexity_proxy": 0.006
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.9718,
+                "head_variability": 0.0027,
+                "head_movement_complexity_proxy": 0.0018,
+                "head_acceleration_mean": 0.0015
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.9718,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        },
+        {
+            "stimulus": {
+                "id": "spinning_top",
+                "type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 24,
+                "clip_end_sec": 27,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "spinning_top",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 24,
+                "clip_end_sec": 27,
+                "start_timestamp": 1781595031.4096482,
+                "end_timestamp": 1781595035.4880772,
+                "duration_seconds": 4.078,
+                "frame_count": 91,
+                "completed": true,
+                "social_aoi": null,
+                "nonsocial_aoi": null,
+                "speaker_turns": [],
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "spinning_top",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "total_frames": 72,
+                "face_frames": 70,
+                "duration_seconds": 2.43,
+                "face_presence_ratio": 0.9722,
+                "blink_count": 6,
+                "blink_rate_per_min": 148.1686,
+                "avg_ear": 0.2886,
+                "avg_gaze_x": 0.6196,
+                "avg_gaze_y": 0.7366,
+                "gaze_variability": 0.0887,
+                "yaw_variability": 0.2813,
+                "pitch_variability": 0.0512,
+                "roll_variability": 9.8956,
+                "head_movement_mean": 0.007,
+                "head_movement_complexity_proxy": 0.0034,
+                "head_acceleration_mean": 0.0027,
+                "head_acceleration_variability": 0.0022,
+                "mouth_open_mean": 0.0076,
+                "mouth_complexity_proxy": 0.0142,
+                "eyebrow_signal_mean": 0.1528,
+                "eyebrow_complexity_proxy": 0.0118
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.9722,
+                "blink_count": 6,
+                "blink_rate_per_min": 148.1686,
+                "attention_ratio": 0.9722,
+                "gaze_variability": 0.0887,
+                "yaw_variability": 0.2813,
+                "pitch_variability": 0.0512
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0076,
+                "smile_ratio": 0.0076,
+                "mouth_complexity_proxy": 0.0142,
+                "eyebrow_complexity_proxy": 0.0118
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.9722,
+                "head_variability": 0.007,
+                "head_movement_complexity_proxy": 0.0034,
+                "head_acceleration_mean": 0.0027
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.9722,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        },
+        {
+            "stimulus": {
+                "id": "mechanical_puppy",
+                "type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 30,
+                "clip_end_sec": 33,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "mechanical_puppy",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 30,
+                "clip_end_sec": 33,
+                "start_timestamp": 1781595036.122914,
+                "end_timestamp": 1781595040.170691,
+                "duration_seconds": 4.048,
+                "frame_count": 91,
+                "completed": true,
+                "social_aoi": null,
+                "nonsocial_aoi": null,
+                "speaker_turns": [],
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "mechanical_puppy",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "total_frames": 71,
+                "face_frames": 69,
+                "duration_seconds": 2.392,
+                "face_presence_ratio": 0.9718,
+                "blink_count": 2,
+                "blink_rate_per_min": 50.1586,
+                "avg_ear": 0.3311,
+                "avg_gaze_x": 0.6028,
+                "avg_gaze_y": 0.6059,
+                "gaze_variability": 0.039,
+                "yaw_variability": 0.042,
+                "pitch_variability": 0.0169,
+                "roll_variability": 2.6337,
+                "head_movement_mean": 0.0039,
+                "head_movement_complexity_proxy": 0.0024,
+                "head_acceleration_mean": 0.001,
+                "head_acceleration_variability": 0.0009,
+                "mouth_open_mean": 0.0069,
+                "mouth_complexity_proxy": 0.0083,
+                "eyebrow_signal_mean": 0.1355,
+                "eyebrow_complexity_proxy": 0.0069
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.9718,
+                "blink_count": 2,
+                "blink_rate_per_min": 50.1586,
+                "attention_ratio": 0.9718,
+                "gaze_variability": 0.039,
+                "yaw_variability": 0.042,
+                "pitch_variability": 0.0169
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0069,
+                "smile_ratio": 0.0069,
+                "mouth_complexity_proxy": 0.0083,
+                "eyebrow_complexity_proxy": 0.0069
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.9718,
+                "head_variability": 0.0039,
+                "head_movement_complexity_proxy": 0.0024,
+                "head_acceleration_mean": 0.001
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.9718,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        },
+        {
+            "stimulus": {
+                "id": "blowing_bubbles",
+                "type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 36,
+                "clip_end_sec": 39,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "blowing_bubbles",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 36,
+                "clip_end_sec": 39,
+                "start_timestamp": 1781595040.796246,
+                "end_timestamp": 1781595044.8398468,
+                "duration_seconds": 4.044,
+                "frame_count": 91,
+                "completed": true,
+                "social_aoi": null,
+                "nonsocial_aoi": null,
+                "speaker_turns": [],
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "blowing_bubbles",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "total_frames": 70,
+                "face_frames": 68,
+                "duration_seconds": 2.363,
+                "face_presence_ratio": 0.9714,
+                "blink_count": 7,
+                "blink_rate_per_min": 177.7274,
+                "avg_ear": 0.2553,
+                "avg_gaze_x": 0.5971,
+                "avg_gaze_y": 0.6311,
+                "gaze_variability": 0.0258,
+                "yaw_variability": 0.1609,
+                "pitch_variability": 0.0221,
+                "roll_variability": 10.1865,
+                "head_movement_mean": 0.0056,
+                "head_movement_complexity_proxy": 0.0033,
+                "head_acceleration_mean": 0.0024,
+                "head_acceleration_variability": 0.0026,
+                "mouth_open_mean": 0.0058,
+                "mouth_complexity_proxy": 0.0115,
+                "eyebrow_signal_mean": 0.1512,
+                "eyebrow_complexity_proxy": 0.0133
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.9714,
+                "blink_count": 7,
+                "blink_rate_per_min": 177.7274,
+                "attention_ratio": 0.9714,
+                "gaze_variability": 0.0258,
+                "yaw_variability": 0.1609,
+                "pitch_variability": 0.0221
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0058,
+                "smile_ratio": 0.0058,
+                "mouth_complexity_proxy": 0.0115,
+                "eyebrow_complexity_proxy": 0.0133
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.9714,
+                "head_variability": 0.0056,
+                "head_movement_complexity_proxy": 0.0033,
+                "head_acceleration_mean": 0.0024
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.9714,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        },
+        {
+            "stimulus": {
+                "id": "rhymes_and_toys",
+                "type": "mixed_social_nonsocial_movie",
+                "paper_category": "mixed_social_non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 42,
+                "clip_end_sec": 45,
+                "social_aoi": {
+                    "side": "left",
+                    "x_min": 0.0,
+                    "x_max": 0.5,
+                    "y_min": 0.0,
+                    "y_max": 1.0
+                },
+                "nonsocial_aoi": {
+                    "side": "right",
+                    "x_min": 0.5,
+                    "x_max": 1.0,
+                    "y_min": 0.0,
+                    "y_max": 1.0
+                },
+                "measurements": [
+                    "gaze_percent_social",
+                    "gaze_silhouette_score",
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "rhymes_and_toys",
+                "stimulus_type": "mixed_social_nonsocial_movie",
+                "paper_category": "mixed_social_non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 42,
+                "clip_end_sec": 45,
+                "start_timestamp": 1781595045.439234,
+                "end_timestamp": 1781595049.5072708,
+                "duration_seconds": 4.068,
+                "frame_count": 91,
+                "completed": true,
+                "social_aoi": {
+                    "side": "left",
+                    "x_min": 0.0,
+                    "x_max": 0.5,
+                    "y_min": 0.0,
+                    "y_max": 1.0
+                },
+                "nonsocial_aoi": {
+                    "side": "right",
+                    "x_min": 0.5,
+                    "x_max": 1.0,
+                    "y_min": 0.0,
+                    "y_max": 1.0
+                },
+                "speaker_turns": [],
+                "measurements": [
+                    "gaze_percent_social",
+                    "gaze_silhouette_score",
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "rhymes_and_toys",
+                "stimulus_type": "mixed_social_nonsocial_movie",
+                "paper_category": "mixed_social_non_social",
+                "total_frames": 71,
+                "face_frames": 69,
+                "duration_seconds": 2.392,
+                "face_presence_ratio": 0.9718,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.4399,
+                "avg_gaze_x": 0.5182,
+                "avg_gaze_y": 0.656,
+                "gaze_variability": 0.098,
+                "yaw_variability": 0.0944,
+                "pitch_variability": 0.0443,
+                "roll_variability": 22.9676,
+                "head_movement_mean": 0.0114,
+                "head_movement_complexity_proxy": 0.007,
+                "head_acceleration_mean": 0.006,
+                "head_acceleration_variability": 0.0055,
+                "mouth_open_mean": 0.0039,
+                "mouth_complexity_proxy": 0.0065,
+                "eyebrow_signal_mean": 0.1198,
+                "eyebrow_complexity_proxy": 0.0117
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.9718,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "attention_ratio": 0.9718,
+                "gaze_variability": 0.098,
+                "yaw_variability": 0.0944,
+                "pitch_variability": 0.0443
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0039,
+                "smile_ratio": 0.0039,
+                "mouth_complexity_proxy": 0.0065,
+                "eyebrow_complexity_proxy": 0.0117
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.9718,
+                "head_variability": 0.0114,
+                "head_movement_complexity_proxy": 0.007,
+                "head_acceleration_mean": 0.006
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.9718,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        },
+        {
+            "stimulus": {
+                "id": "make_me_laugh",
+                "type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 48,
+                "clip_end_sec": 51,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "make_me_laugh",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 48,
+                "clip_end_sec": 51,
+                "start_timestamp": 1781595050.115893,
+                "end_timestamp": 1781595054.164584,
+                "duration_seconds": 4.049,
+                "frame_count": 91,
+                "completed": true,
+                "social_aoi": null,
+                "nonsocial_aoi": null,
+                "speaker_turns": [],
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "make_me_laugh",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "total_frames": 71,
+                "face_frames": 36,
+                "duration_seconds": 2.396,
+                "face_presence_ratio": 0.507,
+                "blink_count": 1,
+                "blink_rate_per_min": 25.0424,
+                "avg_ear": 0.3872,
+                "avg_gaze_x": 0.5543,
+                "avg_gaze_y": 0.7346,
+                "gaze_variability": 0.0983,
+                "yaw_variability": 0.1559,
+                "pitch_variability": 0.0629,
+                "roll_variability": 10.1837,
+                "head_movement_mean": 0.0075,
+                "head_movement_complexity_proxy": 0.0062,
+                "head_acceleration_mean": 0.0047,
+                "head_acceleration_variability": 0.0055,
+                "mouth_open_mean": 0.0059,
+                "mouth_complexity_proxy": 0.0051,
+                "eyebrow_signal_mean": 0.1316,
+                "eyebrow_complexity_proxy": 0.0139
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.507,
+                "blink_count": 1,
+                "blink_rate_per_min": 25.0424,
+                "attention_ratio": 0.507,
+                "gaze_variability": 0.0983,
+                "yaw_variability": 0.1559,
+                "pitch_variability": 0.0629
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0059,
+                "smile_ratio": 0.0059,
+                "mouth_complexity_proxy": 0.0051,
+                "eyebrow_complexity_proxy": 0.0139
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.507,
+                "head_variability": 0.0075,
+                "head_movement_complexity_proxy": 0.0062,
+                "head_acceleration_mean": 0.0047
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.507,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        },
+        {
+            "stimulus": {
+                "id": "playing_with_blocks",
+                "type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 54,
+                "clip_end_sec": 57,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "playing_with_blocks",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 54,
+                "clip_end_sec": 57,
+                "start_timestamp": 1781595054.784844,
+                "end_timestamp": 1781595058.851818,
+                "duration_seconds": 4.067,
+                "frame_count": 91,
+                "completed": true,
+                "social_aoi": null,
+                "nonsocial_aoi": null,
+                "speaker_turns": [],
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "playing_with_blocks",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "total_frames": 71,
+                "face_frames": 68,
+                "duration_seconds": 2.392,
+                "face_presence_ratio": 0.9577,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.249,
+                "avg_gaze_x": 0.5709,
+                "avg_gaze_y": 0.8136,
+                "gaze_variability": 0.1256,
+                "yaw_variability": 0.0662,
+                "pitch_variability": 0.0553,
+                "roll_variability": 5.0455,
+                "head_movement_mean": 0.0049,
+                "head_movement_complexity_proxy": 0.0034,
+                "head_acceleration_mean": 0.003,
+                "head_acceleration_variability": 0.0026,
+                "mouth_open_mean": 0.0056,
+                "mouth_complexity_proxy": 0.0052,
+                "eyebrow_signal_mean": 0.1258,
+                "eyebrow_complexity_proxy": 0.0107
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.9577,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "attention_ratio": 0.9577,
+                "gaze_variability": 0.1256,
+                "yaw_variability": 0.0662,
+                "pitch_variability": 0.0553
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0056,
+                "smile_ratio": 0.0056,
+                "mouth_complexity_proxy": 0.0052,
+                "eyebrow_complexity_proxy": 0.0107
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.9577,
+                "head_variability": 0.0049,
+                "head_movement_complexity_proxy": 0.0034,
+                "head_acceleration_mean": 0.003
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.9577,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        },
+        {
+            "stimulus": {
+                "id": "run_at_the_park",
+                "type": "speech_attention_movie",
+                "paper_category": "speech_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 60,
+                "clip_end_sec": 63,
+                "speaker_turns": [
+                    {
+                        "speaker": "left",
+                        "start_sec": 0.0,
+                        "end_sec": 1.5
+                    },
+                    {
+                        "speaker": "right",
+                        "start_sec": 1.5,
+                        "end_sec": 3.0
+                    }
+                ],
+                "measurements": [
+                    "attention_to_speech",
+                    "gaze_speech_correlation",
+                    "facing_forward",
+                    "blink_rate"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "run_at_the_park",
+                "stimulus_type": "speech_attention_movie",
+                "paper_category": "speech_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 60,
+                "clip_end_sec": 63,
+                "start_timestamp": 1781595059.4660301,
+                "end_timestamp": 1781595063.5056572,
+                "duration_seconds": 4.04,
+                "frame_count": 91,
+                "completed": true,
+                "social_aoi": null,
+                "nonsocial_aoi": null,
+                "speaker_turns": [
+                    {
+                        "speaker": "left",
+                        "start_sec": 0.0,
+                        "end_sec": 1.5
+                    },
+                    {
+                        "speaker": "right",
+                        "start_sec": 1.5,
+                        "end_sec": 3.0
+                    }
+                ],
+                "measurements": [
+                    "attention_to_speech",
+                    "gaze_speech_correlation",
+                    "facing_forward",
+                    "blink_rate"
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "run_at_the_park",
+                "stimulus_type": "speech_attention_movie",
+                "paper_category": "speech_social",
+                "total_frames": 70,
+                "face_frames": 0,
+                "duration_seconds": 2.359,
+                "face_presence_ratio": 0.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.0,
+                "avg_gaze_x": 0.0,
+                "avg_gaze_y": 0.0,
+                "gaze_variability": 0.0,
+                "yaw_variability": 0.0,
+                "pitch_variability": 0.0,
+                "roll_variability": 0.0,
+                "head_movement_mean": 0.0,
+                "head_movement_complexity_proxy": 0.0,
+                "head_acceleration_mean": 0.0,
+                "head_acceleration_variability": 0.0,
+                "mouth_open_mean": 0.0,
+                "mouth_complexity_proxy": 0.0,
+                "eyebrow_signal_mean": 0.0,
+                "eyebrow_complexity_proxy": 0.0
+            },
+            "gaze_metrics": {
+                "face_presence_ratio": 0.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "attention_ratio": 0.0,
+                "gaze_variability": 0.0,
+                "yaw_variability": 0.0,
+                "pitch_variability": 0.0
+            },
+            "facial_expression_metrics": {
+                "avg_smile_score": 0.0,
+                "smile_ratio": 0.0,
+                "mouth_complexity_proxy": 0.0,
+                "eyebrow_complexity_proxy": 0.0
+            },
+            "pose_metrics": {
+                "pose_presence_ratio": 0.0,
+                "head_variability": 0.0,
+                "head_movement_complexity_proxy": 0.0,
+                "head_acceleration_mean": 0.0
+            },
+            "motor_metrics": {
+                "pose_presence_ratio": 0.0,
+                "arm_stereotypy_score": 0,
+                "oscillation_frequency_hz": 0,
+                "stereotypy_index": 0
+            }
+        }
+    ],
+    "name_call_events": [
+        {
+            "id": "name_call_1",
+            "type": "name_call_event",
+            "during_stimulus": "floating_bubbles",
+            "call_index": 1,
+            "call_time_sec": 1.5
+        },
+        {
+            "id": "name_call_2",
+            "type": "name_call_event",
+            "during_stimulus": "mechanical_puppy",
+            "call_index": 2,
+            "call_time_sec": 1.5
+        },
+        {
+            "id": "name_call_3",
+            "type": "name_call_event",
+            "during_stimulus": "run_at_the_park",
+            "call_index": 3,
+            "call_time_sec": 1.5
+        }
+    ],
+    "category_summary": {
+        "social": {
+            "count": 4,
+            "avg_attention_ratio": 0.8521,
+            "avg_blink_rate_per_min": 87.7346,
+            "avg_smile_ratio": 0.0062,
+            "avg_head_variability": 0.0063
+        },
+        "non_social": {
+            "count": 3,
+            "avg_attention_ratio": 0.9777,
+            "avg_blink_rate_per_min": 31.2913,
+            "avg_smile_ratio": 0.0375,
+            "avg_head_variability": 0.0033
+        },
+        "mixed_social_non_social": {
+            "count": 1,
+            "avg_attention_ratio": 0.9718,
+            "avg_blink_rate_per_min": 0.0,
+            "avg_smile_ratio": 0.0039,
+            "avg_head_variability": 0.0114
+        },
+        "speech_social": {
+            "count": 1,
+            "avg_attention_ratio": 0.0,
+            "avg_blink_rate_per_min": 0.0,
+            "avg_smile_ratio": 0.0,
+            "avg_head_variability": 0.0
+        },
+        "comparison": {
+            "social_attention_average": 0.8521,
+            "nonsocial_attention_average": 0.9777,
+            "social_preference_score": -0.1256
+        }
+    }
+}

@@ -1,0 +1,140 @@
+{
+    "paper_facing_forward_social_movies": {
+        "paper_feature": "paper_facing_forward_social_movies",
+        "our_app_source": "video_social_facing_forward_proxy",
+        "match_type": "proxy",
+        "note": "Paper uses eyes open + gaze near screen + steady face. Our app uses webcam attention ratio proxy."
+    },
+    "paper_facing_forward_nonsocial_movies": {
+        "paper_feature": "paper_facing_forward_nonsocial_movies",
+        "our_app_source": "video_nonsocial_facing_forward_proxy",
+        "match_type": "proxy",
+        "note": "Paper uses eyes open + gaze near screen + steady face. Our app uses webcam attention ratio proxy."
+    },
+    "paper_gaze_percent_social": {
+        "paper_feature": "paper_gaze_percent_social",
+        "our_app_source": "video_social_facing_forward_proxy / social+nonsocial attention",
+        "match_type": "proxy",
+        "note": "Paper uses gaze AOI to social half of screen. Our app estimates relative attention to social vs nonsocial video blocks."
+    },
+    "paper_gaze_silhouette_score": {
+        "paper_feature": "paper_gaze_silhouette_score",
+        "our_app_source": "video_social_gaze_variability + video_nonsocial_gaze_variability",
+        "match_type": "proxy",
+        "note": "Paper uses gaze clustering on person/toy AOIs. Our app uses inverse gaze variability as weak proxy."
+    },
+    "paper_attention_to_speech": {
+        "paper_feature": "paper_attention_to_speech",
+        "our_app_source": "not_implemented",
+        "match_type": "missing",
+        "note": "Paper uses gaze correlation with alternating conversation. Our app needs a dedicated speech-turn video task for this."
+    },
+    "paper_response_to_name_delay": {
+        "paper_feature": "paper_response_to_name_delay",
+        "our_app_source": "name_response_time",
+        "match_type": "proxy",
+        "note": "Paper calls name three times during movies and measures head-turn delay. Our app measures response time during name response task."
+    },
+    "paper_response_to_name_proportion": {
+        "paper_feature": "paper_response_to_name_proportion",
+        "our_app_source": "name_response_good/name_response_not_good",
+        "match_type": "proxy",
+        "note": "Paper uses three examiner name calls. Our app currently has one response event."
+    },
+    "paper_blink_rate_social_movies": {
+        "paper_feature": "paper_blink_rate_social_movies",
+        "our_app_source": "video_social_blink_rate_per_min",
+        "match_type": "proxy",
+        "note": "Paper extracts blink rate during social movies. Our app extracts webcam blink rate during social video."
+    },
+    "paper_blink_rate_nonsocial_movies": {
+        "paper_feature": "paper_blink_rate_nonsocial_movies",
+        "our_app_source": "video_nonsocial_blink_rate_per_min",
+        "match_type": "proxy",
+        "note": "Paper extracts blink rate during nonsocial movies. Our app extracts webcam blink rate during nonsocial video."
+    },
+    "paper_eyebrows_complexity_social_movies": {
+        "paper_feature": "paper_eyebrows_complexity_social_movies",
+        "our_app_source": "not_implemented",
+        "match_type": "missing",
+        "note": "Paper uses multiscale entropy of eyebrow landmarks. Our app does not yet calculate eyebrow dynamics complexity."
+    },
+    "paper_eyebrows_complexity_nonsocial_movies": {
+        "paper_feature": "paper_eyebrows_complexity_nonsocial_movies",
+        "our_app_source": "not_implemented",
+        "match_type": "missing",
+        "note": "Paper uses multiscale entropy of eyebrow landmarks. Our app does not yet calculate eyebrow dynamics complexity."
+    },
+    "paper_mouth_complexity_social_movies": {
+        "paper_feature": "paper_mouth_complexity_social_movies",
+        "our_app_source": "video_social_avg_smile_score",
+        "match_type": "proxy",
+        "note": "Paper uses multiscale entropy of mouth landmarks. Our app uses smile/mouth score as proxy."
+    },
+    "paper_mouth_complexity_nonsocial_movies": {
+        "paper_feature": "paper_mouth_complexity_nonsocial_movies",
+        "our_app_source": "video_nonsocial_avg_smile_score",
+        "match_type": "proxy",
+        "note": "Paper uses multiscale entropy of mouth landmarks. Our app uses smile/mouth score as proxy."
+    },
+    "paper_head_movement_social_movies": {
+        "paper_feature": "paper_head_movement_social_movies",
+        "our_app_source": "video_social_head_variability",
+        "match_type": "proxy",
+        "note": "Paper uses head movement from facial landmark time series. Our app uses head position variability."
+    },
+    "paper_head_movement_nonsocial_movies": {
+        "paper_feature": "paper_head_movement_nonsocial_movies",
+        "our_app_source": "video_nonsocial_head_variability",
+        "match_type": "proxy",
+        "note": "Paper uses head movement from facial landmark time series. Our app uses head position variability."
+    },
+    "paper_head_movement_complexity_social_movies": {
+        "paper_feature": "paper_head_movement_complexity_social_movies",
+        "our_app_source": "video_social_head_variability",
+        "match_type": "proxy",
+        "note": "Paper uses multiscale entropy. Our app currently uses variability as a simple proxy."
+    },
+    "paper_head_movement_complexity_nonsocial_movies": {
+        "paper_feature": "paper_head_movement_complexity_nonsocial_movies",
+        "our_app_source": "video_nonsocial_head_variability",
+        "match_type": "proxy",
+        "note": "Paper uses multiscale entropy. Our app currently uses variability as a simple proxy."
+    },
+    "paper_head_movement_acceleration_social_movies": {
+        "paper_feature": "paper_head_movement_acceleration_social_movies",
+        "our_app_source": "not_implemented",
+        "match_type": "missing",
+        "note": "Paper computes derivative/acceleration of head movement. Our app does not yet store frame-wise head movement time series."
+    },
+    "paper_head_movement_acceleration_nonsocial_movies": {
+        "paper_feature": "paper_head_movement_acceleration_nonsocial_movies",
+        "our_app_source": "not_implemented",
+        "match_type": "missing",
+        "note": "Paper computes derivative/acceleration of head movement. Our app does not yet store frame-wise head movement time series."
+    },
+    "paper_pop_the_bubbles_popping_rate": {
+        "paper_feature": "paper_pop_the_bubbles_popping_rate",
+        "our_app_source": "game_popped_count / game_total_reactions",
+        "match_type": "proxy",
+        "note": "Paper uses popped bubbles over touches. Our app uses popped events over total game events."
+    },
+    "paper_pop_the_bubbles_accuracy_std": {
+        "paper_feature": "paper_pop_the_bubbles_accuracy_std",
+        "our_app_source": "game_motor_irregularity",
+        "match_type": "proxy",
+        "note": "Paper uses touch error standard deviation. Our app uses game motor irregularity proxy."
+    },
+    "paper_pop_the_bubbles_average_touch_length": {
+        "paper_feature": "paper_pop_the_bubbles_average_touch_length",
+        "our_app_source": "not_implemented",
+        "match_type": "missing",
+        "note": "Paper uses finger trajectory length on tablet. Our app must log mouse/touch movement path to compute this."
+    },
+    "paper_pop_the_bubbles_average_applied_force": {
+        "paper_feature": "paper_pop_the_bubbles_average_applied_force",
+        "our_app_source": "not_available_on_laptop",
+        "match_type": "missing",
+        "note": "Paper uses device touch force/kinetic data. Standard laptop mouse/webcam setup cannot measure real applied touch force."
+    }
+}

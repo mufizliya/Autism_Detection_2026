@@ -1,0 +1,20 @@
+{
+    "paper_ts_framewise_logs_found": 9,
+    "paper_facing_forward_social_movies": 0.0,
+    "paper_facing_forward_nonsocial_movies": 0.2761,
+    "paper_blink_rate_social_movies": 0.0,
+    "paper_blink_rate_nonsocial_movies": 43.9632,
+    "paper_eyebrows_complexity_social_movies": 0.0092,
+    "paper_eyebrows_complexity_nonsocial_movies": 0.016,
+    "paper_mouth_complexity_social_movies": 0.0009,
+    "paper_mouth_complexity_nonsocial_movies": 0.0041,
+    "paper_head_movement_social_movies": 0.008,
+    "paper_head_movement_nonsocial_movies": 0.0069,
+    "paper_head_movement_complexity_social_movies": 0.0129,
+    "paper_head_movement_complexity_nonsocial_movies": 0.017,
+    "paper_head_movement_acceleration_social_movies": 0.0095,
+    "paper_head_movement_acceleration_nonsocial_movies": 0.006,
+    "paper_gaze_percent_social": 0.0,
+    "paper_gaze_silhouette_score": 0.9948,
+    "paper_attention_to_speech": 1.0
+}

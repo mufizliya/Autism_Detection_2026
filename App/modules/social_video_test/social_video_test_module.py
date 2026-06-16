@@ -1,18 +1,26 @@
-import os
 import time
-import cv2
 
 from core.tracker_manager import TrackerManager
+from core.stimulus_protocol import StimulusProtocol
+from core.framewise_behavior_recorder import FramewiseBehaviorRecorder
 
 
 class PrefixedSessionManager:
 
-    def __init__(self, real_session_manager, prefix):
+    def __init__(
+        self,
+        real_session_manager,
+        prefix
+    ):
 
         self.real_session_manager = real_session_manager
         self.prefix = prefix
 
-    def save_json(self, filename, data):
+    def save_json(
+        self,
+        filename,
+        data
+    ):
 
         prefixed_filename = (
             f"{self.prefix}_{filename}"
@@ -28,385 +36,430 @@ class SocialVideoTestModule:
 
     def __init__(self):
 
+        self.protocol = StimulusProtocol()
+
         self.results = {
-            "social_video": {},
-            "nonsocial_video": {},
-            "comparison": {}
+            "protocol_summary": {},
+            "stimulus_results": [],
+            "name_call_events": [],
+            "category_summary": {}
         }
 
-    def play_video(
-        self,
-        video_path,
-        video_type
-    ):
-
-        if not os.path.exists(video_path):
-
-            print(
-                f"❌ Video not found: {video_path}"
-            )
-
-            return None
-
-        cap = cv2.VideoCapture(video_path)
-
-        if not cap.isOpened():
-
-            print(
-                f"❌ Could not open video: {video_path}"
-            )
-
-            return None
-
-        fps = cap.get(cv2.CAP_PROP_FPS)
-
-        if fps <= 0:
-            fps = 30
-
-        delay = int(1000 / fps)
-
-        start_time = time.time()
-
-        completed = True
-
-        print(
-            f"▶ Playing {video_type} video..."
-        )
-
-        while True:
-
-            ret, frame = cap.read()
-
-            if not ret:
-                break
-
-            cv2.imshow(
-                f"{video_type.upper()} VIDEO",
-                frame
-            )
-
-            key = cv2.waitKey(delay)
-
-            if key == 27:
-
-                completed = False
-
-                break
-
-        end_time = time.time()
-
-        cap.release()
-
-        cv2.destroyAllWindows()
-
-        metrics = {
-            "video_type":
-                video_type,
-
-            "video_path":
-                video_path,
-
-            "start_timestamp":
-                start_time,
-
-            "end_timestamp":
-                end_time,
-
-            "duration_seconds":
-                round(
-                    end_time - start_time,
-                    2
-                ),
-
-            "completed":
-                completed
-        }
-
-        return metrics
-
-    def run_video_with_tracking(
+    def run_stimulus_with_tracking(
         self,
         session,
-        video_path,
-        video_type
-    ):
+        stimulus
+        ):
 
-        segment_session = {}
-
-        segment_session["session_id"] = (
-            session.get("session_id")
+        stimulus_id = stimulus.get(
+            "id",
+            "unknown_stimulus"
         )
 
-        segment_session["session_manager"] = (
-            PrefixedSessionManager(
-                session["session_manager"],
-                video_type
+        stimulus_type = stimulus.get(
+            "type",
+            "unknown_type"
+        )
+
+        paper_category = stimulus.get(
+            "paper_category",
+            "unknown_category"
+        )
+
+        recorder = FramewiseBehaviorRecorder()
+
+        recorder.start(
+            session=session,
+            stimulus_id=stimulus_id,
+            stimulus_type=stimulus_type,
+            paper_category=paper_category
+        )
+
+        video_metrics = (
+            self.protocol.play_video_segment(
+                stimulus,
+                window_name=stimulus_id.upper()
             )
         )
 
-        tracker_manager = TrackerManager()
+        framewise_summary = recorder.stop()
 
-        tracker_manager.start(
-            segment_session,
-            show_window=False
-        )
+        result = {
+            "stimulus":
+                stimulus,
 
-        video_metrics = self.play_video(
-            video_path,
-            video_type
-        )
-
-        tracker_manager.stop()
-
-        segment_result = {
             "video_metrics":
                 video_metrics,
 
-            "gaze_metrics":
-                segment_session.get(
-                    "gaze_metrics",
-                    {}
-                ),
+            "framewise_summary":
+                framewise_summary,
 
-            "facial_expression_metrics":
-                segment_session.get(
-                    "facial_expression_metrics",
-                    {}
-                ),
+            "gaze_metrics": {
+                "face_presence_ratio":
+                    framewise_summary.get(
+                        "face_presence_ratio",
+                        0
+                    ),
 
-            "pose_metrics":
-                segment_session.get(
-                    "pose_metrics",
-                    {}
-                ),
+                "blink_count":
+                    framewise_summary.get(
+                        "blink_count",
+                        0
+                    ),
 
-            "motor_metrics":
-                segment_session.get(
-                    "motor_metrics",
-                    {}
-                )
+                "blink_rate_per_min":
+                    framewise_summary.get(
+                        "blink_rate_per_min",
+                        0
+                    ),
+
+                "attention_ratio":
+                    framewise_summary.get(
+                        "face_presence_ratio",
+                        0
+                    ),
+
+                "gaze_variability":
+                    framewise_summary.get(
+                        "gaze_variability",
+                        0
+                    ),
+
+                "yaw_variability":
+                    framewise_summary.get(
+                        "yaw_variability",
+                        0
+                    ),
+
+                "pitch_variability":
+                    framewise_summary.get(
+                        "pitch_variability",
+                        0
+                    )
+            },
+
+            "facial_expression_metrics": {
+                "avg_smile_score":
+                    framewise_summary.get(
+                        "mouth_open_mean",
+                        0
+                    ),
+
+                "smile_ratio":
+                    framewise_summary.get(
+                        "mouth_open_mean",
+                        0
+                    ),
+
+                "mouth_complexity_proxy":
+                    framewise_summary.get(
+                        "mouth_complexity_proxy",
+                        0
+                    ),
+
+                "eyebrow_complexity_proxy":
+                    framewise_summary.get(
+                        "eyebrow_complexity_proxy",
+                        0
+                    )
+            },
+
+            "pose_metrics": {
+                "pose_presence_ratio":
+                    framewise_summary.get(
+                        "face_presence_ratio",
+                        0
+                    ),
+
+                "head_variability":
+                    framewise_summary.get(
+                        "head_movement_mean",
+                        0
+                    ),
+
+                "head_movement_complexity_proxy":
+                    framewise_summary.get(
+                        "head_movement_complexity_proxy",
+                        0
+                    ),
+
+                "head_acceleration_mean":
+                    framewise_summary.get(
+                        "head_acceleration_mean",
+                        0
+                    )
+            },
+
+            "motor_metrics": {
+                "pose_presence_ratio":
+                    framewise_summary.get(
+                        "face_presence_ratio",
+                        0
+                    ),
+
+                "arm_stereotypy_score":
+                    0,
+
+                "oscillation_frequency_hz":
+                    0,
+
+                "stereotypy_index":
+                    0
+            }
         }
 
-        return segment_result
+        return result
 
-    def build_comparison(
+    def build_category_summary(
         self,
-        social_result,
-        nonsocial_result
+        stimulus_results
     ):
 
-        social_gaze = social_result.get(
-            "gaze_metrics",
-            {}
-        )
+        summary = {
+            "social": {
+                "count": 0,
+                "attention_values": [],
+                "blink_values": [],
+                "smile_values": [],
+                "head_values": []
+            },
+            "non_social": {
+                "count": 0,
+                "attention_values": [],
+                "blink_values": [],
+                "smile_values": [],
+                "head_values": []
+            },
+            "mixed_social_non_social": {
+                "count": 0,
+                "attention_values": [],
+                "blink_values": [],
+                "smile_values": [],
+                "head_values": []
+            },
+            "speech_social": {
+                "count": 0,
+                "attention_values": [],
+                "blink_values": [],
+                "smile_values": [],
+                "head_values": []
+            }
+        }
 
-        nonsocial_gaze = nonsocial_result.get(
-            "gaze_metrics",
-            {}
-        )
+        for result in stimulus_results:
 
-        social_expression = social_result.get(
-            "facial_expression_metrics",
-            {}
-        )
-
-        nonsocial_expression = nonsocial_result.get(
-            "facial_expression_metrics",
-            {}
-        )
-
-        social_pose = social_result.get(
-            "pose_metrics",
-            {}
-        )
-
-        nonsocial_pose = nonsocial_result.get(
-            "pose_metrics",
-            {}
-        )
-
-        social_motor = social_result.get(
-            "motor_metrics",
-            {}
-        )
-
-        nonsocial_motor = nonsocial_result.get(
-            "motor_metrics",
-            {}
-        )
-
-        social_attention = social_gaze.get(
-            "attention_ratio",
-            0
-        )
-
-        nonsocial_attention = nonsocial_gaze.get(
-            "attention_ratio",
-            0
-        )
-
-        social_smile = social_expression.get(
-            "smile_ratio",
-            0
-        )
-
-        nonsocial_smile = nonsocial_expression.get(
-            "smile_ratio",
-            0
-        )
-
-        social_body_stability = social_pose.get(
-            "body_stability_score",
-            0
-        )
-
-        nonsocial_body_stability = nonsocial_pose.get(
-            "body_stability_score",
-            0
-        )
-
-        social_motor_index = social_motor.get(
-            "stereotypy_index",
-            0
-        )
-
-        nonsocial_motor_index = nonsocial_motor.get(
-            "stereotypy_index",
-            0
-        )
-
-        social_preference_score = (
-            social_attention -
-            nonsocial_attention
-        )
-
-        smile_response_difference = (
-            social_smile -
-            nonsocial_smile
-        )
-
-        motor_difference = (
-            social_motor_index -
-            nonsocial_motor_index
-        )
-
-        if social_preference_score > 0.1:
-
-            attention_interpretation = (
-                "Higher attention during social video."
+            stimulus = result.get(
+                "stimulus",
+                {}
             )
 
-        elif social_preference_score < -0.1:
-
-            attention_interpretation = (
-                "Higher attention during non-social video."
+            category = stimulus.get(
+                "paper_category",
+                "unknown"
             )
 
-        else:
+            if category not in summary:
+                continue
 
-            attention_interpretation = (
-                "Similar attention across social and non-social videos."
+            gaze_metrics = result.get(
+                "gaze_metrics",
+                {}
             )
 
-        comparison = {
-            "social_attention_ratio":
+            expression_metrics = result.get(
+                "facial_expression_metrics",
+                {}
+            )
+
+            pose_metrics = result.get(
+                "pose_metrics",
+                {}
+            )
+
+            summary[category]["count"] += 1
+
+            summary[category]["attention_values"].append(
+                gaze_metrics.get(
+                    "attention_ratio",
+                    0
+                )
+            )
+
+            summary[category]["blink_values"].append(
+                gaze_metrics.get(
+                    "blink_rate_per_min",
+                    0
+                )
+            )
+
+            summary[category]["smile_values"].append(
+                expression_metrics.get(
+                    "smile_ratio",
+                    0
+                )
+            )
+
+            summary[category]["head_values"].append(
+                pose_metrics.get(
+                    "head_variability",
+                    0
+                )
+            )
+
+        compact_summary = {}
+
+        for category, values in summary.items():
+
+            count = values["count"]
+
+            def avg(items):
+
+                if len(items) == 0:
+                    return 0
+
+                return round(
+                    sum(items) / len(items),
+                    4
+                )
+
+            compact_summary[category] = {
+                "count":
+                    count,
+
+                "avg_attention_ratio":
+                    avg(
+                        values["attention_values"]
+                    ),
+
+                "avg_blink_rate_per_min":
+                    avg(
+                        values["blink_values"]
+                    ),
+
+                "avg_smile_ratio":
+                    avg(
+                        values["smile_values"]
+                    ),
+
+                "avg_head_variability":
+                    avg(
+                        values["head_values"]
+                    )
+            }
+
+        social_attention = compact_summary.get(
+            "social",
+            {}
+        ).get(
+            "avg_attention_ratio",
+            0
+        )
+
+        nonsocial_attention = compact_summary.get(
+            "non_social",
+            {}
+        ).get(
+            "avg_attention_ratio",
+            0
+        )
+
+        compact_summary["comparison"] = {
+            "social_attention_average":
                 social_attention,
 
-            "nonsocial_attention_ratio":
+            "nonsocial_attention_average":
                 nonsocial_attention,
 
             "social_preference_score":
                 round(
-                    social_preference_score,
-                    3
-                ),
-
-            "social_smile_ratio":
-                social_smile,
-
-            "nonsocial_smile_ratio":
-                nonsocial_smile,
-
-            "smile_response_difference":
-                round(
-                    smile_response_difference,
-                    3
-                ),
-
-            "social_body_stability_score":
-                social_body_stability,
-
-            "nonsocial_body_stability_score":
-                nonsocial_body_stability,
-
-            "social_motor_stereotypy_index":
-                social_motor_index,
-
-            "nonsocial_motor_stereotypy_index":
-                nonsocial_motor_index,
-
-            "motor_difference":
-                round(
-                    motor_difference,
-                    3
-                ),
-
-            "attention_interpretation":
-                attention_interpretation
+                    social_attention -
+                    nonsocial_attention,
+                    4
+                )
         }
 
-        return comparison
+        return compact_summary
 
-    def run(self, session):
-
-        social_video = os.path.join(
-            "temp",
-            "peekaboo.mp4"
-        )
-
-        nonsocial_video = os.path.join(
-            "temp",
-            "domino.mp4"
-        )
+    def run(
+        self,
+        session
+    ):
 
         print()
         print("==============================")
-        print("SOCIAL / NON-SOCIAL VIDEO TEST STARTED")
+        print("PAPER-MATCH STIMULUS VIDEO TEST STARTED")
         print("==============================")
         print()
 
-        social_result = self.run_video_with_tracking(
-            session,
-            social_video,
-            "social"
+        protocol_summary = (
+            self.protocol.build_protocol_summary()
         )
 
-        time.sleep(1)
+        stimulus_results = []
 
-        nonsocial_result = self.run_video_with_tracking(
-            session,
-            nonsocial_video,
-            "nonsocial"
+        video_stimuli = (
+            self.protocol.get_video_stimuli()
         )
 
-        comparison = self.build_comparison(
-            social_result,
-            nonsocial_result
+        for stimulus in video_stimuli:
+
+            result = self.run_stimulus_with_tracking(
+                session,
+                stimulus
+            )
+
+            stimulus_results.append(
+                result
+            )
+
+            time.sleep(0.5)
+
+        name_call_events = (
+            self.protocol.get_name_call_events()
+        )
+
+        category_summary = (
+            self.build_category_summary(
+                stimulus_results
+            )
         )
 
         self.results = {
-            "social_video":
-                social_result,
+            "protocol_summary":
+                protocol_summary,
 
-            "nonsocial_video":
-                nonsocial_result,
+            "stimulus_results":
+                stimulus_results,
 
-            "comparison":
-                comparison
+            "name_call_events":
+                name_call_events,
+
+            "category_summary":
+                category_summary
         }
 
         session["video_test"] = (
             self.results
+        )
+
+        session[
+            "session_manager"
+        ].save_json(
+            "stimulus_protocol_summary.json",
+            protocol_summary
+        )
+
+        session[
+            "session_manager"
+        ].save_json(
+            "stimulus_events.json",
+            {
+                "video_stimuli":
+                    video_stimuli,
+
+                "name_call_events":
+                    name_call_events
+            }
         )
 
         session[
@@ -417,7 +470,7 @@ class SocialVideoTestModule:
         )
 
         print()
-        print("✅ Social / Non-social Video Test Completed")
+        print("✅ Paper-match Stimulus Video Test Completed")
         print()
 
         return self.results

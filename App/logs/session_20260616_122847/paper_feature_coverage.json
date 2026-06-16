@@ -1,0 +1,10 @@
+{
+    "total_paper_features": 23,
+    "exact_count": 0,
+    "near_exact_count": 15,
+    "proxy_count": 6,
+    "missing_count": 1,
+    "hardware_dependent_count": 1,
+    "coverage_score": 0.665,
+    "coverage_score_formula": "exact=1.0, near_exact=0.8, proxy=0.5, hardware_dependent=0.3, missing=0.0"
+}

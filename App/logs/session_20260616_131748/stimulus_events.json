@@ -1,0 +1,180 @@
+{
+    "video_stimuli": [
+        {
+            "id": "floating_bubbles",
+            "type": "nonsocial_movie",
+            "paper_category": "non_social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 9,
+            "clip_end_sec": 15,
+            "measurements": [
+                "facing_forward",
+                "blink_rate",
+                "head_movement",
+                "facial_dynamics"
+            ]
+        },
+        {
+            "id": "dog_in_grass",
+            "type": "nonsocial_movie",
+            "paper_category": "non_social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 18,
+            "clip_end_sec": 21,
+            "measurements": [
+                "facing_forward",
+                "blink_rate",
+                "head_movement",
+                "facial_dynamics"
+            ]
+        },
+        {
+            "id": "spinning_top",
+            "type": "social_movie",
+            "paper_category": "social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 24,
+            "clip_end_sec": 27,
+            "measurements": [
+                "facing_forward",
+                "blink_rate",
+                "head_movement",
+                "facial_dynamics"
+            ]
+        },
+        {
+            "id": "mechanical_puppy",
+            "type": "nonsocial_movie",
+            "paper_category": "non_social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 30,
+            "clip_end_sec": 33,
+            "measurements": [
+                "facing_forward",
+                "blink_rate",
+                "head_movement",
+                "facial_dynamics"
+            ]
+        },
+        {
+            "id": "blowing_bubbles",
+            "type": "social_movie",
+            "paper_category": "social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 36,
+            "clip_end_sec": 39,
+            "measurements": [
+                "facing_forward",
+                "blink_rate",
+                "head_movement",
+                "facial_dynamics"
+            ]
+        },
+        {
+            "id": "rhymes_and_toys",
+            "type": "mixed_social_nonsocial_movie",
+            "paper_category": "mixed_social_non_social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 42,
+            "clip_end_sec": 45,
+            "social_aoi": {
+                "side": "left",
+                "x_min": 0.0,
+                "x_max": 0.5,
+                "y_min": 0.0,
+                "y_max": 1.0
+            },
+            "nonsocial_aoi": {
+                "side": "right",
+                "x_min": 0.5,
+                "x_max": 1.0,
+                "y_min": 0.0,
+                "y_max": 1.0
+            },
+            "measurements": [
+                "gaze_percent_social",
+                "gaze_silhouette_score",
+                "facing_forward",
+                "blink_rate",
+                "head_movement"
+            ]
+        },
+        {
+            "id": "make_me_laugh",
+            "type": "social_movie",
+            "paper_category": "social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 48,
+            "clip_end_sec": 51,
+            "measurements": [
+                "facing_forward",
+                "blink_rate",
+                "head_movement",
+                "facial_dynamics"
+            ]
+        },
+        {
+            "id": "playing_with_blocks",
+            "type": "social_movie",
+            "paper_category": "social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 54,
+            "clip_end_sec": 57,
+            "measurements": [
+                "facing_forward",
+                "blink_rate",
+                "head_movement",
+                "facial_dynamics"
+            ]
+        },
+        {
+            "id": "run_at_the_park",
+            "type": "speech_attention_movie",
+            "paper_category": "speech_social",
+            "video_path": "assets/stimuli/videos/master_sample.mp4",
+            "clip_start_sec": 60,
+            "clip_end_sec": 63,
+            "speaker_turns": [
+                {
+                    "speaker": "left",
+                    "start_sec": 0.0,
+                    "end_sec": 1.5
+                },
+                {
+                    "speaker": "right",
+                    "start_sec": 1.5,
+                    "end_sec": 3.0
+                }
+            ],
+            "measurements": [
+                "attention_to_speech",
+                "gaze_speech_correlation",
+                "facing_forward",
+                "blink_rate"
+            ]
+        }
+    ],
+    "name_call_events": [
+        {
+            "id": "name_call_1",
+            "type": "name_call_event",
+            "during_stimulus": "floating_bubbles",
+            "call_index": 1,
+            "call_time_sec": 1.5
+        },
+        {
+            "id": "name_call_2",
+            "type": "name_call_event",
+            "during_stimulus": "mechanical_puppy",
+            "call_index": 2,
+            "call_time_sec": 1.5
+        },
+        {
+            "id": "name_call_3",
+            "type": "name_call_event",
+            "during_stimulus": "run_at_the_park",
+            "call_index": 3,
+            "call_time_sec": 1.5
+        }
+    ]
+}

@@ -13,6 +13,10 @@ from core.feature_cleaner import FeatureCleaner
 from core.label_manager import LabelManager
 from core.session_validator import SessionValidator
 from core.paper_feature_mapper import PaperFeatureMapper
+from core.paper_timeseries_feature_extractor import PaperTimeSeriesFeatureExtractor
+from core.response_to_name_extractor import ResponseToNameExtractor
+from core.attention_to_speech_extractor import AttentionToSpeechExtractor
+from core.gaze_silhouette_extractor import GazeSilhouetteExtractor
 
 class AppController:
 
@@ -90,6 +94,66 @@ class AppController:
                 self.session
             )
         )
+        self.session["paper_timeseries_features"] = (
+            PaperTimeSeriesFeatureExtractor.build(
+                self.session
+            )
+        )
+
+        self.session["phenotype_vector"].update(
+            self.session["paper_timeseries_features"]
+        )
+
+        self.session_manager.save_json(
+            "paper_timeseries_features.json",
+            self.session["paper_timeseries_features"]
+        )
+
+        self.session["response_to_name_features"] = (
+            ResponseToNameExtractor.build(
+                self.session
+            )
+        )
+
+        self.session["phenotype_vector"].update(
+            self.session["response_to_name_features"]
+        )
+
+        self.session_manager.save_json(
+            "response_to_name_features.json",
+            self.session["response_to_name_features"]
+        )
+
+        self.session["attention_to_speech_features"] = (
+            AttentionToSpeechExtractor.build(
+                self.session
+            )
+        )
+
+        self.session["phenotype_vector"].update(
+            self.session["attention_to_speech_features"]
+        )
+
+        self.session_manager.save_json(
+            "attention_to_speech_features.json",
+            self.session["attention_to_speech_features"]
+        )
+
+        self.session["gaze_silhouette_features"] = (
+            GazeSilhouetteExtractor.build(
+                self.session
+            )
+        )
+
+        self.session["phenotype_vector"].update(
+            self.session["gaze_silhouette_features"]
+        )
+
+        self.session_manager.save_json(
+            "gaze_silhouette_features.json",
+            self.session["gaze_silhouette_features"]
+        )
+
         paper_mapping = PaperFeatureMapper.build(
             self.session
         )
@@ -217,7 +281,19 @@ class AppController:
 
             "phenotype_vector":
                 self.session.get("phenotype_vector"),
+
+            "paper_timeseries_features":
+                self.session.get("paper_timeseries_features"),
+
+            "response_to_name_features":
+                self.session.get("response_to_name_features"),
+
+            "attention_to_speech_features":
+                self.session.get("attention_to_speech_features"),
             
+            "gaze_silhouette_features":
+                self.session.get("gaze_silhouette_features"),
+
             "paper_aligned_features":
                 self.session.get("paper_aligned_features"),
 

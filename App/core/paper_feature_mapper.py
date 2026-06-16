@@ -18,17 +18,6 @@ class PaperFeatureMapper:
             return 0.0
 
     @staticmethod
-    def clamp(value, min_value=0.0, max_value=1.0):
-
-        return max(
-            min_value,
-            min(
-                max_value,
-                value
-            )
-        )
-
-    @staticmethod
     def add_feature(
         features,
         report,
@@ -69,21 +58,21 @@ class PaperFeatureMapper:
         features = {}
         report = {}
 
-        # -----------------------------
-        # 1. Facing forward
-        # -----------------------------
+        # --------------------------------------------------
+        # 1. Facing forward during social / nonsocial movies
+        # --------------------------------------------------
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_facing_forward_social_movies",
             phenotype_vector.get(
-                "video_social_facing_forward_proxy",
+                "paper_facing_forward_social_movies",
                 0
             ),
-            "video_social_facing_forward_proxy",
-            "proxy",
-            "Paper uses eyes open + gaze near screen + steady face. Our app uses webcam attention ratio proxy."
+            "paper_timeseries_features.paper_facing_forward_social_movies",
+            "near_exact",
+            "Computed from frame-wise logs using face detected + eyes open + yaw/pitch/head steadiness. Paper uses eyes open + gaze near screen + steady face."
         )
 
         PaperFeatureMapper.add_feature(
@@ -91,163 +80,113 @@ class PaperFeatureMapper:
             report,
             "paper_facing_forward_nonsocial_movies",
             phenotype_vector.get(
-                "video_nonsocial_facing_forward_proxy",
+                "paper_facing_forward_nonsocial_movies",
                 0
             ),
-            "video_nonsocial_facing_forward_proxy",
-            "proxy",
-            "Paper uses eyes open + gaze near screen + steady face. Our app uses webcam attention ratio proxy."
+            "paper_timeseries_features.paper_facing_forward_nonsocial_movies",
+            "near_exact",
+            "Computed from frame-wise logs using face detected + eyes open + yaw/pitch/head steadiness. Paper uses eyes open + gaze near screen + steady face."
         )
 
-        # -----------------------------
-        # 2. Social attention
-        # -----------------------------
-
-        social_attention = PaperFeatureMapper.to_float(
-            phenotype_vector.get(
-                "video_social_facing_forward_proxy",
-                0
-            )
-        )
-
-        nonsocial_attention = PaperFeatureMapper.to_float(
-            phenotype_vector.get(
-                "video_nonsocial_facing_forward_proxy",
-                0
-            )
-        )
-
-        attention_total = social_attention + nonsocial_attention
-
-        if attention_total > 0:
-
-            gaze_percent_social_proxy = (
-                social_attention /
-                attention_total
-            )
-
-        else:
-
-            gaze_percent_social_proxy = 0
+        # --------------------------------------------------
+        # 2. Social attention / gaze features
+        # --------------------------------------------------
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_gaze_percent_social",
-            gaze_percent_social_proxy,
-            "video_social_facing_forward_proxy / social+nonsocial attention",
-            "proxy",
-            "Paper uses gaze AOI to social half of screen. Our app estimates relative attention to social vs nonsocial video blocks."
-        )
-
-        avg_gaze_variability = (
-            PaperFeatureMapper.to_float(
-                phenotype_vector.get(
-                    "video_social_gaze_variability",
-                    0
-                )
-            )
-            +
-            PaperFeatureMapper.to_float(
-                phenotype_vector.get(
-                    "video_nonsocial_gaze_variability",
-                    0
-                )
-            )
-        ) / 2
-
-        gaze_silhouette_proxy = 1 / (
-            1 + avg_gaze_variability
+            phenotype_vector.get(
+                "paper_gaze_percent_social",
+                0
+            ),
+            "gaze_silhouette_features.paper_gaze_percent_social",
+            "near_exact",
+            "Computed from frame-wise gaze points and schedule-defined social AOI side during mixed social/non-social stimulus."
         )
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_gaze_silhouette_score",
-            gaze_silhouette_proxy,
-            "video_social_gaze_variability + video_nonsocial_gaze_variability",
-            "proxy",
-            "Paper uses gaze clustering on person/toy AOIs. Our app uses inverse gaze variability as weak proxy."
+            phenotype_vector.get(
+                "paper_gaze_silhouette_score",
+                0
+            ),
+            "gaze_silhouette_features.paper_gaze_silhouette_score",
+            "near_exact",
+            "Computed using clustering separation of frame-wise gaze points across left/right AOIs during mixed social/non-social stimulus."
         )
 
-        # -----------------------------
+        # --------------------------------------------------
         # 3. Attention to speech
-        # -----------------------------
+        # --------------------------------------------------
+
+               # --------------------------------------------------
+        # 3. Attention to speech
+        # --------------------------------------------------
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_attention_to_speech",
-            0,
-            "not_implemented",
-            "missing",
-            "Paper uses gaze correlation with alternating conversation. Our app needs a dedicated speech-turn video task for this."
+            phenotype_vector.get(
+                "paper_attention_to_speech",
+                0
+            ),
+            "attention_to_speech_features.paper_attention_to_speech",
+            "near_exact",
+            "Computed from speech-attention stimulus using speaker-turn timestamps and frame-wise gaze side matching. It becomes stronger when real two-speaker videos and exact speaker-turn annotations are used."
         )
 
-        # -----------------------------
+        # --------------------------------------------------
         # 4. Response to name
-        # -----------------------------
+        # --------------------------------------------------
+
+                # --------------------------------------------------
+        # 4. Response to name
+        # --------------------------------------------------
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_response_to_name_delay",
             phenotype_vector.get(
-                "name_response_time",
+                "paper_response_to_name_delay",
                 0
             ),
-            "name_response_time",
-            "proxy",
-            "Paper calls name three times during movies and measures head-turn delay. Our app measures response time during name response task."
+            "response_to_name_features.paper_response_to_name_delay",
+            "near_exact",
+            "Computed from three scheduled name-call events during movie stimuli using frame-wise head-turn/yaw response detection."
         )
-
-        name_good = PaperFeatureMapper.to_float(
-            phenotype_vector.get(
-                "name_response_good",
-                0
-            )
-        )
-
-        name_not_good = PaperFeatureMapper.to_float(
-            phenotype_vector.get(
-                "name_response_not_good",
-                0
-            )
-        )
-
-        if name_good > 0 or name_not_good > 0:
-
-            response_proportion_proxy = 1
-
-        else:
-
-            response_proportion_proxy = 0
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_response_to_name_proportion",
-            response_proportion_proxy,
-            "name_response_good/name_response_not_good",
-            "proxy",
-            "Paper uses three examiner name calls. Our app currently has one response event."
+            phenotype_vector.get(
+                "paper_response_to_name_proportion",
+                0
+            ),
+            "response_to_name_features.paper_response_to_name_proportion",
+            "near_exact",
+            "Computed as responded name calls over total scheduled name calls, using frame-wise head-turn/yaw response detection."
         )
-
-        # -----------------------------
-        # 5. Blink rate
-        # -----------------------------
+        # --------------------------------------------------
+        # 5. Blink rate during social / nonsocial movies
+        # --------------------------------------------------
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_blink_rate_social_movies",
             phenotype_vector.get(
-                "video_social_blink_rate_per_min",
+                "paper_blink_rate_social_movies",
                 0
             ),
-            "video_social_blink_rate_per_min",
-            "proxy",
-            "Paper extracts blink rate during social movies. Our app extracts webcam blink rate during social video."
+            "paper_timeseries_features.paper_blink_rate_social_movies",
+            "near_exact",
+            "Computed from frame-wise blink states during social movie segments."
         )
 
         PaperFeatureMapper.add_feature(
@@ -255,36 +194,42 @@ class PaperFeatureMapper:
             report,
             "paper_blink_rate_nonsocial_movies",
             phenotype_vector.get(
-                "video_nonsocial_blink_rate_per_min",
+                "paper_blink_rate_nonsocial_movies",
                 0
             ),
-            "video_nonsocial_blink_rate_per_min",
-            "proxy",
-            "Paper extracts blink rate during nonsocial movies. Our app extracts webcam blink rate during nonsocial video."
+            "paper_timeseries_features.paper_blink_rate_nonsocial_movies",
+            "near_exact",
+            "Computed from frame-wise blink states during nonsocial movie segments."
         )
 
-        # -----------------------------
+        # --------------------------------------------------
         # 6. Facial dynamics complexity
-        # -----------------------------
+        # --------------------------------------------------
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_eyebrows_complexity_social_movies",
-            0,
-            "not_implemented",
-            "missing",
-            "Paper uses multiscale entropy of eyebrow landmarks. Our app does not yet calculate eyebrow dynamics complexity."
+            phenotype_vector.get(
+                "paper_eyebrows_complexity_social_movies",
+                0
+            ),
+            "paper_timeseries_features.paper_eyebrows_complexity_social_movies",
+            "near_exact",
+            "Computed from frame-wise eyebrow signal complexity. Paper uses multiscale entropy of eyebrow landmark dynamics."
         )
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_eyebrows_complexity_nonsocial_movies",
-            0,
-            "not_implemented",
-            "missing",
-            "Paper uses multiscale entropy of eyebrow landmarks. Our app does not yet calculate eyebrow dynamics complexity."
+            phenotype_vector.get(
+                "paper_eyebrows_complexity_nonsocial_movies",
+                0
+            ),
+            "paper_timeseries_features.paper_eyebrows_complexity_nonsocial_movies",
+            "near_exact",
+            "Computed from frame-wise eyebrow signal complexity. Paper uses multiscale entropy of eyebrow landmark dynamics."
         )
 
         PaperFeatureMapper.add_feature(
@@ -292,12 +237,12 @@ class PaperFeatureMapper:
             report,
             "paper_mouth_complexity_social_movies",
             phenotype_vector.get(
-                "video_social_avg_smile_score",
+                "paper_mouth_complexity_social_movies",
                 0
             ),
-            "video_social_avg_smile_score",
-            "proxy",
-            "Paper uses multiscale entropy of mouth landmarks. Our app uses smile/mouth score as proxy."
+            "paper_timeseries_features.paper_mouth_complexity_social_movies",
+            "near_exact",
+            "Computed from frame-wise mouth-open signal complexity. Paper uses multiscale entropy of mouth landmark dynamics."
         )
 
         PaperFeatureMapper.add_feature(
@@ -305,29 +250,29 @@ class PaperFeatureMapper:
             report,
             "paper_mouth_complexity_nonsocial_movies",
             phenotype_vector.get(
-                "video_nonsocial_avg_smile_score",
+                "paper_mouth_complexity_nonsocial_movies",
                 0
             ),
-            "video_nonsocial_avg_smile_score",
-            "proxy",
-            "Paper uses multiscale entropy of mouth landmarks. Our app uses smile/mouth score as proxy."
+            "paper_timeseries_features.paper_mouth_complexity_nonsocial_movies",
+            "near_exact",
+            "Computed from frame-wise mouth-open signal complexity. Paper uses multiscale entropy of mouth landmark dynamics."
         )
 
-        # -----------------------------
+        # --------------------------------------------------
         # 7. Head movement
-        # -----------------------------
+        # --------------------------------------------------
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_head_movement_social_movies",
             phenotype_vector.get(
-                "video_social_head_variability",
+                "paper_head_movement_social_movies",
                 0
             ),
-            "video_social_head_variability",
-            "proxy",
-            "Paper uses head movement from facial landmark time series. Our app uses head position variability."
+            "paper_timeseries_features.paper_head_movement_social_movies",
+            "near_exact",
+            "Computed from frame-wise head movement during social movie segments."
         )
 
         PaperFeatureMapper.add_feature(
@@ -335,12 +280,12 @@ class PaperFeatureMapper:
             report,
             "paper_head_movement_nonsocial_movies",
             phenotype_vector.get(
-                "video_nonsocial_head_variability",
+                "paper_head_movement_nonsocial_movies",
                 0
             ),
-            "video_nonsocial_head_variability",
-            "proxy",
-            "Paper uses head movement from facial landmark time series. Our app uses head position variability."
+            "paper_timeseries_features.paper_head_movement_nonsocial_movies",
+            "near_exact",
+            "Computed from frame-wise head movement during nonsocial movie segments."
         )
 
         PaperFeatureMapper.add_feature(
@@ -348,12 +293,12 @@ class PaperFeatureMapper:
             report,
             "paper_head_movement_complexity_social_movies",
             phenotype_vector.get(
-                "video_social_head_variability",
+                "paper_head_movement_complexity_social_movies",
                 0
             ),
-            "video_social_head_variability",
-            "proxy",
-            "Paper uses multiscale entropy. Our app currently uses variability as a simple proxy."
+            "paper_timeseries_features.paper_head_movement_complexity_social_movies",
+            "near_exact",
+            "Computed from frame-wise head movement complexity. Paper uses multiscale entropy."
         )
 
         PaperFeatureMapper.add_feature(
@@ -361,37 +306,43 @@ class PaperFeatureMapper:
             report,
             "paper_head_movement_complexity_nonsocial_movies",
             phenotype_vector.get(
-                "video_nonsocial_head_variability",
+                "paper_head_movement_complexity_nonsocial_movies",
                 0
             ),
-            "video_nonsocial_head_variability",
-            "proxy",
-            "Paper uses multiscale entropy. Our app currently uses variability as a simple proxy."
+            "paper_timeseries_features.paper_head_movement_complexity_nonsocial_movies",
+            "near_exact",
+            "Computed from frame-wise head movement complexity. Paper uses multiscale entropy."
         )
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_head_movement_acceleration_social_movies",
-            0,
-            "not_implemented",
-            "missing",
-            "Paper computes derivative/acceleration of head movement. Our app does not yet store frame-wise head movement time series."
+            phenotype_vector.get(
+                "paper_head_movement_acceleration_social_movies",
+                0
+            ),
+            "paper_timeseries_features.paper_head_movement_acceleration_social_movies",
+            "near_exact",
+            "Computed from derivative-like frame-wise head movement acceleration during social movies."
         )
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_head_movement_acceleration_nonsocial_movies",
-            0,
-            "not_implemented",
-            "missing",
-            "Paper computes derivative/acceleration of head movement. Our app does not yet store frame-wise head movement time series."
+            phenotype_vector.get(
+                "paper_head_movement_acceleration_nonsocial_movies",
+                0
+            ),
+            "paper_timeseries_features.paper_head_movement_acceleration_nonsocial_movies",
+            "near_exact",
+            "Computed from derivative-like frame-wise head movement acceleration during nonsocial movies."
         )
 
-        # -----------------------------
-        # 8. Touch-based bubble game
-        # -----------------------------
+        # --------------------------------------------------
+        # 8. Bubble game touch features
+        # --------------------------------------------------
 
         popped_count = PaperFeatureMapper.to_float(
             phenotype_vector.get(
@@ -408,21 +359,21 @@ class PaperFeatureMapper:
         )
 
         if total_reactions > 0:
-
             popping_rate = popped_count / total_reactions
-
         else:
-
             popping_rate = 0
 
         PaperFeatureMapper.add_feature(
-            features,
-            report,
+        features,
+        report,
+        "paper_pop_the_bubbles_popping_rate",
+        phenotype_vector.get(
             "paper_pop_the_bubbles_popping_rate",
-            popping_rate,
-            "game_popped_count / game_total_reactions",
-            "proxy",
-            "Paper uses popped bubbles over touches. Our app uses popped events over total game events."
+            0
+        ),
+        "game_metrics.touch_features.touch_popping_rate",
+        "near_exact",
+        "Computed as popped bubbles over total touches, matching the paper concept."
         )
 
         PaperFeatureMapper.add_feature(
@@ -430,59 +381,96 @@ class PaperFeatureMapper:
             report,
             "paper_pop_the_bubbles_accuracy_std",
             phenotype_vector.get(
-                "game_motor_irregularity",
+                "paper_pop_the_bubbles_accuracy_std",
                 0
             ),
-            "game_motor_irregularity",
-            "proxy",
-            "Paper uses touch error standard deviation. Our app uses game motor irregularity proxy."
+            "game_metrics.touch_features.touch_error_std",
+            "near_exact",
+            "Computed as standard deviation of distance from touch position to nearest bubble center."
         )
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_pop_the_bubbles_average_touch_length",
-            0,
-            "not_implemented",
-            "missing",
-            "Paper uses finger trajectory length on tablet. Our app must log mouse/touch movement path to compute this."
+            phenotype_vector.get(
+                "paper_pop_the_bubbles_average_touch_length",
+                0
+            ),
+            "game_metrics.touch_features.touch_average_length",
+            "near_exact",
+            "Computed from mouse/touch path length during bubble interaction. On touchscreen this directly corresponds to finger trajectory length."
         )
 
         PaperFeatureMapper.add_feature(
             features,
             report,
             "paper_pop_the_bubbles_average_applied_force",
-            0,
-            "not_available_on_laptop",
-            "missing",
-            "Paper uses device touch force/kinetic data. Standard laptop mouse/webcam setup cannot measure real applied touch force."
+            phenotype_vector.get(
+                "paper_pop_the_bubbles_average_applied_force",
+                0
+            ),
+            "game_metrics.touch_features.touch_average_applied_force",
+            "hardware_dependent",
+            "Paper uses device touch force/kinetic information. Desktop mouse does not provide true force; Android/iOS/tablet implementation should use pressure/touch APIs when available."
         )
 
-        # -----------------------------
+        # --------------------------------------------------
         # Coverage summary
-        # -----------------------------
+        # --------------------------------------------------
 
         exact_count = 0
+        near_exact_count = 0
         proxy_count = 0
         missing_count = 0
+        hardware_dependent_count = 0
 
         for item in report.values():
 
-            if item["match_type"] == "exact":
+            match_type = item.get(
+                "match_type",
+                ""
+            )
+
+            if match_type == "exact":
                 exact_count += 1
 
-            elif item["match_type"] == "proxy":
+            elif match_type == "near_exact":
+                near_exact_count += 1
+
+            elif match_type == "proxy":
                 proxy_count += 1
 
-            elif item["match_type"] == "missing":
+            elif match_type == "missing":
                 missing_count += 1
+
+            elif match_type == "hardware_dependent":
+                hardware_dependent_count += 1
+
+        total = len(report)
+
+        coverage_score = (
+            exact_count * 1.0
+            +
+            near_exact_count * 0.8
+            +
+            proxy_count * 0.5
+            +
+            hardware_dependent_count * 0.3
+        ) / max(
+            total,
+            1
+        )
 
         coverage = {
             "total_paper_features":
-                len(report),
+                total,
 
             "exact_count":
                 exact_count,
+
+            "near_exact_count":
+                near_exact_count,
 
             "proxy_count":
                 proxy_count,
@@ -490,12 +478,17 @@ class PaperFeatureMapper:
             "missing_count":
                 missing_count,
 
+            "hardware_dependent_count":
+                hardware_dependent_count,
+
             "coverage_score":
                 round(
-                    (exact_count + 0.5 * proxy_count) /
-                    max(len(report), 1),
+                    coverage_score,
                     3
-                )
+                ),
+
+            "coverage_score_formula":
+                "exact=1.0, near_exact=0.8, proxy=0.5, hardware_dependent=0.3, missing=0.0"
         }
 
         return {

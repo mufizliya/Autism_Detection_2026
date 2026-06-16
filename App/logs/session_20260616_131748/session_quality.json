@@ -1,0 +1,12 @@
+{
+    "is_valid": false,
+    "quality_score": 0.867,
+    "quality_level": "Good",
+    "issues": [
+        "Gaze face presence ratio is too low; gaze metrics may be unreliable.",
+        "Facial expression face presence is too low."
+    ],
+    "warnings": [
+        "Motor stereotypy index is very high; verify whether movement was intentional/test behavior."
+    ]
+}

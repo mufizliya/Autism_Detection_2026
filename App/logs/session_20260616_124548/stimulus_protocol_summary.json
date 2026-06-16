@@ -1,0 +1,13 @@
+{
+    "protocol_name": "paper_match_sensetoknow_like_v1",
+    "target_device": "android_ios_tablet",
+    "camera": {
+        "position": "front_facing",
+        "target_fps": 30,
+        "target_resolution": "1280x720",
+        "recommended_distance_cm": 60
+    },
+    "total_stimuli": 12,
+    "video_stimuli_count": 9,
+    "name_call_count": 3
+}

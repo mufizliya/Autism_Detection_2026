@@ -185,8 +185,68 @@ class PhenotypeFusion:
                 f"game_{key}"
             ] = value
 
-        return features
+        # -----------------------------------
+        # Paper-style bubble touch features
+        # -----------------------------------
 
+        touch_features = game_metrics.get(
+            "touch_features",
+            {}
+        )
+
+        features["touch_total_count"] = (
+            touch_features.get(
+                "touch_total_count",
+                0
+            )
+        )
+
+        features["touch_popped_count"] = (
+            touch_features.get(
+                "touch_popped_count",
+                0
+            )
+        )
+
+        features["paper_pop_the_bubbles_popping_rate"] = (
+            touch_features.get(
+                "touch_popping_rate",
+                0
+            )
+        )
+
+        features["paper_pop_the_bubbles_accuracy_std"] = (
+            touch_features.get(
+                "touch_error_std",
+                0
+            )
+        )
+
+        features["paper_pop_the_bubbles_average_touch_length"] = (
+            touch_features.get(
+                "touch_average_length",
+                0
+            )
+        )
+
+        features["paper_pop_the_bubbles_average_applied_force"] = (
+            touch_features.get(
+                "touch_average_applied_force",
+                0
+            )
+        )
+
+        features["touch_force_available"] = (
+            1
+            if touch_features.get(
+                "touch_force_available",
+                False
+            )
+            else 0
+        )
+
+        return features
+    
     @staticmethod
     def extract_gaze_features(gaze_metrics):
 

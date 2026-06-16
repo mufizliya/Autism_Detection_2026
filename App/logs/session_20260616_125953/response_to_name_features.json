@@ -1,0 +1,39 @@
+{
+    "paper_response_to_name_proportion": 0.6667,
+    "paper_response_to_name_delay": 1.2349,
+    "name_call_count": 3,
+    "name_response_count": 2,
+    "name_call_results": [
+        {
+            "call_index": 1,
+            "during_stimulus": "floating_bubbles",
+            "call_time_sec": 1.5,
+            "framewise_log": "logs/session_20260616_125953/floating_bubbles_framewise_log.csv",
+            "responded": true,
+            "delay_sec": 1.9075,
+            "reason": "head_turn_detected",
+            "yaw_change": 0.0835,
+            "head_movement": 0.0033
+        },
+        {
+            "call_index": 2,
+            "during_stimulus": "mechanical_puppy",
+            "call_time_sec": 1.5,
+            "framewise_log": "logs/session_20260616_125953/mechanical_puppy_framewise_log.csv",
+            "responded": true,
+            "delay_sec": 0.5622,
+            "reason": "head_turn_detected",
+            "yaw_change": 0.0825,
+            "head_movement": 0.0073
+        },
+        {
+            "call_index": 3,
+            "during_stimulus": "run_at_the_park",
+            "call_time_sec": 1.5,
+            "framewise_log": "logs/session_20260616_125953/run_at_the_park_framewise_log.csv",
+            "responded": false,
+            "delay_sec": null,
+            "reason": "no_response_window_rows"
+        }
+    ]
+}

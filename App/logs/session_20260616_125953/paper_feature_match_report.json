@@ -1,0 +1,140 @@
+{
+    "paper_facing_forward_social_movies": {
+        "paper_feature": "paper_facing_forward_social_movies",
+        "our_app_source": "paper_timeseries_features.paper_facing_forward_social_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise logs using face detected + eyes open + yaw/pitch/head steadiness. Paper uses eyes open + gaze near screen + steady face."
+    },
+    "paper_facing_forward_nonsocial_movies": {
+        "paper_feature": "paper_facing_forward_nonsocial_movies",
+        "our_app_source": "paper_timeseries_features.paper_facing_forward_nonsocial_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise logs using face detected + eyes open + yaw/pitch/head steadiness. Paper uses eyes open + gaze near screen + steady face."
+    },
+    "paper_gaze_percent_social": {
+        "paper_feature": "paper_gaze_percent_social",
+        "our_app_source": "paper_timeseries_features.paper_gaze_percent_social",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise gaze_x and AOI side from schedule. It becomes closer to exact when real split-screen social/nonsocial stimuli are used."
+    },
+    "paper_gaze_silhouette_score": {
+        "paper_feature": "paper_gaze_silhouette_score",
+        "our_app_source": "paper_timeseries_features.paper_gaze_silhouette_score",
+        "match_type": "proxy",
+        "note": "Paper uses clustering of gaze over specific AOIs. Our current version uses gaze dispersion/stability as a proxy."
+    },
+    "paper_attention_to_speech": {
+        "paper_feature": "paper_attention_to_speech",
+        "our_app_source": "paper_timeseries_features.paper_attention_to_speech",
+        "match_type": "proxy",
+        "note": "Paper correlates gaze with alternating speaker turns. Our current version uses gaze stability during speech clip until true speaker-turn AOI correlation is implemented."
+    },
+    "paper_response_to_name_delay": {
+        "paper_feature": "paper_response_to_name_delay",
+        "our_app_source": "response_to_name_features.paper_response_to_name_delay",
+        "match_type": "near_exact",
+        "note": "Computed from three scheduled name-call events during movie stimuli using frame-wise head-turn/yaw response detection."
+    },
+    "paper_response_to_name_proportion": {
+        "paper_feature": "paper_response_to_name_proportion",
+        "our_app_source": "response_to_name_features.paper_response_to_name_proportion",
+        "match_type": "near_exact",
+        "note": "Computed as responded name calls over total scheduled name calls, using frame-wise head-turn/yaw response detection."
+    },
+    "paper_blink_rate_social_movies": {
+        "paper_feature": "paper_blink_rate_social_movies",
+        "our_app_source": "paper_timeseries_features.paper_blink_rate_social_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise blink states during social movie segments."
+    },
+    "paper_blink_rate_nonsocial_movies": {
+        "paper_feature": "paper_blink_rate_nonsocial_movies",
+        "our_app_source": "paper_timeseries_features.paper_blink_rate_nonsocial_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise blink states during nonsocial movie segments."
+    },
+    "paper_eyebrows_complexity_social_movies": {
+        "paper_feature": "paper_eyebrows_complexity_social_movies",
+        "our_app_source": "paper_timeseries_features.paper_eyebrows_complexity_social_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise eyebrow signal complexity. Paper uses multiscale entropy of eyebrow landmark dynamics."
+    },
+    "paper_eyebrows_complexity_nonsocial_movies": {
+        "paper_feature": "paper_eyebrows_complexity_nonsocial_movies",
+        "our_app_source": "paper_timeseries_features.paper_eyebrows_complexity_nonsocial_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise eyebrow signal complexity. Paper uses multiscale entropy of eyebrow landmark dynamics."
+    },
+    "paper_mouth_complexity_social_movies": {
+        "paper_feature": "paper_mouth_complexity_social_movies",
+        "our_app_source": "paper_timeseries_features.paper_mouth_complexity_social_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise mouth-open signal complexity. Paper uses multiscale entropy of mouth landmark dynamics."
+    },
+    "paper_mouth_complexity_nonsocial_movies": {
+        "paper_feature": "paper_mouth_complexity_nonsocial_movies",
+        "our_app_source": "paper_timeseries_features.paper_mouth_complexity_nonsocial_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise mouth-open signal complexity. Paper uses multiscale entropy of mouth landmark dynamics."
+    },
+    "paper_head_movement_social_movies": {
+        "paper_feature": "paper_head_movement_social_movies",
+        "our_app_source": "paper_timeseries_features.paper_head_movement_social_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise head movement during social movie segments."
+    },
+    "paper_head_movement_nonsocial_movies": {
+        "paper_feature": "paper_head_movement_nonsocial_movies",
+        "our_app_source": "paper_timeseries_features.paper_head_movement_nonsocial_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise head movement during nonsocial movie segments."
+    },
+    "paper_head_movement_complexity_social_movies": {
+        "paper_feature": "paper_head_movement_complexity_social_movies",
+        "our_app_source": "paper_timeseries_features.paper_head_movement_complexity_social_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise head movement complexity. Paper uses multiscale entropy."
+    },
+    "paper_head_movement_complexity_nonsocial_movies": {
+        "paper_feature": "paper_head_movement_complexity_nonsocial_movies",
+        "our_app_source": "paper_timeseries_features.paper_head_movement_complexity_nonsocial_movies",
+        "match_type": "near_exact",
+        "note": "Computed from frame-wise head movement complexity. Paper uses multiscale entropy."
+    },
+    "paper_head_movement_acceleration_social_movies": {
+        "paper_feature": "paper_head_movement_acceleration_social_movies",
+        "our_app_source": "paper_timeseries_features.paper_head_movement_acceleration_social_movies",
+        "match_type": "near_exact",
+        "note": "Computed from derivative-like frame-wise head movement acceleration during social movies."
+    },
+    "paper_head_movement_acceleration_nonsocial_movies": {
+        "paper_feature": "paper_head_movement_acceleration_nonsocial_movies",
+        "our_app_source": "paper_timeseries_features.paper_head_movement_acceleration_nonsocial_movies",
+        "match_type": "near_exact",
+        "note": "Computed from derivative-like frame-wise head movement acceleration during nonsocial movies."
+    },
+    "paper_pop_the_bubbles_popping_rate": {
+        "paper_feature": "paper_pop_the_bubbles_popping_rate",
+        "our_app_source": "game_metrics.touch_features.touch_popping_rate",
+        "match_type": "near_exact",
+        "note": "Computed as popped bubbles over total touches, matching the paper concept."
+    },
+    "paper_pop_the_bubbles_accuracy_std": {
+        "paper_feature": "paper_pop_the_bubbles_accuracy_std",
+        "our_app_source": "game_metrics.touch_features.touch_error_std",
+        "match_type": "near_exact",
+        "note": "Computed as standard deviation of distance from touch position to nearest bubble center."
+    },
+    "paper_pop_the_bubbles_average_touch_length": {
+        "paper_feature": "paper_pop_the_bubbles_average_touch_length",
+        "our_app_source": "game_metrics.touch_features.touch_average_length",
+        "match_type": "near_exact",
+        "note": "Computed from mouse/touch path length during bubble interaction. On touchscreen this directly corresponds to finger trajectory length."
+    },
+    "paper_pop_the_bubbles_average_applied_force": {
+        "paper_feature": "paper_pop_the_bubbles_average_applied_force",
+        "our_app_source": "game_metrics.touch_features.touch_average_applied_force",
+        "match_type": "hardware_dependent",
+        "note": "Paper uses device touch force/kinetic information. Desktop mouse does not provide true force; Android/iOS/tablet implementation should use pressure/touch APIs when available."
+    }
+}
