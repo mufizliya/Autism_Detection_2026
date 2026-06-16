@@ -1,0 +1,322 @@
+{
+    "score": 6,
+    "total_reactions": 21,
+    "reaction_data": [
+        {
+            "x": 1320,
+            "y": 947,
+            "reaction_time_sec": 0.94,
+            "timestamp": "2026-06-16 14:19:44",
+            "status": "popped"
+        },
+        {
+            "x": 543,
+            "y": 515,
+            "reaction_time_sec": 0.67,
+            "timestamp": "2026-06-16 14:19:45",
+            "status": "popped"
+        },
+        {
+            "x": 1609,
+            "y": 602,
+            "reaction_time_sec": 1.16,
+            "timestamp": "2026-06-16 14:19:47",
+            "status": "popped"
+        },
+        {
+            "x": 1606,
+            "y": 200,
+            "reaction_time_sec": 1.05,
+            "timestamp": "2026-06-16 14:19:49",
+            "status": "popped"
+        },
+        {
+            "x": 1694,
+            "y": 441,
+            "reaction_time_sec": 0.96,
+            "timestamp": "2026-06-16 14:19:50",
+            "status": "popped"
+        },
+        {
+            "x": 1369,
+            "y": 996,
+            "reaction_time_sec": 1.03,
+            "timestamp": "2026-06-16 14:19:52",
+            "status": "popped"
+        },
+        {
+            "x": 1360,
+            "y": 795,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:19:55",
+            "status": "missed"
+        },
+        {
+            "x": 1463,
+            "y": 988,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:19:57",
+            "status": "missed"
+        },
+        {
+            "x": 402,
+            "y": 733,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:19:58",
+            "status": "missed"
+        },
+        {
+            "x": 594,
+            "y": 557,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:00",
+            "status": "missed"
+        },
+        {
+            "x": 1126,
+            "y": 594,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:01",
+            "status": "missed"
+        },
+        {
+            "x": 921,
+            "y": 238,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:03",
+            "status": "missed"
+        },
+        {
+            "x": 768,
+            "y": 945,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:04",
+            "status": "missed"
+        },
+        {
+            "x": 279,
+            "y": 412,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:06",
+            "status": "missed"
+        },
+        {
+            "x": 1496,
+            "y": 835,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:07",
+            "status": "missed"
+        },
+        {
+            "x": 1091,
+            "y": 831,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:09",
+            "status": "missed"
+        },
+        {
+            "x": 1696,
+            "y": 413,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:10",
+            "status": "missed"
+        },
+        {
+            "x": 1088,
+            "y": 142,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:12",
+            "status": "missed"
+        },
+        {
+            "x": 1405,
+            "y": 911,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:13",
+            "status": "missed"
+        },
+        {
+            "x": 194,
+            "y": 601,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:15",
+            "status": "missed"
+        },
+        {
+            "x": 407,
+            "y": 976,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-16 14:20:16",
+            "status": "missed"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.32,
+        "disengagement": 0.71,
+        "motor_irregularity": 0.02,
+        "responsiveness": 0.3
+    },
+    "touch_events": [
+        {
+            "touch_id": 1,
+            "start_time": 1781599784.404393,
+            "end_time": 1781599784.404555,
+            "duration_seconds": 0.0002,
+            "start_x": 1278,
+            "start_y": 914,
+            "end_x": 1278,
+            "end_y": 914,
+            "path_points": [
+                [
+                    1278,
+                    914
+                ],
+                [
+                    1278,
+                    914
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 53.4135,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 2,
+            "start_time": 1781599785.646626,
+            "end_time": 1781599785.646699,
+            "duration_seconds": 0.0001,
+            "start_x": 579,
+            "start_y": 515,
+            "end_x": 579,
+            "end_y": 515,
+            "path_points": [
+                [
+                    579,
+                    515
+                ],
+                [
+                    579,
+                    515
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 36.0,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 3,
+            "start_time": 1781599787.6434822,
+            "end_time": 1781599787.643548,
+            "duration_seconds": 0.0001,
+            "start_x": 1586,
+            "start_y": 609,
+            "end_x": 1586,
+            "end_y": 609,
+            "path_points": [
+                [
+                    1586,
+                    609
+                ],
+                [
+                    1586,
+                    609
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 24.0416,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 4,
+            "start_time": 1781599789.0541298,
+            "end_time": 1781599789.054196,
+            "duration_seconds": 0.0001,
+            "start_x": 1638,
+            "start_y": 168,
+            "end_x": 1638,
+            "end_y": 168,
+            "path_points": [
+                [
+                    1638,
+                    168
+                ],
+                [
+                    1638,
+                    168
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 45.2548,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 5,
+            "start_time": 1781599790.472806,
+            "end_time": 1781599790.472872,
+            "duration_seconds": 0.0001,
+            "start_x": 1715,
+            "start_y": 430,
+            "end_x": 1715,
+            "end_y": 430,
+            "path_points": [
+                [
+                    1715,
+                    430
+                ],
+                [
+                    1715,
+                    430
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 23.7065,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 6,
+            "start_time": 1781599792.0384588,
+            "end_time": 1781599792.038528,
+            "duration_seconds": 0.0001,
+            "start_x": 1324,
+            "start_y": 965,
+            "end_x": 1324,
+            "end_y": 965,
+            "path_points": [
+                [
+                    1324,
+                    965
+                ],
+                [
+                    1324,
+                    965
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 54.6443,
+            "hit": true,
+            "pressure_value": 0
+        }
+    ],
+    "touch_features": {
+        "touch_total_count": 6,
+        "touch_popped_count": 6,
+        "touch_popping_rate": 1.0,
+        "touch_error_std": 13.8326,
+        "touch_error_mean": 39.5101,
+        "touch_average_length": 0.0,
+        "touch_average_duration": 0.0001,
+        "touch_average_applied_force": 0.0,
+        "touch_force_available": false,
+        "touch_force_note": "Laptop/Pygame mouse input does not provide real touch force. On Android/iOS/tablet, replace pressure_value with device touch pressure if available."
+    },
+    "paper_pop_the_bubbles_popping_rate": 1.0,
+    "paper_pop_the_bubbles_accuracy_std": 13.8326,
+    "paper_pop_the_bubbles_average_touch_length": 0.0,
+    "paper_pop_the_bubbles_average_applied_force": 0.0,
+    "touch_force_available": false
+}

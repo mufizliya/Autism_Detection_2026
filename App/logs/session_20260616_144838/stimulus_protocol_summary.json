@@ -1,0 +1,7 @@
+{
+    "total_video_stimuli": 9,
+    "total_name_call_events": 3,
+    "uses_tracker_manager": false,
+    "measurement_source": "framewise_behavior_recorder",
+    "paper_style_note": "Behavioral measurements are extracted from frame-wise logs recorded during movie stimuli."
+}

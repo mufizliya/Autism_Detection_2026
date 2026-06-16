@@ -102,8 +102,7 @@ class DatasetExporter:
             # ASD / Non-ASD
             # High Risk / Low Risk
             # Clinician confirmed labels, etc.
-            "label":
-                ""
+           "label": session.get("label", "")
         }
 
         for key, value in phenotype_vector.items():

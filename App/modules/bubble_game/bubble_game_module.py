@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 from core.bubble_touch_feature_extractor import BubbleTouchFeatureExtractor
-
+from core.project_paths import app_path
 
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -480,7 +480,10 @@ class BubbleGameModule:
         )
 
         background_img = pygame.image.load(
-            "src/GAMEBG.jpg"
+            app_path(
+                "src",
+                "GAMEBG.jpg"
+            )
         )
 
         background_img = pygame.transform.scale(
@@ -492,7 +495,10 @@ class BubbleGameModule:
         )
 
         char_img = pygame.image.load(
-            "src/character.png"
+            app_path(
+                "src",
+                "character.png"
+            )
         )
 
         char_w = WIDTH // 2.5
@@ -522,7 +528,10 @@ class BubbleGameModule:
             try:
 
                 pop_sound = pygame.mixer.Sound(
-                    "src/pop.wav"
+                    app_path(
+                        "src",
+                        "pop.wav"
+                    )
                 )
 
                 print(

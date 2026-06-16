@@ -1,0 +1,60 @@
+{
+    "scheduled_name_call_events": [
+        {
+            "id": "name_call_1",
+            "type": "name_call_event",
+            "during_stimulus": "floating_bubbles",
+            "call_index": 1,
+            "call_time_sec": 1.5
+        },
+        {
+            "id": "name_call_2",
+            "type": "name_call_event",
+            "during_stimulus": "mechanical_puppy",
+            "call_index": 2,
+            "call_time_sec": 1.5
+        },
+        {
+            "id": "name_call_3",
+            "type": "name_call_event",
+            "during_stimulus": "run_at_the_park",
+            "call_index": 3,
+            "call_time_sec": 1.5
+        }
+    ],
+    "triggered_name_call_events": [
+        {
+            "id": "name_call_1",
+            "type": "name_call_event",
+            "during_stimulus": "floating_bubbles",
+            "call_index": 1,
+            "call_time_sec": 1.5,
+            "stimulus_id": "floating_bubbles",
+            "triggered": true,
+            "actual_trigger_time_sec": 1.5015,
+            "actual_wall_time": 1781602023.105071
+        },
+        {
+            "id": "name_call_2",
+            "type": "name_call_event",
+            "during_stimulus": "mechanical_puppy",
+            "call_index": 2,
+            "call_time_sec": 1.5,
+            "stimulus_id": "mechanical_puppy",
+            "triggered": true,
+            "actual_trigger_time_sec": 1.5015,
+            "actual_wall_time": 1781602039.2842581
+        },
+        {
+            "id": "name_call_3",
+            "type": "name_call_event",
+            "during_stimulus": "run_at_the_park",
+            "call_index": 3,
+            "call_time_sec": 1.5,
+            "stimulus_id": "run_at_the_park",
+            "triggered": true,
+            "actual_trigger_time_sec": 1.5015,
+            "actual_wall_time": 1781602059.509413
+        }
+    ]
+}

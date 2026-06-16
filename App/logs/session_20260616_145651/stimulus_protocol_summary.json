@@ -1,0 +1,9 @@
+{
+    "total_video_stimuli": 9,
+    "total_name_call_events": 3,
+    "total_triggered_name_call_events": 3,
+    "uses_tracker_manager": false,
+    "measurement_source": "continuous_framewise_behavior_recorder",
+    "smooth_playlist": true,
+    "paper_style_note": "Stimuli are played in one continuous fullscreen playlist while one camera recorder logs frame-wise child behavior."
+}

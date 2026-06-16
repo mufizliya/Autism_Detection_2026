@@ -1,22 +1,20 @@
 from core.session_manager import SessionManager
-from core.tracker_manager import TrackerManager
 
 from modules.questionnaire.questionnaire_module import QuestionnaireModule
-from modules.bubble_game.bubble_game_module import BubbleGameModule
-from modules.response_name.name_response_module import NameResponseModule
 from modules.social_video_test.social_video_test_module import SocialVideoTestModule
+from modules.bubble_game.bubble_game_module import BubbleGameModule
+
 from core.phenotype_fusion import PhenotypeFusion
-from core.risk_engine import RiskEngine
-from core.report_generator import ReportGenerator
-from core.dataset_exporter import DatasetExporter
-from core.feature_cleaner import FeatureCleaner
-from core.label_manager import LabelManager
-from core.session_validator import SessionValidator
 from core.paper_feature_mapper import PaperFeatureMapper
 from core.paper_timeseries_feature_extractor import PaperTimeSeriesFeatureExtractor
 from core.response_to_name_extractor import ResponseToNameExtractor
 from core.attention_to_speech_extractor import AttentionToSpeechExtractor
 from core.gaze_silhouette_extractor import GazeSilhouetteExtractor
+from core.session_validator import SessionValidator
+from core.dataset_exporter import DatasetExporter
+from core.feature_cleaner import FeatureCleaner
+from core.label_manager import LabelManager
+
 
 class AppController:
 
@@ -24,76 +22,61 @@ class AppController:
 
         self.session_manager = SessionManager()
 
-        self.tracker_manager = TrackerManager()
-
         self.session = {}
 
-        self.session["session_manager"] = (
-            self.session_manager
-        )
+        self.session["session_manager"] = self.session_manager
+        self.session["session_id"] = self.session_manager.session_id
 
-        self.session["session_id"] = (
-            self.session_manager.session_id
-        )
-
-        self.questionnaire_module = (
-            QuestionnaireModule()
-        )
-
-        self.name_response_module = (
-            NameResponseModule()
-        )
-
-        self.bubble_game_module = (
-            BubbleGameModule()
-        )
-
-        self.social_video_test_module = (
-            SocialVideoTestModule()
-        )
+        self.questionnaire_module = QuestionnaireModule()
+        self.social_video_test_module = SocialVideoTestModule()
+        self.bubble_game_module = BubbleGameModule()
 
     def run(self):
 
-        print("Starting Session:", self.session["session_id"])
+        print()
+        print("==============================")
+        print("AUTISM DIGITAL PHENOTYPING SESSION STARTED")
+        print("==============================")
+        print("Session:", self.session["session_id"])
+        print()
 
+        # --------------------------------------------------
+        # 1. Questionnaire / intake screening
+        # --------------------------------------------------
+        # This stays in our app, but it is NOT counted as one of
+        # the paper's 23 app-derived SenseToKnow variables.
         self.questionnaire_module.run(
             self.session
         )
 
-        # Track physical phenotype during name response
-        self.tracker_manager.start(
-            self.session,
-            show_window=False
-        )
-
-        self.name_response_module.run(
-            self.session
-        )
-
-        self.tracker_manager.stop()
-
-        # Video test has its own separate tracking
+        # --------------------------------------------------
+        # 2. SenseToKnow-style movie protocol
+        # --------------------------------------------------
+        # This includes stimulus videos, frame-wise behavior logging,
+        # and scheduled name-call events during movies.
         self.social_video_test_module.run(
             self.session
         )
 
-        # Track physical phenotype during bubble game
-        self.tracker_manager.start(
-            self.session,
-            show_window=False
-        )
-
+        # --------------------------------------------------
+        # 3. Bubble popping game
+        # --------------------------------------------------
         self.bubble_game_module.run(
             self.session
         )
 
-        self.tracker_manager.stop()
-
+        # --------------------------------------------------
+        # 4. General phenotype vector
+        # --------------------------------------------------
         self.session["phenotype_vector"] = (
             PhenotypeFusion.build(
                 self.session
             )
         )
+
+        # --------------------------------------------------
+        # 5. Paper-style movie time-series features
+        # --------------------------------------------------
         self.session["paper_timeseries_features"] = (
             PaperTimeSeriesFeatureExtractor.build(
                 self.session
@@ -109,6 +92,9 @@ class AppController:
             self.session["paper_timeseries_features"]
         )
 
+        # --------------------------------------------------
+        # 6. Response-to-name from scheduled calls during videos
+        # --------------------------------------------------
         self.session["response_to_name_features"] = (
             ResponseToNameExtractor.build(
                 self.session
@@ -124,6 +110,9 @@ class AppController:
             self.session["response_to_name_features"]
         )
 
+        # --------------------------------------------------
+        # 7. Attention-to-speech from speaker turn annotations
+        # --------------------------------------------------
         self.session["attention_to_speech_features"] = (
             AttentionToSpeechExtractor.build(
                 self.session
@@ -139,6 +128,9 @@ class AppController:
             self.session["attention_to_speech_features"]
         )
 
+        # --------------------------------------------------
+        # 8. Gaze silhouette / social gaze features
+        # --------------------------------------------------
         self.session["gaze_silhouette_features"] = (
             GazeSilhouetteExtractor.build(
                 self.session
@@ -154,6 +146,9 @@ class AppController:
             self.session["gaze_silhouette_features"]
         )
 
+        # --------------------------------------------------
+        # 9. Map to paper's 23 app-derived variables
+        # --------------------------------------------------
         paper_mapping = PaperFeatureMapper.build(
             self.session
         )
@@ -173,6 +168,7 @@ class AppController:
         self.session["phenotype_vector"].update(
             self.session["paper_aligned_features"]
         )
+
         self.session_manager.save_json(
             "paper_aligned_features.json",
             self.session["paper_aligned_features"]
@@ -193,6 +189,9 @@ class AppController:
             self.session["phenotype_vector"]
         )
 
+        # --------------------------------------------------
+        # 10. Session quality
+        # --------------------------------------------------
         self.session["session_quality"] = (
             SessionValidator.validate(
                 self.session
@@ -204,51 +203,35 @@ class AppController:
             self.session["session_quality"]
         )
 
-        self.session["risk_assessment"] = (
-            RiskEngine.build(
-                self.session["phenotype_vector"]
-            )
+        # --------------------------------------------------
+        # 11. Optional label before dataset export
+        # --------------------------------------------------
+        LabelManager.label_session(
+            self.session
         )
 
-        self.session_manager.save_json(
-            "risk_assessment.json",
-            self.session["risk_assessment"]
-        )
-
-        self.session["report_summary"] = (
-            ReportGenerator.build(
-                self.session
-            )
-        )
-
-        self.session_manager.save_json(
-            "report_summary.json",
-            self.session["report_summary"]
-        )
-
+        # --------------------------------------------------
+        # 12. Dataset export and cleaning
+        # --------------------------------------------------
         DatasetExporter.append_session(
             self.session
         )
 
         FeatureCleaner.clean_dataset()
 
-        LabelManager.label_session(
-            self.session
-        )
-
         self.save_final_session()
 
-        print("Session Completed")
-        print(self.session)
-        
+        print()
+        print("==============================")
+        print("AUTISM DIGITAL PHENOTYPING SESSION COMPLETED")
+        print("==============================")
+        print()
+
     def save_final_session(self):
 
         final_session = {
             "session_id":
                 self.session.get("session_id"),
-
-            "child_info":
-                self.session.get("child_info"),
 
             "questionnaire":
                 self.session.get("questionnaire"),
@@ -256,28 +239,11 @@ class AppController:
             "scq_results":
                 self.session.get("scq_results"),
 
-            "name_response":
-                self.session.get("name_response"),
-
-            "game_metrics":
-                self.session.get("game_metrics"),
-
             "video_test":
                 self.session.get("video_test"),
 
-            "gaze_metrics":
-                self.session.get("gaze_metrics"),
-
-            "facial_expression_metrics":
-                self.session.get(
-                    "facial_expression_metrics"
-                ),
-
-            "pose_metrics":
-                self.session.get("pose_metrics"),
-
-            "motor_metrics":
-                self.session.get("motor_metrics"),
+            "game_metrics":
+                self.session.get("game_metrics"),
 
             "phenotype_vector":
                 self.session.get("phenotype_vector"),
@@ -290,7 +256,7 @@ class AppController:
 
             "attention_to_speech_features":
                 self.session.get("attention_to_speech_features"),
-            
+
             "gaze_silhouette_features":
                 self.session.get("gaze_silhouette_features"),
 
@@ -305,12 +271,6 @@ class AppController:
 
             "session_quality":
                 self.session.get("session_quality"),
-            
-            "risk_assessment":
-                self.session.get("risk_assessment"),
-
-            "report_summary":
-                self.session.get("report_summary"),
 
             "label":
                 self.session.get("label")

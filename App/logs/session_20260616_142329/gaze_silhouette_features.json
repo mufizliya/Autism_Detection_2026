@@ -1,0 +1,23 @@
+{
+    "paper_gaze_silhouette_score": 0.7422,
+    "paper_gaze_percent_social": 1.0,
+    "gaze_silhouette_valid_points": 69,
+    "gaze_silhouette_stimulus_count": 1,
+    "gaze_silhouette_stimulus_results": [
+        {
+            "stimulus_id": "rhymes_and_toys",
+            "valid_gaze_points": 69,
+            "left_gaze_count": 69,
+            "right_gaze_count": 0,
+            "left_gaze_ratio": 1.0,
+            "right_gaze_ratio": 0.0,
+            "social_aoi_side": "left",
+            "paper_gaze_percent_social": 1.0,
+            "paper_gaze_silhouette_score": 0.7422,
+            "silhouette_method": "kmeans_silhouette",
+            "silhouette_note": "Silhouette computed using KMeans clusters over frame-wise gaze points.",
+            "gaze_quality": "weak_one_sided_gaze",
+            "framewise_log": "logs/session_20260616_142329/rhymes_and_toys_framewise_log.csv"
+        }
+    ]
+}

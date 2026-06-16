@@ -92,9 +92,16 @@ class ResponseToNameExtractor:
         )
 
         name_events = video_test.get(
-            "name_call_events",
+            "triggered_name_call_events",
             []
         )
+
+        if not name_events:
+
+            name_events = video_test.get(
+                "name_call_events",
+                []
+            )
 
         if name_events:
             return name_events
@@ -122,11 +129,22 @@ class ResponseToNameExtractor:
 
                 data = json.load(f)
 
-            return data.get(
-                "name_call_events",
-                []
-            )
+                triggered_events = data.get(
+                    "triggered_name_call_events",
+                    []
+                )
 
+                if triggered_events:
+
+                    return triggered_events
+
+                return data.get(
+                    "scheduled_name_call_events",
+                    data.get(
+                        "name_call_events",
+                        []
+                    )
+                )
         except Exception:
 
             return []
@@ -333,8 +351,11 @@ class ResponseToNameExtractor:
             call_time_sec = (
                 ResponseToNameExtractor.to_float(
                     event.get(
-                        "call_time_sec",
-                        0
+                        "actual_trigger_time_sec",
+                        event.get(
+                            "call_time_sec",
+                            0
+                        )
                     )
                 )
             )
