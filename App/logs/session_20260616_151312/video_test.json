@@ -1,0 +1,741 @@
+{
+    "stimulus_results": [
+        {
+            "stimulus": {
+                "id": "floating_bubbles",
+                "type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 9,
+                "clip_end_sec": 15,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "floating_bubbles",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 9.0,
+                "clip_end_sec": 15.0,
+                "frames_played": 180,
+                "played_duration_wall_sec": 8.3134,
+                "scheduled_name_call_events": [
+                    {
+                        "id": "name_call_1",
+                        "type": "name_call_event",
+                        "during_stimulus": "floating_bubbles",
+                        "call_index": 1,
+                        "call_time_sec": 1.5
+                    }
+                ],
+                "triggered_name_call_events": [
+                    {
+                        "id": "name_call_1",
+                        "type": "name_call_event",
+                        "during_stimulus": "floating_bubbles",
+                        "call_index": 1,
+                        "call_time_sec": 1.5,
+                        "stimulus_id": "floating_bubbles",
+                        "triggered": true,
+                        "actual_trigger_time_sec": 1.5015,
+                        "actual_wall_time": 1781603005.262858
+                    }
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "floating_bubbles",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "total_frames": 189,
+                "face_frames": 164,
+                "duration_seconds": 6.536,
+                "face_presence_ratio": 0.8677,
+                "blink_count": 5,
+                "blink_rate_per_min": 45.9009,
+                "avg_ear": 0.3352,
+                "avg_gaze_x": 0.5715,
+                "avg_gaze_y": 0.6996,
+                "gaze_variability": 0.072,
+                "yaw_variability": 0.1448,
+                "pitch_variability": 0.0226,
+                "roll_variability": 4.5928,
+                "head_movement_mean": 0.0049,
+                "head_movement_complexity_proxy": 0.0071,
+                "head_acceleration_mean": 0.0034,
+                "head_acceleration_variability": 0.0067,
+                "mouth_open_mean": 0.0123,
+                "mouth_complexity_proxy": 0.0085,
+                "eyebrow_signal_mean": 0.1478,
+                "eyebrow_complexity_proxy": 0.0164
+            },
+            "triggered_name_call_events": [
+                {
+                    "id": "name_call_1",
+                    "type": "name_call_event",
+                    "during_stimulus": "floating_bubbles",
+                    "call_index": 1,
+                    "call_time_sec": 1.5,
+                    "stimulus_id": "floating_bubbles",
+                    "triggered": true,
+                    "actual_trigger_time_sec": 1.5015,
+                    "actual_wall_time": 1781603005.262858
+                }
+            ]
+        },
+        {
+            "stimulus": {
+                "id": "dog_in_grass",
+                "type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 18,
+                "clip_end_sec": 21,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "dog_in_grass",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 18.0,
+                "clip_end_sec": 21.0,
+                "frames_played": 90,
+                "played_duration_wall_sec": 3.9843,
+                "scheduled_name_call_events": [],
+                "triggered_name_call_events": []
+            },
+            "framewise_summary": {
+                "stimulus_id": "dog_in_grass",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "total_frames": 117,
+                "face_frames": 117,
+                "duration_seconds": 3.995,
+                "face_presence_ratio": 1.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.3846,
+                "avg_gaze_x": 0.534,
+                "avg_gaze_y": 0.7422,
+                "gaze_variability": 0.108,
+                "yaw_variability": 0.0386,
+                "pitch_variability": 0.03,
+                "roll_variability": 2.3898,
+                "head_movement_mean": 0.0048,
+                "head_movement_complexity_proxy": 0.0079,
+                "head_acceleration_mean": 0.0023,
+                "head_acceleration_variability": 0.0042,
+                "mouth_open_mean": 0.0158,
+                "mouth_complexity_proxy": 0.0135,
+                "eyebrow_signal_mean": 0.1489,
+                "eyebrow_complexity_proxy": 0.0139
+            },
+            "triggered_name_call_events": []
+        },
+        {
+            "stimulus": {
+                "id": "spinning_top",
+                "type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 24,
+                "clip_end_sec": 27,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "spinning_top",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 24.0,
+                "clip_end_sec": 27.0,
+                "frames_played": 90,
+                "played_duration_wall_sec": 4.0505,
+                "scheduled_name_call_events": [],
+                "triggered_name_call_events": []
+            },
+            "framewise_summary": {
+                "stimulus_id": "spinning_top",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "total_frames": 118,
+                "face_frames": 118,
+                "duration_seconds": 4.029,
+                "face_presence_ratio": 1.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.4109,
+                "avg_gaze_x": 0.5166,
+                "avg_gaze_y": 0.7899,
+                "gaze_variability": 0.137,
+                "yaw_variability": 0.0197,
+                "pitch_variability": 0.0141,
+                "roll_variability": 0.9777,
+                "head_movement_mean": 0.0018,
+                "head_movement_complexity_proxy": 0.0011,
+                "head_acceleration_mean": 0.0012,
+                "head_acceleration_variability": 0.001,
+                "mouth_open_mean": 0.0024,
+                "mouth_complexity_proxy": 0.001,
+                "eyebrow_signal_mean": 0.1414,
+                "eyebrow_complexity_proxy": 0.0064
+            },
+            "triggered_name_call_events": []
+        },
+        {
+            "stimulus": {
+                "id": "mechanical_puppy",
+                "type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 30,
+                "clip_end_sec": 33,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "mechanical_puppy",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 30.0,
+                "clip_end_sec": 33.0,
+                "frames_played": 90,
+                "played_duration_wall_sec": 4.1028,
+                "scheduled_name_call_events": [
+                    {
+                        "id": "name_call_2",
+                        "type": "name_call_event",
+                        "during_stimulus": "mechanical_puppy",
+                        "call_index": 2,
+                        "call_time_sec": 1.5
+                    }
+                ],
+                "triggered_name_call_events": [
+                    {
+                        "id": "name_call_2",
+                        "type": "name_call_event",
+                        "during_stimulus": "mechanical_puppy",
+                        "call_index": 2,
+                        "call_time_sec": 1.5,
+                        "stimulus_id": "mechanical_puppy",
+                        "triggered": true,
+                        "actual_trigger_time_sec": 1.5015,
+                        "actual_wall_time": 1781603021.497204
+                    }
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "mechanical_puppy",
+                "stimulus_type": "nonsocial_movie",
+                "paper_category": "non_social",
+                "total_frames": 120,
+                "face_frames": 120,
+                "duration_seconds": 4.097,
+                "face_presence_ratio": 1.0,
+                "blink_count": 1,
+                "blink_rate_per_min": 14.6441,
+                "avg_ear": 0.3321,
+                "avg_gaze_x": 0.5333,
+                "avg_gaze_y": 0.7693,
+                "gaze_variability": 0.1181,
+                "yaw_variability": 0.009,
+                "pitch_variability": 0.0084,
+                "roll_variability": 0.7245,
+                "head_movement_mean": 0.0021,
+                "head_movement_complexity_proxy": 0.0013,
+                "head_acceleration_mean": 0.0012,
+                "head_acceleration_variability": 0.001,
+                "mouth_open_mean": 0.0226,
+                "mouth_complexity_proxy": 0.0183,
+                "eyebrow_signal_mean": 0.1404,
+                "eyebrow_complexity_proxy": 0.0113
+            },
+            "triggered_name_call_events": [
+                {
+                    "id": "name_call_2",
+                    "type": "name_call_event",
+                    "during_stimulus": "mechanical_puppy",
+                    "call_index": 2,
+                    "call_time_sec": 1.5,
+                    "stimulus_id": "mechanical_puppy",
+                    "triggered": true,
+                    "actual_trigger_time_sec": 1.5015,
+                    "actual_wall_time": 1781603021.497204
+                }
+            ]
+        },
+        {
+            "stimulus": {
+                "id": "blowing_bubbles",
+                "type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 36,
+                "clip_end_sec": 39,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "blowing_bubbles",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 36.0,
+                "clip_end_sec": 39.0,
+                "frames_played": 90,
+                "played_duration_wall_sec": 3.9862,
+                "scheduled_name_call_events": [],
+                "triggered_name_call_events": []
+            },
+            "framewise_summary": {
+                "stimulus_id": "blowing_bubbles",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "total_frames": 117,
+                "face_frames": 117,
+                "duration_seconds": 3.996,
+                "face_presence_ratio": 1.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.3573,
+                "avg_gaze_x": 0.5331,
+                "avg_gaze_y": 0.7821,
+                "gaze_variability": 0.1248,
+                "yaw_variability": 0.0146,
+                "pitch_variability": 0.0088,
+                "roll_variability": 1.5751,
+                "head_movement_mean": 0.0022,
+                "head_movement_complexity_proxy": 0.0014,
+                "head_acceleration_mean": 0.0013,
+                "head_acceleration_variability": 0.0011,
+                "mouth_open_mean": 0.0202,
+                "mouth_complexity_proxy": 0.0178,
+                "eyebrow_signal_mean": 0.1409,
+                "eyebrow_complexity_proxy": 0.0029
+            },
+            "triggered_name_call_events": []
+        },
+        {
+            "stimulus": {
+                "id": "rhymes_and_toys",
+                "type": "mixed_social_nonsocial_movie",
+                "paper_category": "mixed_social_non_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 42,
+                "clip_end_sec": 45,
+                "social_aoi": {
+                    "side": "left",
+                    "x_min": 0.0,
+                    "x_max": 0.5,
+                    "y_min": 0.0,
+                    "y_max": 1.0
+                },
+                "nonsocial_aoi": {
+                    "side": "right",
+                    "x_min": 0.5,
+                    "x_max": 1.0,
+                    "y_min": 0.0,
+                    "y_max": 1.0
+                },
+                "measurements": [
+                    "gaze_percent_social",
+                    "gaze_silhouette_score",
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "rhymes_and_toys",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 42.0,
+                "clip_end_sec": 45.0,
+                "frames_played": 90,
+                "played_duration_wall_sec": 3.9882,
+                "scheduled_name_call_events": [],
+                "triggered_name_call_events": []
+            },
+            "framewise_summary": {
+                "stimulus_id": "rhymes_and_toys",
+                "stimulus_type": "mixed_social_nonsocial_movie",
+                "paper_category": "mixed_social_non_social",
+                "total_frames": 117,
+                "face_frames": 117,
+                "duration_seconds": 3.995,
+                "face_presence_ratio": 1.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.4038,
+                "avg_gaze_x": 0.53,
+                "avg_gaze_y": 0.7865,
+                "gaze_variability": 0.1285,
+                "yaw_variability": 0.0208,
+                "pitch_variability": 0.0129,
+                "roll_variability": 1.028,
+                "head_movement_mean": 0.0018,
+                "head_movement_complexity_proxy": 0.0011,
+                "head_acceleration_mean": 0.001,
+                "head_acceleration_variability": 0.0008,
+                "mouth_open_mean": 0.006,
+                "mouth_complexity_proxy": 0.0078,
+                "eyebrow_signal_mean": 0.14,
+                "eyebrow_complexity_proxy": 0.0091
+            },
+            "triggered_name_call_events": []
+        },
+        {
+            "stimulus": {
+                "id": "make_me_laugh",
+                "type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 48,
+                "clip_end_sec": 51,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "make_me_laugh",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 48.0,
+                "clip_end_sec": 51.0,
+                "frames_played": 90,
+                "played_duration_wall_sec": 4.0084,
+                "scheduled_name_call_events": [],
+                "triggered_name_call_events": []
+            },
+            "framewise_summary": {
+                "stimulus_id": "make_me_laugh",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "total_frames": 117,
+                "face_frames": 117,
+                "duration_seconds": 3.995,
+                "face_presence_ratio": 1.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.4547,
+                "avg_gaze_x": 0.5118,
+                "avg_gaze_y": 0.7969,
+                "gaze_variability": 0.1438,
+                "yaw_variability": 0.0352,
+                "pitch_variability": 0.0179,
+                "roll_variability": 5.7426,
+                "head_movement_mean": 0.0023,
+                "head_movement_complexity_proxy": 0.0017,
+                "head_acceleration_mean": 0.0013,
+                "head_acceleration_variability": 0.0011,
+                "mouth_open_mean": 0.0033,
+                "mouth_complexity_proxy": 0.0022,
+                "eyebrow_signal_mean": 0.1464,
+                "eyebrow_complexity_proxy": 0.0069
+            },
+            "triggered_name_call_events": []
+        },
+        {
+            "stimulus": {
+                "id": "playing_with_blocks",
+                "type": "social_movie",
+                "paper_category": "social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 54,
+                "clip_end_sec": 57,
+                "measurements": [
+                    "facing_forward",
+                    "blink_rate",
+                    "head_movement",
+                    "facial_dynamics"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "playing_with_blocks",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 54.0,
+                "clip_end_sec": 57.0,
+                "frames_played": 90,
+                "played_duration_wall_sec": 4.0207,
+                "scheduled_name_call_events": [],
+                "triggered_name_call_events": []
+            },
+            "framewise_summary": {
+                "stimulus_id": "playing_with_blocks",
+                "stimulus_type": "social_movie",
+                "paper_category": "social",
+                "total_frames": 117,
+                "face_frames": 117,
+                "duration_seconds": 3.996,
+                "face_presence_ratio": 1.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.3809,
+                "avg_gaze_x": 0.5257,
+                "avg_gaze_y": 0.7858,
+                "gaze_variability": 0.1304,
+                "yaw_variability": 0.0214,
+                "pitch_variability": 0.0122,
+                "roll_variability": 1.0147,
+                "head_movement_mean": 0.0018,
+                "head_movement_complexity_proxy": 0.0011,
+                "head_acceleration_mean": 0.0013,
+                "head_acceleration_variability": 0.0009,
+                "mouth_open_mean": 0.0035,
+                "mouth_complexity_proxy": 0.0038,
+                "eyebrow_signal_mean": 0.1434,
+                "eyebrow_complexity_proxy": 0.0031
+            },
+            "triggered_name_call_events": []
+        },
+        {
+            "stimulus": {
+                "id": "run_at_the_park",
+                "type": "speech_attention_movie",
+                "paper_category": "speech_social",
+                "video_path": "assets/stimuli/videos/master_sample.mp4",
+                "clip_start_sec": 60,
+                "clip_end_sec": 63,
+                "speaker_turns": [
+                    {
+                        "speaker": "left",
+                        "start_sec": 0.0,
+                        "end_sec": 1.5
+                    },
+                    {
+                        "speaker": "right",
+                        "start_sec": 1.5,
+                        "end_sec": 3.0
+                    }
+                ],
+                "measurements": [
+                    "attention_to_speech",
+                    "gaze_speech_correlation",
+                    "facing_forward",
+                    "blink_rate"
+                ]
+            },
+            "video_metrics": {
+                "stimulus_id": "run_at_the_park",
+                "video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/videos/master_sample.mp4",
+                "played": true,
+                "fps": 29.970029830932617,
+                "source_duration_sec": 76.076,
+                "clip_start_sec": 60.0,
+                "clip_end_sec": 63.0,
+                "frames_played": 90,
+                "played_duration_wall_sec": 4.1248,
+                "scheduled_name_call_events": [
+                    {
+                        "id": "name_call_3",
+                        "type": "name_call_event",
+                        "during_stimulus": "run_at_the_park",
+                        "call_index": 3,
+                        "call_time_sec": 1.5
+                    }
+                ],
+                "triggered_name_call_events": [
+                    {
+                        "id": "name_call_3",
+                        "type": "name_call_event",
+                        "during_stimulus": "run_at_the_park",
+                        "call_index": 3,
+                        "call_time_sec": 1.5,
+                        "stimulus_id": "run_at_the_park",
+                        "triggered": true,
+                        "actual_trigger_time_sec": 1.5015,
+                        "actual_wall_time": 1781603041.752501
+                    }
+                ]
+            },
+            "framewise_summary": {
+                "stimulus_id": "run_at_the_park",
+                "stimulus_type": "speech_attention_movie",
+                "paper_category": "speech_social",
+                "total_frames": 121,
+                "face_frames": 121,
+                "duration_seconds": 4.131,
+                "face_presence_ratio": 1.0,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "avg_ear": 0.4411,
+                "avg_gaze_x": 0.5145,
+                "avg_gaze_y": 0.7972,
+                "gaze_variability": 0.1415,
+                "yaw_variability": 0.022,
+                "pitch_variability": 0.0074,
+                "roll_variability": 0.9874,
+                "head_movement_mean": 0.0018,
+                "head_movement_complexity_proxy": 0.0014,
+                "head_acceleration_mean": 0.0011,
+                "head_acceleration_variability": 0.0011,
+                "mouth_open_mean": 0.0024,
+                "mouth_complexity_proxy": 0.0007,
+                "eyebrow_signal_mean": 0.1399,
+                "eyebrow_complexity_proxy": 0.0038
+            },
+            "triggered_name_call_events": [
+                {
+                    "id": "name_call_3",
+                    "type": "name_call_event",
+                    "during_stimulus": "run_at_the_park",
+                    "call_index": 3,
+                    "call_time_sec": 1.5,
+                    "stimulus_id": "run_at_the_park",
+                    "triggered": true,
+                    "actual_trigger_time_sec": 1.5015,
+                    "actual_wall_time": 1781603041.752501
+                }
+            ]
+        }
+    ],
+    "category_summary": {
+        "non_social": {
+            "face_presence_ratio": 0.9559,
+            "blink_rate_per_min": 20.1817,
+            "head_movement_mean": 0.0039,
+            "head_movement_complexity_proxy": 0.0054,
+            "head_acceleration_mean": 0.0023,
+            "mouth_complexity_proxy": 0.0134,
+            "eyebrow_complexity_proxy": 0.0139
+        },
+        "social": {
+            "face_presence_ratio": 1.0,
+            "blink_rate_per_min": 0.0,
+            "head_movement_mean": 0.002,
+            "head_movement_complexity_proxy": 0.0013,
+            "head_acceleration_mean": 0.0013,
+            "mouth_complexity_proxy": 0.0062,
+            "eyebrow_complexity_proxy": 0.0048
+        },
+        "mixed_social_non_social": {
+            "face_presence_ratio": 1.0,
+            "blink_rate_per_min": 0.0,
+            "head_movement_mean": 0.0018,
+            "head_movement_complexity_proxy": 0.0011,
+            "head_acceleration_mean": 0.001,
+            "mouth_complexity_proxy": 0.0078,
+            "eyebrow_complexity_proxy": 0.0091
+        },
+        "speech_social": {
+            "face_presence_ratio": 1.0,
+            "blink_rate_per_min": 0.0,
+            "head_movement_mean": 0.0018,
+            "head_movement_complexity_proxy": 0.0014,
+            "head_acceleration_mean": 0.0011,
+            "mouth_complexity_proxy": 0.0007,
+            "eyebrow_complexity_proxy": 0.0038
+        },
+        "comparison": {
+            "social_attention_average": 1.0,
+            "nonsocial_attention_average": 0.9559,
+            "social_preference_score": 0.0441
+        }
+    },
+    "name_call_events": [
+        {
+            "id": "name_call_1",
+            "type": "name_call_event",
+            "during_stimulus": "floating_bubbles",
+            "call_index": 1,
+            "call_time_sec": 1.5
+        },
+        {
+            "id": "name_call_2",
+            "type": "name_call_event",
+            "during_stimulus": "mechanical_puppy",
+            "call_index": 2,
+            "call_time_sec": 1.5
+        },
+        {
+            "id": "name_call_3",
+            "type": "name_call_event",
+            "during_stimulus": "run_at_the_park",
+            "call_index": 3,
+            "call_time_sec": 1.5
+        }
+    ],
+    "triggered_name_call_events": [
+        {
+            "id": "name_call_1",
+            "type": "name_call_event",
+            "during_stimulus": "floating_bubbles",
+            "call_index": 1,
+            "call_time_sec": 1.5,
+            "stimulus_id": "floating_bubbles",
+            "triggered": true,
+            "actual_trigger_time_sec": 1.5015,
+            "actual_wall_time": 1781603005.262858
+        },
+        {
+            "id": "name_call_2",
+            "type": "name_call_event",
+            "during_stimulus": "mechanical_puppy",
+            "call_index": 2,
+            "call_time_sec": 1.5,
+            "stimulus_id": "mechanical_puppy",
+            "triggered": true,
+            "actual_trigger_time_sec": 1.5015,
+            "actual_wall_time": 1781603021.497204
+        },
+        {
+            "id": "name_call_3",
+            "type": "name_call_event",
+            "during_stimulus": "run_at_the_park",
+            "call_index": 3,
+            "call_time_sec": 1.5,
+            "stimulus_id": "run_at_the_park",
+            "triggered": true,
+            "actual_trigger_time_sec": 1.5015,
+            "actual_wall_time": 1781603041.752501
+        }
+    ],
+    "protocol_summary": {
+        "total_video_stimuli": 9,
+        "total_name_call_events": 3,
+        "total_triggered_name_call_events": 3,
+        "uses_tracker_manager": false,
+        "measurement_source": "continuous_framewise_behavior_recorder",
+        "smooth_playlist": true,
+        "paper_style_note": "Stimuli are played in one continuous fullscreen playlist while one camera recorder logs frame-wise child behavior."
+    }
+}

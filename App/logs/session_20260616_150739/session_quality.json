@@ -1,0 +1,21 @@
+{
+    "is_valid": false,
+    "quality_score": 0.333,
+    "quality_level": "Poor",
+    "issues": [
+        "Missing session section: name_response",
+        "Missing session section: gaze_metrics",
+        "Missing session section: facial_expression_metrics",
+        "Missing session section: pose_metrics",
+        "Missing session section: motor_metrics",
+        "Gaze face presence ratio is too low; gaze metrics may be unreliable.",
+        "Facial expression face presence is too low.",
+        "Pose presence ratio is too low; pose metrics may be unreliable.",
+        "Motor pose presence ratio is too low; motor metrics may be unreliable.",
+        "Name response was not recorded properly."
+    ],
+    "warnings": [
+        "Blink rate is zero; eye tracking or test duration may need review.",
+        "Smile ratio is zero; this may be valid but should be reviewed."
+    ]
+}s

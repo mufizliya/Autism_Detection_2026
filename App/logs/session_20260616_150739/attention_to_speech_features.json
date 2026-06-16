@@ -1,0 +1,29 @@
+{
+    "paper_attention_to_speech": 0.0,
+    "paper_gaze_speech_correlation": 0.0,
+    "speech_valid_frames": 0,
+    "speech_matched_frames": 0,
+    "speech_stimulus_count": 1,
+    "speech_stimulus_results": [
+        {
+            "valid_frames": 0,
+            "matched_frames": 0,
+            "attention_to_speech_score": 0.0,
+            "frame_results_sample": [],
+            "stimulus_id": "run_at_the_park",
+            "framewise_log": "logs/session_20260616_150739/run_at_the_park_framewise_log.csv",
+            "speaker_turns": [
+                {
+                    "speaker": "left",
+                    "start_sec": 0.0,
+                    "end_sec": 1.5
+                },
+                {
+                    "speaker": "right",
+                    "start_sec": 1.5,
+                    "end_sec": 3.0
+                }
+            ]
+        }
+    ]
+}

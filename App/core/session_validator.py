@@ -1,53 +1,84 @@
 class SessionValidator:
 
     @staticmethod
-    def get(data, key, default=0):
+    def to_float(value, default=0.0):
 
-        if data is None:
+        try:
+
+            if value is None:
+                return default
+
+            if value == "":
+                return default
+
+            return float(value)
+
+        except Exception:
+
             return default
 
-        return data.get(
-            key,
-            default
+    @staticmethod
+    def section_exists(session, key):
+
+        value = session.get(
+            key
         )
+
+        if value is None:
+            return False
+
+        if isinstance(value, dict) and len(value) == 0:
+            return False
+
+        if isinstance(value, list) and len(value) == 0:
+            return False
+
+        return True
 
     @staticmethod
-    def validate(session):
+    def get_quality_level(score):
+
+        if score >= 0.85:
+            return "Excellent"
+
+        if score >= 0.70:
+            return "Good"
+
+        if score >= 0.50:
+            return "Fair"
+
+        return "Poor"
+
+    @staticmethod
+    def validate_required_sections(session):
 
         issues = []
-        warnings = []
-
-        quality_points = 0
-        max_points = 0
-
-        phenotype_vector = session.get(
-            "phenotype_vector",
-            {}
-        )
-
-        # -------------------------
-        # Required major sections
-        # -------------------------
+        passed = 0
+        total = 0
 
         required_sections = [
-            "child_info",
             "questionnaire",
-            "name_response",
+            "video_test",
             "game_metrics",
-            "gaze_metrics",
-            "facial_expression_metrics",
-            "pose_metrics",
-            "motor_metrics",
-            "phenotype_vector"
+            "phenotype_vector",
+            "paper_timeseries_features",
+            "response_to_name_features",
+            "attention_to_speech_features",
+            "gaze_silhouette_features",
+            "paper_aligned_features",
+            "paper_feature_coverage"
         ]
 
         for section in required_sections:
 
-            max_points += 1
+            total += 1
 
-            if session.get(section) is not None:
+            if SessionValidator.section_exists(
+                session,
+                section
+            ):
 
-                quality_points += 1
+                passed += 1
 
             else:
 
@@ -55,265 +86,704 @@ class SessionValidator:
                     f"Missing session section: {section}"
                 )
 
-        # -------------------------
-        # Gaze quality
-        # -------------------------
+        return passed, total, issues
 
-        gaze_face_presence = SessionValidator.get(
-            phenotype_vector,
-            "gaze_face_presence_ratio",
-            0
+    @staticmethod
+    def validate_video_protocol(session):
+
+        issues = []
+        warnings = []
+        passed = 0
+        total = 0
+
+        video_test = session.get(
+            "video_test",
+            {}
         )
 
-        max_points += 1
+        stimulus_results = video_test.get(
+            "stimulus_results",
+            []
+        )
 
-        if gaze_face_presence >= 0.7:
+        protocol_summary = video_test.get(
+            "protocol_summary",
+            {}
+        )
 
-            quality_points += 1
+        total += 1
 
-        elif gaze_face_presence >= 0.4:
+        if len(stimulus_results) > 0:
 
-            warnings.append(
-                "Gaze face presence ratio is moderate; gaze metrics may be less reliable."
-            )
+            passed += 1
 
         else:
 
             issues.append(
-                "Gaze face presence ratio is too low; gaze metrics may be unreliable."
+                "No video stimulus results were recorded."
             )
 
-        # -------------------------
-        # Expression quality
-        # -------------------------
+        total += 1
 
-        expression_face_frames = SessionValidator.get(
-            session.get("facial_expression_metrics", {}),
-            "face_frames",
-            0
+        uses_tracker_manager = protocol_summary.get(
+            "uses_tracker_manager",
+            None
         )
 
-        expression_total_frames = SessionValidator.get(
-            session.get("facial_expression_metrics", {}),
-            "total_frames",
-            0
-        )
+        if uses_tracker_manager is False:
 
-        expression_presence_ratio = (
-            expression_face_frames /
-            max(expression_total_frames, 1)
-        )
-
-        max_points += 1
-
-        if expression_presence_ratio >= 0.7:
-
-            quality_points += 1
-
-        elif expression_presence_ratio >= 0.4:
-
-            warnings.append(
-                "Facial expression face presence is moderate; expression metrics may be less reliable."
-            )
+            passed += 1
 
         else:
 
             issues.append(
-                "Facial expression face presence is too low."
+                "Video protocol still appears to use TrackerManager or does not report uses_tracker_manager=false."
             )
 
-        # -------------------------
-        # Pose quality
-        # -------------------------
+        total += 1
 
-        pose_presence = SessionValidator.get(
-            phenotype_vector,
-            "pose_pose_presence_ratio",
-            0
+        measurement_source = protocol_summary.get(
+            "measurement_source",
+            ""
         )
 
-        max_points += 1
+        if measurement_source in [
+            "continuous_framewise_behavior_recorder",
+            "framewise_behavior_recorder"
+        ]:
 
-        if pose_presence >= 0.7:
-
-            quality_points += 1
-
-        elif pose_presence >= 0.4:
-
-            warnings.append(
-                "Pose presence ratio is moderate; pose metrics may be less reliable."
-            )
+            passed += 1
 
         else:
 
             issues.append(
-                "Pose presence ratio is too low; pose metrics may be unreliable."
+                "Video measurement source is not framewise behavior recording."
             )
 
-        # -------------------------
-        # Motor quality
-        # -------------------------
+        total += 1
 
-        motor_presence = SessionValidator.get(
-            phenotype_vector,
-            "motor_pose_presence_ratio",
-            0
-        )
+        if protocol_summary.get(
+            "smooth_playlist",
+            False
+        ) is True:
 
-        max_points += 1
+            passed += 1
 
-        if motor_presence >= 0.7:
-
-            quality_points += 1
-
-        elif motor_presence >= 0.4:
+        else:
 
             warnings.append(
-                "Motor pose presence ratio is moderate; motor stereotypy metrics may be less reliable."
+                "Stimulus protocol is not marked as smooth_playlist=true."
             )
+
+        scheduled_calls = (
+            protocol_summary.get(
+                "total_name_call_events",
+                0
+            )
+        )
+
+        triggered_calls = (
+            protocol_summary.get(
+                "total_triggered_name_call_events",
+                0
+            )
+        )
+
+        total += 1
+
+        if scheduled_calls == 0:
+
+            warnings.append(
+                "No scheduled name-call events found."
+            )
+
+        elif triggered_calls >= scheduled_calls:
+
+            passed += 1
 
         else:
 
             issues.append(
-                "Motor pose presence ratio is too low; motor metrics may be unreliable."
+                f"Only {triggered_calls}/{scheduled_calls} scheduled name-call events were triggered."
             )
 
-        # -------------------------
-        # Game quality
-        # -------------------------
+        return passed, total, issues, warnings
 
-        total_reactions = SessionValidator.get(
-            phenotype_vector,
-            "game_total_reactions",
-            0
+    @staticmethod
+    def validate_framewise_quality(session):
+
+        issues = []
+        warnings = []
+        passed = 0
+        total = 0
+
+        video_test = session.get(
+            "video_test",
+            {}
         )
 
-        max_points += 1
+        stimulus_results = video_test.get(
+            "stimulus_results",
+            []
+        )
 
-        if total_reactions >= 10:
+        if len(stimulus_results) == 0:
 
-            quality_points += 1
+            return passed, total, issues, warnings
 
-        elif total_reactions >= 5:
+        face_ratios = []
+        total_frames_all = 0
+        weak_stimuli = []
 
-            warnings.append(
-                "Game produced limited reaction events."
+        for result in stimulus_results:
+
+            stimulus = result.get(
+                "stimulus",
+                {}
             )
+
+            stimulus_id = stimulus.get(
+                "id",
+                "unknown"
+            )
+
+            summary = result.get(
+                "framewise_summary",
+                {}
+            )
+
+            total += 1
+
+            total_frames = int(
+                SessionValidator.to_float(
+                    summary.get(
+                        "total_frames",
+                        0
+                    )
+                )
+            )
+
+            face_presence_ratio = SessionValidator.to_float(
+                summary.get(
+                    "face_presence_ratio",
+                    0
+                )
+            )
+
+            total_frames_all += total_frames
+            face_ratios.append(
+                face_presence_ratio
+            )
+
+            if total_frames <= 0:
+
+                issues.append(
+                    f"No framewise rows recorded for stimulus: {stimulus_id}"
+                )
+
+                continue
+
+            if face_presence_ratio >= 0.50:
+
+                passed += 1
+
+            else:
+
+                weak_stimuli.append(
+                    stimulus_id
+                )
+
+        total += 1
+
+        if total_frames_all > 0:
+
+            passed += 1
 
         else:
 
             issues.append(
-                "Game produced too few reaction events."
+                "No framewise video frames were recorded across the stimulus protocol."
             )
 
-        # -------------------------
-        # Name response quality
-        # -------------------------
+        if weak_stimuli:
 
-        response_time = SessionValidator.get(
-            phenotype_vector,
-            "name_response_time",
-            0
+            warnings.append(
+                "Low face presence ratio for stimuli: "
+                +
+                ", ".join(weak_stimuli)
+            )
+
+        if len(face_ratios) > 0:
+
+            average_face_presence = (
+                sum(face_ratios) / len(face_ratios)
+            )
+
+            if average_face_presence < 0.50:
+
+                issues.append(
+                    "Average face presence during stimulus protocol is too low."
+                )
+
+        return passed, total, issues, warnings
+
+    @staticmethod
+    def validate_bubble_game(session):
+
+        issues = []
+        warnings = []
+        passed = 0
+        total = 0
+
+        game_metrics = session.get(
+            "game_metrics",
+            {}
         )
 
-        max_points += 1
+        total += 1
 
-        if response_time > 0:
+        if game_metrics:
 
-            quality_points += 1
+            passed += 1
 
         else:
 
             issues.append(
-                "Name response was not recorded properly."
+                "Bubble game metrics are missing."
             )
 
-        # -------------------------
-        # Sanity warnings
-        # -------------------------
+            return passed, total, issues, warnings
 
-        blink_rate = SessionValidator.get(
-            phenotype_vector,
-            "gaze_blink_rate_per_min",
+        touch_features = game_metrics.get(
+            "touch_features",
+            {}
+        )
+
+        total += 1
+
+        if touch_features:
+
+            passed += 1
+
+        else:
+
+            issues.append(
+                "Bubble game touch_features are missing."
+            )
+
+        total_touches = SessionValidator.to_float(
+            touch_features.get(
+                "touch_total_count",
+                0
+            )
+        )
+
+        total += 1
+
+        if total_touches > 0:
+
+            passed += 1
+
+        else:
+
+            warnings.append(
+                "No bubble-game touches were recorded."
+            )
+
+        popping_rate = SessionValidator.to_float(
+            touch_features.get(
+                "touch_popping_rate",
+                0
+            )
+        )
+
+        total += 1
+
+        if 0 <= popping_rate <= 1:
+
+            passed += 1
+
+        else:
+
+            issues.append(
+                "Bubble-game popping rate is outside expected range 0..1."
+            )
+
+        force_available = touch_features.get(
+            "touch_force_available",
+            False
+        )
+
+        if force_available is False:
+
+            warnings.append(
+                "Touch force is unavailable on desktop/Pygame; this is expected unless running on touch hardware."
+            )
+
+        return passed, total, issues, warnings
+
+    @staticmethod
+    def validate_paper_features(session):
+
+        issues = []
+        warnings = []
+        passed = 0
+        total = 0
+
+        paper_features = session.get(
+            "paper_aligned_features",
+            {}
+        )
+
+        coverage = session.get(
+            "paper_feature_coverage",
+            {}
+        )
+
+        expected_features = [
+            "paper_facing_forward_social_movies",
+            "paper_facing_forward_nonsocial_movies",
+            "paper_gaze_percent_social",
+            "paper_gaze_silhouette_score",
+            "paper_attention_to_speech",
+            "paper_response_to_name_delay",
+            "paper_response_to_name_proportion",
+            "paper_blink_rate_social_movies",
+            "paper_blink_rate_nonsocial_movies",
+            "paper_eyebrows_complexity_social_movies",
+            "paper_eyebrows_complexity_nonsocial_movies",
+            "paper_mouth_complexity_social_movies",
+            "paper_mouth_complexity_nonsocial_movies",
+            "paper_head_movement_social_movies",
+            "paper_head_movement_nonsocial_movies",
+            "paper_head_movement_complexity_social_movies",
+            "paper_head_movement_complexity_nonsocial_movies",
+            "paper_head_movement_acceleration_social_movies",
+            "paper_head_movement_acceleration_nonsocial_movies",
+            "paper_pop_the_bubbles_popping_rate",
+            "paper_pop_the_bubbles_accuracy_std",
+            "paper_pop_the_bubbles_average_touch_length",
+            "paper_pop_the_bubbles_average_applied_force"
+        ]
+
+        for feature in expected_features:
+
+            total += 1
+
+            if feature in paper_features:
+
+                passed += 1
+
+            else:
+
+                issues.append(
+                    f"Missing paper-aligned feature: {feature}"
+                )
+
+        total += 1
+
+        if coverage:
+
+            passed += 1
+
+        else:
+
+            issues.append(
+                "paper_feature_coverage is missing."
+            )
+
+        total_features = int(
+            SessionValidator.to_float(
+                coverage.get(
+                    "total_paper_features",
+                    0
+                )
+            )
+        )
+
+        total += 1
+
+        if total_features == 23:
+
+            passed += 1
+
+        else:
+
+            issues.append(
+                f"Expected 23 paper features, found {total_features}."
+            )
+
+        missing_count = int(
+            SessionValidator.to_float(
+                coverage.get(
+                    "missing_count",
+                    0
+                )
+            )
+        )
+
+        total += 1
+
+        if missing_count == 0:
+
+            passed += 1
+
+        else:
+
+            warnings.append(
+                f"Paper feature mapper reports {missing_count} missing features."
+            )
+
+        coverage_score = SessionValidator.to_float(
+            coverage.get(
+                "coverage_score",
+                0
+            )
+        )
+
+        total += 1
+
+        if coverage_score >= 0.70:
+
+            passed += 1
+
+        else:
+
+            warnings.append(
+                f"Paper feature coverage score is low: {coverage_score}"
+            )
+
+        return passed, total, issues, warnings
+
+    @staticmethod
+    def validate_specialized_extractors(session):
+
+        issues = []
+        warnings = []
+        passed = 0
+        total = 0
+
+        response_to_name = session.get(
+            "response_to_name_features",
+            {}
+        )
+
+        total += 1
+
+        if response_to_name.get(
+            "name_call_count",
+            0
+        ) > 0:
+
+            passed += 1
+
+        else:
+
+            issues.append(
+                "Response-to-name extractor found no name-call events."
+            )
+
+        total += 1
+
+        if "paper_response_to_name_proportion" in response_to_name:
+
+            passed += 1
+
+        else:
+
+            issues.append(
+                "Response-to-name proportion is missing."
+            )
+
+        attention_to_speech = session.get(
+            "attention_to_speech_features",
+            {}
+        )
+
+        total += 1
+
+        if attention_to_speech.get(
+            "speech_stimulus_count",
+            0
+        ) > 0:
+
+            passed += 1
+
+        else:
+
+            warnings.append(
+                "Attention-to-speech extractor found no speech stimulus."
+            )
+
+        gaze_silhouette = session.get(
+            "gaze_silhouette_features",
+            {}
+        )
+
+        total += 1
+
+        if gaze_silhouette.get(
+            "gaze_silhouette_stimulus_count",
+            0
+        ) > 0:
+
+            passed += 1
+
+        else:
+
+            warnings.append(
+                "Gaze silhouette extractor found no mixed social/non-social stimulus."
+            )
+
+        valid_gaze_points = gaze_silhouette.get(
+            "gaze_silhouette_valid_points",
             0
         )
 
-        if blink_rate == 0:
+        total += 1
+
+        if valid_gaze_points >= 20:
+
+            passed += 1
+
+        else:
 
             warnings.append(
-                "Blink rate is zero; eye tracking or test duration may need review."
+                f"Low valid gaze points for silhouette extraction: {valid_gaze_points}"
             )
 
-        elif blink_rate > 60:
+        return passed, total, issues, warnings
 
-            warnings.append(
-                "Blink rate is unusually high; verify eye landmark tracking quality."
-            )
+    @staticmethod
+    def validate(session):
 
-        smile_ratio = SessionValidator.get(
-            phenotype_vector,
-            "expression_smile_ratio",
-            0
+        issues = []
+        warnings = []
+
+        passed_total = 0
+        checks_total = 0
+
+        result = SessionValidator.validate_required_sections(
+            session
         )
 
-        if smile_ratio == 0:
-
-            warnings.append(
-                "Smile ratio is zero; this may be valid but should be reviewed."
-            )
-
-        motor_index = SessionValidator.get(
-            phenotype_vector,
-            "motor_stereotypy_index",
-            0
+        passed_total += result[0]
+        checks_total += result[1]
+        issues.extend(
+            result[2]
         )
 
-        if motor_index > 50:
-
-            warnings.append(
-                "Motor stereotypy index is very high; verify whether movement was intentional/test behavior."
-            )
-
-        # -------------------------
-        # Final quality score
-        # -------------------------
-
-        quality_score = (
-            quality_points /
-            max(max_points, 1)
+        result = SessionValidator.validate_video_protocol(
+            session
         )
+
+        passed_total += result[0]
+        checks_total += result[1]
+        issues.extend(
+            result[2]
+        )
+        warnings.extend(
+            result[3]
+        )
+
+        result = SessionValidator.validate_framewise_quality(
+            session
+        )
+
+        passed_total += result[0]
+        checks_total += result[1]
+        issues.extend(
+            result[2]
+        )
+        warnings.extend(
+            result[3]
+        )
+
+        result = SessionValidator.validate_bubble_game(
+            session
+        )
+
+        passed_total += result[0]
+        checks_total += result[1]
+        issues.extend(
+            result[2]
+        )
+        warnings.extend(
+            result[3]
+        )
+
+        result = SessionValidator.validate_paper_features(
+            session
+        )
+
+        passed_total += result[0]
+        checks_total += result[1]
+        issues.extend(
+            result[2]
+        )
+        warnings.extend(
+            result[3]
+        )
+
+        result = SessionValidator.validate_specialized_extractors(
+            session
+        )
+
+        passed_total += result[0]
+        checks_total += result[1]
+        issues.extend(
+            result[2]
+        )
+        warnings.extend(
+            result[3]
+        )
+
+        if checks_total > 0:
+
+            quality_score = passed_total / checks_total
+
+        else:
+
+            quality_score = 0
 
         is_valid = (
-            quality_score >= 0.75
-            and
             len(issues) == 0
+            and
+            quality_score >= 0.70
         )
 
-        if quality_score >= 0.85:
-
-            quality_level = "Good"
-
-        elif quality_score >= 0.65:
-
-            quality_level = "Usable with caution"
-
-        else:
-
-            quality_level = "Poor"
+        quality_level = SessionValidator.get_quality_level(
+            quality_score
+        )
 
         return {
             "is_valid":
                 is_valid,
 
             "quality_score":
-                round(quality_score, 3),
+                round(
+                    quality_score,
+                    3
+                ),
 
             "quality_level":
                 quality_level,
+
+            "checks_passed":
+                passed_total,
+
+            "checks_total":
+                checks_total,
 
             "issues":
                 issues,
 
             "warnings":
-                warnings
+                warnings,
+
+            "validator_version":
+                "sensetoknow_style_v2",
+
+            "note":
+                "Validator checks questionnaire context, continuous video protocol, framewise logs, bubble touch features, and 23 paper-aligned features. It no longer checks removed TrackerManager/name-response standalone modules."
         }

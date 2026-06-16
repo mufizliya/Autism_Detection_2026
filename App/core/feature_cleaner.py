@@ -19,21 +19,19 @@ class FeatureCleaner:
         "phenotype_dataset_cleaned.csv"
     )
 
-    DROP_COLUMNS = [
-        "session_id",
-        "risk_level_rule_based",
-        "risk_score_rule_based",
+    TRAIN_READY_DATASET_FILE = os.path.join(
+        DATASET_DIR,
+        "phenotype_dataset_train_ready.csv"
+    )
 
-        # Keep this for now as low confidence, but remove from ML input
-        # because we already noticed it is only a proxy.
-        "gaze_eye_contact_ratio",
-    ]
+    # Missing values are not forced to 0 anymore.
+    # 0 can be a real behavioral value, so missing should stay distinguishable.
+    MISSING_VALUE = -999
 
-    FEATURE_COLUMNS = [
+    QUESTIONNAIRE_CONTEXT_COLUMNS = [
         "child_age",
         "child_gender_encoded",
 
-        # SCQ
         "scq_score",
         "scq_social_communication_raw",
         "scq_social_communication_severity",
@@ -44,150 +42,69 @@ class FeatureCleaner:
         "scq_emotional_regulation_raw",
         "scq_emotional_regulation_severity",
         "scq_motor_behavior_raw",
-        "scq_motor_behavior_severity",
+        "scq_motor_behavior_severity"
+    ]
 
-        # Name response
-        "name_response_time",
-        "name_response_good",
-        "name_response_not_good",
-        "emotion_emotional_distress",
-        "emotion_social_hesitation",
-        "emotion_interaction_engagement",
-        "emotion_emotional_responsiveness",
+    SESSION_QUALITY_COLUMNS = [
+        "session_quality_score",
+        "session_is_valid"
+    ]
 
-        # Game
-        "game_score",
-        "game_total_reactions",
-        "game_avg_reaction_time",
-        "game_min_reaction_time",
-        "game_max_reaction_time",
-        "game_popped_count",
-        "game_missed_count",
-        "game_miss_ratio",
-        "game_attention_deficit",
-        "game_disengagement",
-        "game_motor_irregularity",
-        "game_responsiveness",
-
-        # Gaze / attention
-        "gaze_face_presence_ratio",
-        "gaze_blink_count",
-        "gaze_blink_rate_per_min",
-        "gaze_away_time_sec",
-        "gaze_attention_ratio",
-        "gaze_yaw_variability",
-        "gaze_pitch_variability",
-        "gaze_gaze_variability",
-
-        # Facial expression
-        "expression_avg_smile_score",
-        "expression_baseline_smile",
-        "expression_smile_threshold",
-        "expression_smiling_frames",
-        "expression_smile_ratio",
-
-        # Pose
-        "pose_pose_presence_ratio",
-        "pose_head_variability",
-        "pose_shoulder_variability",
-        "pose_body_stability_score",
-
-        # Motor
-        "motor_pose_presence_ratio",
-        "motor_left_arm_variability",
-        "motor_right_arm_variability",
-        "motor_arm_stereotypy_score",
-        "motor_left_frequency_hz",
-        "motor_right_frequency_hz",
-        "motor_oscillation_frequency_hz",
-        "motor_stereotypy_index",
-
-                # Social / non-social video test
-        "video_test_available",
-
-        "video_social_video_duration",
-        "video_social_video_completed",
-        "video_social_facing_forward_proxy",
-        "video_social_face_presence_ratio",
-        "video_social_blink_count",
-        "video_social_blink_rate_per_min",
-        "video_social_away_time_sec",
-        "video_social_yaw_variability",
-        "video_social_pitch_variability",
-        "video_social_gaze_variability",
-        "video_social_avg_smile_score",
-        "video_social_smile_ratio",
-        "video_social_smiling_frames",
-        "video_social_pose_presence_ratio",
-        "video_social_head_variability",
-        "video_social_shoulder_variability",
-        "video_social_body_stability_score",
-        "video_social_motor_pose_presence_ratio",
-        "video_social_arm_stereotypy_score",
-        "video_social_oscillation_frequency_hz",
-        "video_social_stereotypy_index",
-
-        "video_nonsocial_video_duration",
-        "video_nonsocial_video_completed",
-        "video_nonsocial_facing_forward_proxy",
-        "video_nonsocial_face_presence_ratio",
-        "video_nonsocial_blink_count",
-        "video_nonsocial_blink_rate_per_min",
-        "video_nonsocial_away_time_sec",
-        "video_nonsocial_yaw_variability",
-        "video_nonsocial_pitch_variability",
-        "video_nonsocial_gaze_variability",
-        "video_nonsocial_avg_smile_score",
-        "video_nonsocial_smile_ratio",
-        "video_nonsocial_smiling_frames",
-        "video_nonsocial_pose_presence_ratio",
-        "video_nonsocial_head_variability",
-        "video_nonsocial_shoulder_variability",
-        "video_nonsocial_body_stability_score",
-        "video_nonsocial_motor_pose_presence_ratio",
-        "video_nonsocial_arm_stereotypy_score",
-        "video_nonsocial_oscillation_frequency_hz",
-        "video_nonsocial_stereotypy_index",
-
-        "video_social_preference_score",
-        "video_nonsocial_preference_score",
-        "video_smile_response_difference",
-        "video_motor_difference",
-        "video_head_movement_difference",
-
-                # Paper-aligned SenseToKnow feature set
+    PAPER_FEATURE_COLUMNS = [
         "paper_facing_forward_social_movies",
         "paper_facing_forward_nonsocial_movies",
+
         "paper_gaze_percent_social",
         "paper_gaze_silhouette_score",
         "paper_attention_to_speech",
+
         "paper_response_to_name_delay",
         "paper_response_to_name_proportion",
+
         "paper_blink_rate_social_movies",
         "paper_blink_rate_nonsocial_movies",
+
         "paper_eyebrows_complexity_social_movies",
         "paper_eyebrows_complexity_nonsocial_movies",
+
         "paper_mouth_complexity_social_movies",
         "paper_mouth_complexity_nonsocial_movies",
+
         "paper_head_movement_social_movies",
         "paper_head_movement_nonsocial_movies",
+
         "paper_head_movement_complexity_social_movies",
         "paper_head_movement_complexity_nonsocial_movies",
+
         "paper_head_movement_acceleration_social_movies",
         "paper_head_movement_acceleration_nonsocial_movies",
+
         "paper_pop_the_bubbles_popping_rate",
         "paper_pop_the_bubbles_accuracy_std",
         "paper_pop_the_bubbles_average_touch_length",
-        "paper_pop_the_bubbles_average_applied_force",
-
-        # Label stays last
-        "label"
+        "paper_pop_the_bubbles_average_applied_force"
     ]
+
+    FEATURE_COLUMNS = (
+        QUESTIONNAIRE_CONTEXT_COLUMNS
+        +
+        SESSION_QUALITY_COLUMNS
+        +
+        PAPER_FEATURE_COLUMNS
+        +
+        [
+            "paper_feature_coverage_score",
+            "include_for_training",
+            "label"
+        ]
+    )
 
     @staticmethod
     def encode_gender(gender):
 
-        gender = str(gender).strip().lower()
+        gender = str(
+            gender
+        ).strip().lower()
 
         if gender == "male":
             return 1
@@ -201,69 +118,282 @@ class FeatureCleaner:
         return 0
 
     @staticmethod
-    def to_float(value):
+    def is_missing(value):
+
+        if value is None:
+            return True
+
+        if value == "":
+            return True
+
+        if str(value).strip().lower() in [
+            "none",
+            "nan",
+            "null"
+        ]:
+            return True
+
+        return False
+
+    @staticmethod
+    def to_float(
+        value,
+        missing_value=None
+    ):
+
+        if missing_value is None:
+
+            missing_value = FeatureCleaner.MISSING_VALUE
 
         try:
-            if value is None:
-                return 0
 
-            if value == "":
-                return 0
+            if FeatureCleaner.is_missing(
+                value
+            ):
 
-            return float(value)
+                return missing_value
+
+            return float(
+                value
+            )
 
         except Exception:
+
+            return missing_value
+
+    @staticmethod
+    def to_bool_flag(value):
+
+        if isinstance(value, bool):
+
+            return 1 if value else 0
+
+        text = str(
+            value
+        ).strip().lower()
+
+        if text in [
+            "true",
+            "1",
+            "yes",
+            "valid"
+        ]:
+
+            return 1
+
+        return 0
+
+    @staticmethod
+    def get_coverage_score(row):
+
+        possible_keys = [
+            "coverage_score",
+            "paper_feature_coverage_score",
+            "paper_feature_coverage_coverage_score"
+        ]
+
+        for key in possible_keys:
+
+            if key in row and not FeatureCleaner.is_missing(
+                row.get(key)
+            ):
+
+                return FeatureCleaner.to_float(
+                    row.get(key)
+                )
+
+        return FeatureCleaner.MISSING_VALUE
+
+    @staticmethod
+    def get_session_quality_score(row):
+
+        possible_keys = [
+            "session_quality_score",
+            "quality_score"
+        ]
+
+        for key in possible_keys:
+
+            if key in row and not FeatureCleaner.is_missing(
+                row.get(key)
+            ):
+
+                return FeatureCleaner.to_float(
+                    row.get(key)
+                )
+
+        return FeatureCleaner.MISSING_VALUE
+
+    @staticmethod
+    def get_session_is_valid(row):
+
+        possible_keys = [
+            "session_is_valid",
+            "is_valid"
+        ]
+
+        for key in possible_keys:
+
+            if key in row:
+
+                return FeatureCleaner.to_bool_flag(
+                    row.get(key)
+                )
+
+        return 0
+
+    @staticmethod
+    def normalize_label(label):
+
+        label_text = str(
+            label
+        ).strip()
+
+        if label_text == "":
+            return ""
+
+        if label_text.lower() in [
+            "skip",
+            "skipped",
+            "none",
+            "unknown"
+        ]:
+
+            return ""
+
+        return label_text
+
+    @staticmethod
+    def compute_include_for_training(cleaned):
+
+        label = FeatureCleaner.normalize_label(
+            cleaned.get(
+                "label",
+                ""
+            )
+        )
+
+        if label == "":
             return 0
+
+        session_is_valid = int(
+            FeatureCleaner.to_float(
+                cleaned.get(
+                    "session_is_valid",
+                    0
+                ),
+                missing_value=0
+            )
+        )
+
+        if session_is_valid != 1:
+            return 0
+
+        critical_features = [
+            "paper_facing_forward_social_movies",
+            "paper_facing_forward_nonsocial_movies",
+            "paper_gaze_percent_social",
+            "paper_attention_to_speech",
+            "paper_response_to_name_delay",
+            "paper_response_to_name_proportion",
+            "paper_pop_the_bubbles_popping_rate"
+        ]
+
+        for feature in critical_features:
+
+            if cleaned.get(
+                feature
+            ) == FeatureCleaner.MISSING_VALUE:
+
+                return 0
+
+        return 1
 
     @staticmethod
     def clean_row(row):
 
         cleaned = {}
 
-        cleaned["child_gender_encoded"] = (
-            FeatureCleaner.encode_gender(
-                row.get("child_gender", "")
+        cleaned["child_age"] = FeatureCleaner.to_float(
+            row.get(
+                "child_age",
+                ""
             )
         )
 
-        for column in FeatureCleaner.FEATURE_COLUMNS:
-
-            if column == "label":
-
-                cleaned[column] = row.get(
-                    "label",
+        cleaned["child_gender_encoded"] = (
+            FeatureCleaner.encode_gender(
+                row.get(
+                    "child_gender",
                     ""
                 )
+            )
+        )
 
-            elif column == "child_gender_encoded":
+        for column in FeatureCleaner.QUESTIONNAIRE_CONTEXT_COLUMNS:
+
+            if column in [
+                "child_age",
+                "child_gender_encoded"
+            ]:
 
                 continue
 
-            else:
-
-                cleaned[column] = FeatureCleaner.to_float(
-                    row.get(column, 0)
+            cleaned[column] = FeatureCleaner.to_float(
+                row.get(
+                    column,
+                    ""
                 )
+            )
+
+        cleaned["session_quality_score"] = (
+            FeatureCleaner.get_session_quality_score(
+                row
+            )
+        )
+
+        cleaned["session_is_valid"] = (
+            FeatureCleaner.get_session_is_valid(
+                row
+            )
+        )
+
+        for column in FeatureCleaner.PAPER_FEATURE_COLUMNS:
+
+            cleaned[column] = FeatureCleaner.to_float(
+                row.get(
+                    column,
+                    ""
+                )
+            )
+
+        cleaned["paper_feature_coverage_score"] = (
+            FeatureCleaner.get_coverage_score(
+                row
+            )
+        )
+
+        cleaned["label"] = FeatureCleaner.normalize_label(
+            row.get(
+                "label",
+                ""
+            )
+        )
+
+        cleaned["include_for_training"] = (
+            FeatureCleaner.compute_include_for_training(
+                cleaned
+            )
+        )
 
         final_row = {}
 
         for column in FeatureCleaner.FEATURE_COLUMNS:
 
-            if column == "child_gender_encoded":
-
-                final_row[column] = cleaned.get(
-                    column,
-                    0
-                )
-
-            else:
-
-                final_row[column] = cleaned.get(
-                    column,
-                    ""
-                    if column == "label"
-                    else 0
-                )
+            final_row[column] = cleaned.get(
+                column,
+                ""
+            )
 
         return final_row
 
@@ -294,12 +424,16 @@ class FeatureCleaner:
             newline=""
         ) as f:
 
-            reader = csv.DictReader(f)
+            reader = csv.DictReader(
+                f
+            )
 
             for row in reader:
 
                 cleaned_rows.append(
-                    FeatureCleaner.clean_row(row)
+                    FeatureCleaner.clean_row(
+                        row
+                    )
                 )
 
         with open(
@@ -317,7 +451,39 @@ class FeatureCleaner:
 
             for row in cleaned_rows:
 
-                writer.writerow(row)
+                writer.writerow(
+                    row
+                )
+
+        train_ready_rows = [
+            row
+            for row in cleaned_rows
+            if int(
+                row.get(
+                    "include_for_training",
+                    0
+                )
+            ) == 1
+        ]
+
+        with open(
+            FeatureCleaner.TRAIN_READY_DATASET_FILE,
+            "w",
+            newline=""
+        ) as f:
+
+            writer = csv.DictWriter(
+                f,
+                fieldnames=FeatureCleaner.FEATURE_COLUMNS
+            )
+
+            writer.writeheader()
+
+            for row in train_ready_rows:
+
+                writer.writerow(
+                    row
+                )
 
         print(
             "✅ Cleaned dataset saved to:",
@@ -327,6 +493,16 @@ class FeatureCleaner:
         print(
             "Rows:",
             len(cleaned_rows)
+        )
+
+        print(
+            "✅ Train-ready dataset saved to:",
+            FeatureCleaner.TRAIN_READY_DATASET_FILE
+        )
+
+        print(
+            "Train-ready rows:",
+            len(train_ready_rows)
         )
 
 
