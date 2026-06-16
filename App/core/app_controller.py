@@ -12,6 +12,7 @@ from core.dataset_exporter import DatasetExporter
 from core.feature_cleaner import FeatureCleaner
 from core.label_manager import LabelManager
 from core.session_validator import SessionValidator
+from core.paper_feature_mapper import PaperFeatureMapper
 
 class AppController:
 
@@ -88,6 +89,39 @@ class AppController:
             PhenotypeFusion.build(
                 self.session
             )
+        )
+        paper_mapping = PaperFeatureMapper.build(
+            self.session
+        )
+
+        self.session["paper_aligned_features"] = (
+            paper_mapping["paper_aligned_features"]
+        )
+
+        self.session["paper_feature_match_report"] = (
+            paper_mapping["paper_feature_match_report"]
+        )
+
+        self.session["paper_feature_coverage"] = (
+            paper_mapping["paper_feature_coverage"]
+        )
+
+        self.session["phenotype_vector"].update(
+            self.session["paper_aligned_features"]
+        )
+        self.session_manager.save_json(
+            "paper_aligned_features.json",
+            self.session["paper_aligned_features"]
+        )
+
+        self.session_manager.save_json(
+            "paper_feature_match_report.json",
+            self.session["paper_feature_match_report"]
+        )
+
+        self.session_manager.save_json(
+            "paper_feature_coverage.json",
+            self.session["paper_feature_coverage"]
         )
 
         self.session_manager.save_json(
@@ -183,6 +217,15 @@ class AppController:
 
             "phenotype_vector":
                 self.session.get("phenotype_vector"),
+            
+            "paper_aligned_features":
+                self.session.get("paper_aligned_features"),
+
+            "paper_feature_match_report":
+                self.session.get("paper_feature_match_report"),
+
+            "paper_feature_coverage":
+                self.session.get("paper_feature_coverage"),
 
             "session_quality":
                 self.session.get("session_quality"),

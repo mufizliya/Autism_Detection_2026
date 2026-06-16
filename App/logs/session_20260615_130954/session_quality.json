@@ -1,0 +1,9 @@
+{
+    "is_valid": true,
+    "quality_score": 1.0,
+    "quality_level": "Good",
+    "issues": [],
+    "warnings": [
+        "Motor stereotypy index is very high; verify whether movement was intentional/test behavior."
+    ]
+}

@@ -1,0 +1,890 @@
+{
+    "session_id": "session_20260615_130954",
+    "child_info": {
+        "name": "Saad",
+        "age": "2",
+        "gender": "Male",
+        "timestamp": "2026-06-15T13:09:59.114649"
+    },
+    "questionnaire": {
+        "score": 21,
+        "outcome": "Further evaluation recommended",
+        "answers": {
+            "Q1": "Yes",
+            "Q2": "Yes",
+            "Q3": "Yes",
+            "Q4": "Yes",
+            "Q5": "Yes",
+            "Q6": "Yes",
+            "Q7": "Yes",
+            "Q8": "Yes",
+            "Q9": "Yes",
+            "Q10": "Yes",
+            "Q11": "Yes",
+            "Q12": "Yes",
+            "Q13": "Yes",
+            "Q14": "Yes",
+            "Q15": "Yes",
+            "Q16": "Yes",
+            "Q17": "Yes",
+            "Q18": "Yes",
+            "Q19": "Yes",
+            "Q20": "Yes",
+            "Q21": "Yes",
+            "Q22": "Yes",
+            "Q23": "Yes",
+            "Q24": "Yes",
+            "Q25": "Yes",
+            "Q26": "Yes",
+            "Q27": "Yes",
+            "Q28": "Yes",
+            "Q29": "Yes",
+            "Q30": "Yes",
+            "Q31": "Yes",
+            "Q32": "Yes",
+            "Q33": "Yes",
+            "Q34": "Yes",
+            "Q35": "Yes",
+            "Q36": "Yes",
+            "Q37": "Yes",
+            "Q38": "Yes",
+            "Q39": "Yes",
+            "Q40": "Yes"
+        },
+        "phenotypes": {
+            "social_communication": {
+                "raw_score": 2,
+                "max_score": 19,
+                "severity": 0.11
+            },
+            "sensory_sensitivity": {
+                "raw_score": 4,
+                "max_score": 4,
+                "severity": 1.0
+            },
+            "repetitive_behavior": {
+                "raw_score": 9,
+                "max_score": 9,
+                "severity": 1.0
+            },
+            "emotional_regulation": {
+                "raw_score": 4,
+                "max_score": 4,
+                "severity": 1.0
+            },
+            "motor_behavior": {
+                "raw_score": 2,
+                "max_score": 2,
+                "severity": 1.0
+            }
+        }
+    },
+    "scq_results": {
+        "timestamp": "2026-06-15T13:10:01.030734",
+        "name": "Saad",
+        "age": "2",
+        "gender": "Male",
+        "scq_score": 21,
+        "outcome": "Further evaluation recommended",
+        "phenotypes": {
+            "social_communication": {
+                "raw_score": 2,
+                "max_score": 19,
+                "severity": 0.11
+            },
+            "sensory_sensitivity": {
+                "raw_score": 4,
+                "max_score": 4,
+                "severity": 1.0
+            },
+            "repetitive_behavior": {
+                "raw_score": 9,
+                "max_score": 9,
+                "severity": 1.0
+            },
+            "emotional_regulation": {
+                "raw_score": 4,
+                "max_score": 4,
+                "severity": 1.0
+            },
+            "motor_behavior": {
+                "raw_score": 2,
+                "max_score": 2,
+                "severity": 1.0
+            }
+        },
+        "answers": "{\"Q1\": \"Yes\", \"Q2\": \"Yes\", \"Q3\": \"Yes\", \"Q4\": \"Yes\", \"Q5\": \"Yes\", \"Q6\": \"Yes\", \"Q7\": \"Yes\", \"Q8\": \"Yes\", \"Q9\": \"Yes\", \"Q10\": \"Yes\", \"Q11\": \"Yes\", \"Q12\": \"Yes\", \"Q13\": \"Yes\", \"Q14\": \"Yes\", \"Q15\": \"Yes\", \"Q16\": \"Yes\", \"Q17\": \"Yes\", \"Q18\": \"Yes\", \"Q19\": \"Yes\", \"Q20\": \"Yes\", \"Q21\": \"Yes\", \"Q22\": \"Yes\", \"Q23\": \"Yes\", \"Q24\": \"Yes\", \"Q25\": \"Yes\", \"Q26\": \"Yes\", \"Q27\": \"Yes\", \"Q28\": \"Yes\", \"Q29\": \"Yes\", \"Q30\": \"Yes\", \"Q31\": \"Yes\", \"Q32\": \"Yes\", \"Q33\": \"Yes\", \"Q34\": \"Yes\", \"Q35\": \"Yes\", \"Q36\": \"Yes\", \"Q37\": \"Yes\", \"Q38\": \"Yes\", \"Q39\": \"Yes\", \"Q40\": \"Yes\"}"
+    },
+    "name_response": {
+        "response": "good",
+        "response_time": 1.7464101314544678,
+        "emotional_phenotypes": {
+            "emotional_distress": 0.0,
+            "social_hesitation": 0.17,
+            "interaction_engagement": 1.0,
+            "emotional_responsiveness": 0.83
+        }
+    },
+    "game_metrics": {
+        "score": 1,
+        "total_reactions": 21,
+        "reaction_data": [
+            {
+                "x": 1618,
+                "y": 306,
+                "reaction_time_sec": 2.31,
+                "timestamp": "2026-06-15 13:10:40",
+                "status": "popped"
+            },
+            {
+                "x": 959,
+                "y": 583,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:42",
+                "status": "missed"
+            },
+            {
+                "x": 785,
+                "y": 146,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:43",
+                "status": "missed"
+            },
+            {
+                "x": 814,
+                "y": 368,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:45",
+                "status": "missed"
+            },
+            {
+                "x": 888,
+                "y": 757,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:46",
+                "status": "missed"
+            },
+            {
+                "x": 1093,
+                "y": 967,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:48",
+                "status": "missed"
+            },
+            {
+                "x": 458,
+                "y": 994,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:49",
+                "status": "missed"
+            },
+            {
+                "x": 816,
+                "y": 933,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:51",
+                "status": "missed"
+            },
+            {
+                "x": 1210,
+                "y": 377,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:52",
+                "status": "missed"
+            },
+            {
+                "x": 1658,
+                "y": 876,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:54",
+                "status": "missed"
+            },
+            {
+                "x": 1258,
+                "y": 844,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:55",
+                "status": "missed"
+            },
+            {
+                "x": 1355,
+                "y": 676,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:57",
+                "status": "missed"
+            },
+            {
+                "x": 885,
+                "y": 867,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:10:58",
+                "status": "missed"
+            },
+            {
+                "x": 1409,
+                "y": 337,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:11:00",
+                "status": "missed"
+            },
+            {
+                "x": 191,
+                "y": 651,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:11:02",
+                "status": "missed"
+            },
+            {
+                "x": 501,
+                "y": 869,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:11:03",
+                "status": "missed"
+            },
+            {
+                "x": 1057,
+                "y": 316,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:11:05",
+                "status": "missed"
+            },
+            {
+                "x": 1613,
+                "y": 401,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:11:06",
+                "status": "missed"
+            },
+            {
+                "x": 1250,
+                "y": 195,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:11:08",
+                "status": "missed"
+            },
+            {
+                "x": 1329,
+                "y": 804,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:11:09",
+                "status": "missed"
+            },
+            {
+                "x": 1270,
+                "y": 586,
+                "reaction_time_sec": null,
+                "timestamp": "2026-06-15 13:11:11",
+                "status": "missed"
+            }
+        ],
+        "behavioral_phenotypes": {
+            "attention_deficit": 0.77,
+            "disengagement": 0.95,
+            "motor_irregularity": 0,
+            "responsiveness": 0.05
+        }
+    },
+    "video_test": {
+        "social_video": {
+            "video_metrics": {
+                "video_type": "social",
+                "video_path": "temp/peekaboo.mp4",
+                "start_timestamp": 1781509207.37098,
+                "end_timestamp": 1781509219.7012851,
+                "duration_seconds": 12.33,
+                "completed": true
+            },
+            "gaze_metrics": {
+                "total_frames": 313,
+                "face_detected_frames": 311,
+                "eye_landmark_frames": 311,
+                "face_presence_ratio": 0.994,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "away_time_sec": 0,
+                "attention_ratio": 1.0,
+                "yaw_variability": 0.23,
+                "pitch_variability": 0.43,
+                "eye_contact_ratio": 1.0,
+                "gaze_variability": 0.02
+            },
+            "facial_expression_metrics": {
+                "total_frames": 314,
+                "face_frames": 312,
+                "avg_smile_score": 4.382,
+                "baseline_smile": 4.432,
+                "smile_threshold": 5.232,
+                "smiling_frames": 0,
+                "smile_ratio": 0.0
+            },
+            "pose_metrics": {
+                "total_frames": 310,
+                "pose_frames": 309,
+                "pose_presence_ratio": 0.997,
+                "head_variability": 1.347,
+                "shoulder_variability": 1.334,
+                "body_stability_score": 0.272
+            },
+            "motor_metrics": {
+                "total_frames": 311,
+                "pose_frames": 310,
+                "pose_presence_ratio": 0.997,
+                "left_arm_variability": 2.9,
+                "right_arm_variability": 1.23,
+                "arm_stereotypy_score": 2.07,
+                "left_frequency_hz": 0.09,
+                "right_frequency_hz": 0.09,
+                "oscillation_frequency_hz": 0.09,
+                "stereotypy_index": 0.18
+            }
+        },
+        "nonsocial_video": {
+            "video_metrics": {
+                "video_type": "nonsocial",
+                "video_path": "temp/domino.mp4",
+                "start_timestamp": 1781509220.915513,
+                "end_timestamp": 1781509233.431998,
+                "duration_seconds": 12.52,
+                "completed": true
+            },
+            "gaze_metrics": {
+                "total_frames": 315,
+                "face_detected_frames": 314,
+                "eye_landmark_frames": 314,
+                "face_presence_ratio": 0.997,
+                "blink_count": 0,
+                "blink_rate_per_min": 0.0,
+                "away_time_sec": 0,
+                "attention_ratio": 1.0,
+                "yaw_variability": 0.11,
+                "pitch_variability": 0.29,
+                "eye_contact_ratio": 1.0,
+                "gaze_variability": 0.029
+            },
+            "facial_expression_metrics": {
+                "total_frames": 316,
+                "face_frames": 315,
+                "avg_smile_score": 4.255,
+                "baseline_smile": 4.317,
+                "smile_threshold": 5.117,
+                "smiling_frames": 23,
+                "smile_ratio": 0.073
+            },
+            "pose_metrics": {
+                "total_frames": 313,
+                "pose_frames": 312,
+                "pose_presence_ratio": 0.997,
+                "head_variability": 0.741,
+                "shoulder_variability": 0.705,
+                "body_stability_score": 0.409
+            },
+            "motor_metrics": {
+                "total_frames": 313,
+                "pose_frames": 312,
+                "pose_presence_ratio": 0.997,
+                "left_arm_variability": 2.68,
+                "right_arm_variability": 1.56,
+                "arm_stereotypy_score": 2.12,
+                "left_frequency_hz": 0.0,
+                "right_frequency_hz": 0.09,
+                "oscillation_frequency_hz": 0.04,
+                "stereotypy_index": 0.09
+            }
+        },
+        "comparison": {
+            "social_attention_ratio": 1.0,
+            "nonsocial_attention_ratio": 1.0,
+            "social_preference_score": 0.0,
+            "social_smile_ratio": 0.0,
+            "nonsocial_smile_ratio": 0.073,
+            "smile_response_difference": -0.073,
+            "social_body_stability_score": 0.272,
+            "nonsocial_body_stability_score": 0.409,
+            "social_motor_stereotypy_index": 0.18,
+            "nonsocial_motor_stereotypy_index": 0.09,
+            "motor_difference": 0.09,
+            "attention_interpretation": "Similar attention across social and non-social videos."
+        }
+    },
+    "gaze_metrics": {
+        "total_frames": 1132,
+        "face_detected_frames": 1131,
+        "eye_landmark_frames": 1131,
+        "face_presence_ratio": 0.999,
+        "blink_count": 7,
+        "blink_rate_per_min": 10.35,
+        "away_time_sec": 1.03,
+        "attention_ratio": 0.973,
+        "yaw_variability": 1.26,
+        "pitch_variability": 2.13,
+        "eye_contact_ratio": 1.0,
+        "gaze_variability": 0.026
+    },
+    "facial_expression_metrics": {
+        "total_frames": 1131,
+        "face_frames": 1130,
+        "avg_smile_score": 3.839,
+        "baseline_smile": 4.031,
+        "smile_threshold": 4.831,
+        "smiling_frames": 49,
+        "smile_ratio": 0.043
+    },
+    "pose_metrics": {
+        "total_frames": 837,
+        "pose_frames": 836,
+        "pose_presence_ratio": 0.999,
+        "head_variability": 1.737,
+        "shoulder_variability": 2.923,
+        "body_stability_score": 0.177
+    },
+    "motor_metrics": {
+        "total_frames": 789,
+        "pose_frames": 788,
+        "pose_presence_ratio": 0.999,
+        "left_arm_variability": 63.98,
+        "right_arm_variability": 61.63,
+        "arm_stereotypy_score": 62.81,
+        "left_frequency_hz": 1.11,
+        "right_frequency_hz": 0.89,
+        "oscillation_frequency_hz": 1.0,
+        "stereotypy_index": 62.81
+    },
+    "phenotype_vector": {
+        "scq_score": 21,
+        "scq_outcome": "Further evaluation recommended",
+        "scq_social_communication_raw": 2,
+        "scq_social_communication_severity": 0.11,
+        "scq_sensory_sensitivity_raw": 4,
+        "scq_sensory_sensitivity_severity": 1.0,
+        "scq_repetitive_behavior_raw": 9,
+        "scq_repetitive_behavior_severity": 1.0,
+        "scq_emotional_regulation_raw": 4,
+        "scq_emotional_regulation_severity": 1.0,
+        "scq_motor_behavior_raw": 2,
+        "scq_motor_behavior_severity": 1.0,
+        "name_response_time": 1.7464101314544678,
+        "name_response_good": 1,
+        "name_response_not_good": 0,
+        "emotion_emotional_distress": 0.0,
+        "emotion_social_hesitation": 0.17,
+        "emotion_interaction_engagement": 1.0,
+        "emotion_emotional_responsiveness": 0.83,
+        "game_score": 1,
+        "game_total_reactions": 21,
+        "game_avg_reaction_time": 2.31,
+        "game_min_reaction_time": 2.31,
+        "game_max_reaction_time": 2.31,
+        "game_popped_count": 1,
+        "game_missed_count": 20,
+        "game_miss_ratio": 0.9523809523809523,
+        "game_attention_deficit": 0.77,
+        "game_disengagement": 0.95,
+        "game_motor_irregularity": 0,
+        "game_responsiveness": 0.05,
+        "gaze_face_presence_ratio": 0.999,
+        "gaze_blink_count": 7,
+        "gaze_blink_rate_per_min": 10.35,
+        "gaze_away_time_sec": 1.03,
+        "gaze_attention_ratio": 0.973,
+        "gaze_yaw_variability": 1.26,
+        "gaze_pitch_variability": 2.13,
+        "gaze_eye_contact_ratio": 1.0,
+        "gaze_gaze_variability": 0.026,
+        "expression_avg_smile_score": 3.839,
+        "expression_baseline_smile": 4.031,
+        "expression_smile_threshold": 4.831,
+        "expression_smiling_frames": 49,
+        "expression_smile_ratio": 0.043,
+        "pose_pose_presence_ratio": 0.999,
+        "pose_head_variability": 1.737,
+        "pose_shoulder_variability": 2.923,
+        "pose_body_stability_score": 0.177,
+        "motor_pose_presence_ratio": 0.999,
+        "motor_left_arm_variability": 63.98,
+        "motor_right_arm_variability": 61.63,
+        "motor_arm_stereotypy_score": 62.81,
+        "motor_left_frequency_hz": 1.11,
+        "motor_right_frequency_hz": 0.89,
+        "motor_oscillation_frequency_hz": 1.0,
+        "motor_stereotypy_index": 62.81,
+        "video_test_available": 1,
+        "video_social_video_duration": 12.33,
+        "video_social_video_completed": 1,
+        "video_social_facing_forward_proxy": 1.0,
+        "video_social_face_presence_ratio": 0.994,
+        "video_social_blink_count": 0.0,
+        "video_social_blink_rate_per_min": 0.0,
+        "video_social_away_time_sec": 0.0,
+        "video_social_yaw_variability": 0.23,
+        "video_social_pitch_variability": 0.43,
+        "video_social_gaze_variability": 0.02,
+        "video_social_avg_smile_score": 4.382,
+        "video_social_smile_ratio": 0.0,
+        "video_social_smiling_frames": 0.0,
+        "video_social_pose_presence_ratio": 0.997,
+        "video_social_head_variability": 1.347,
+        "video_social_shoulder_variability": 1.334,
+        "video_social_body_stability_score": 0.272,
+        "video_social_motor_pose_presence_ratio": 0.997,
+        "video_social_arm_stereotypy_score": 2.07,
+        "video_social_oscillation_frequency_hz": 0.09,
+        "video_social_stereotypy_index": 0.18,
+        "video_nonsocial_video_duration": 12.52,
+        "video_nonsocial_video_completed": 1,
+        "video_nonsocial_facing_forward_proxy": 1.0,
+        "video_nonsocial_face_presence_ratio": 0.997,
+        "video_nonsocial_blink_count": 0.0,
+        "video_nonsocial_blink_rate_per_min": 0.0,
+        "video_nonsocial_away_time_sec": 0.0,
+        "video_nonsocial_yaw_variability": 0.11,
+        "video_nonsocial_pitch_variability": 0.29,
+        "video_nonsocial_gaze_variability": 0.029,
+        "video_nonsocial_avg_smile_score": 4.255,
+        "video_nonsocial_smile_ratio": 0.073,
+        "video_nonsocial_smiling_frames": 23.0,
+        "video_nonsocial_pose_presence_ratio": 0.997,
+        "video_nonsocial_head_variability": 0.741,
+        "video_nonsocial_shoulder_variability": 0.705,
+        "video_nonsocial_body_stability_score": 0.409,
+        "video_nonsocial_motor_pose_presence_ratio": 0.997,
+        "video_nonsocial_arm_stereotypy_score": 2.12,
+        "video_nonsocial_oscillation_frequency_hz": 0.04,
+        "video_nonsocial_stereotypy_index": 0.09,
+        "video_social_preference_score": 0.0,
+        "video_nonsocial_preference_score": 0.0,
+        "video_smile_response_difference": -0.073,
+        "video_motor_difference": 0.09,
+        "video_head_movement_difference": 0.606,
+        "video_attention_pattern": "balanced",
+        "paper_facing_forward_social_movies": 1.0,
+        "paper_facing_forward_nonsocial_movies": 1.0,
+        "paper_gaze_percent_social": 0.5,
+        "paper_gaze_silhouette_score": 0.9761,
+        "paper_attention_to_speech": 0.0,
+        "paper_response_to_name_delay": 1.7464,
+        "paper_response_to_name_proportion": 1.0,
+        "paper_blink_rate_social_movies": 0.0,
+        "paper_blink_rate_nonsocial_movies": 0.0,
+        "paper_eyebrows_complexity_social_movies": 0.0,
+        "paper_eyebrows_complexity_nonsocial_movies": 0.0,
+        "paper_mouth_complexity_social_movies": 4.382,
+        "paper_mouth_complexity_nonsocial_movies": 4.255,
+        "paper_head_movement_social_movies": 1.347,
+        "paper_head_movement_nonsocial_movies": 0.741,
+        "paper_head_movement_complexity_social_movies": 1.347,
+        "paper_head_movement_complexity_nonsocial_movies": 0.741,
+        "paper_head_movement_acceleration_social_movies": 0.0,
+        "paper_head_movement_acceleration_nonsocial_movies": 0.0,
+        "paper_pop_the_bubbles_popping_rate": 0.0476,
+        "paper_pop_the_bubbles_accuracy_std": 0.0,
+        "paper_pop_the_bubbles_average_touch_length": 0.0,
+        "paper_pop_the_bubbles_average_applied_force": 0.0
+    },
+    "paper_aligned_features": {
+        "paper_facing_forward_social_movies": 1.0,
+        "paper_facing_forward_nonsocial_movies": 1.0,
+        "paper_gaze_percent_social": 0.5,
+        "paper_gaze_silhouette_score": 0.9761,
+        "paper_attention_to_speech": 0.0,
+        "paper_response_to_name_delay": 1.7464,
+        "paper_response_to_name_proportion": 1.0,
+        "paper_blink_rate_social_movies": 0.0,
+        "paper_blink_rate_nonsocial_movies": 0.0,
+        "paper_eyebrows_complexity_social_movies": 0.0,
+        "paper_eyebrows_complexity_nonsocial_movies": 0.0,
+        "paper_mouth_complexity_social_movies": 4.382,
+        "paper_mouth_complexity_nonsocial_movies": 4.255,
+        "paper_head_movement_social_movies": 1.347,
+        "paper_head_movement_nonsocial_movies": 0.741,
+        "paper_head_movement_complexity_social_movies": 1.347,
+        "paper_head_movement_complexity_nonsocial_movies": 0.741,
+        "paper_head_movement_acceleration_social_movies": 0.0,
+        "paper_head_movement_acceleration_nonsocial_movies": 0.0,
+        "paper_pop_the_bubbles_popping_rate": 0.0476,
+        "paper_pop_the_bubbles_accuracy_std": 0.0,
+        "paper_pop_the_bubbles_average_touch_length": 0.0,
+        "paper_pop_the_bubbles_average_applied_force": 0.0
+    },
+    "paper_feature_match_report": {
+        "paper_facing_forward_social_movies": {
+            "paper_feature": "paper_facing_forward_social_movies",
+            "our_app_source": "video_social_facing_forward_proxy",
+            "match_type": "proxy",
+            "note": "Paper uses eyes open + gaze near screen + steady face. Our app uses webcam attention ratio proxy."
+        },
+        "paper_facing_forward_nonsocial_movies": {
+            "paper_feature": "paper_facing_forward_nonsocial_movies",
+            "our_app_source": "video_nonsocial_facing_forward_proxy",
+            "match_type": "proxy",
+            "note": "Paper uses eyes open + gaze near screen + steady face. Our app uses webcam attention ratio proxy."
+        },
+        "paper_gaze_percent_social": {
+            "paper_feature": "paper_gaze_percent_social",
+            "our_app_source": "video_social_facing_forward_proxy / social+nonsocial attention",
+            "match_type": "proxy",
+            "note": "Paper uses gaze AOI to social half of screen. Our app estimates relative attention to social vs nonsocial video blocks."
+        },
+        "paper_gaze_silhouette_score": {
+            "paper_feature": "paper_gaze_silhouette_score",
+            "our_app_source": "video_social_gaze_variability + video_nonsocial_gaze_variability",
+            "match_type": "proxy",
+            "note": "Paper uses gaze clustering on person/toy AOIs. Our app uses inverse gaze variability as weak proxy."
+        },
+        "paper_attention_to_speech": {
+            "paper_feature": "paper_attention_to_speech",
+            "our_app_source": "not_implemented",
+            "match_type": "missing",
+            "note": "Paper uses gaze correlation with alternating conversation. Our app needs a dedicated speech-turn video task for this."
+        },
+        "paper_response_to_name_delay": {
+            "paper_feature": "paper_response_to_name_delay",
+            "our_app_source": "name_response_time",
+            "match_type": "proxy",
+            "note": "Paper calls name three times during movies and measures head-turn delay. Our app measures response time during name response task."
+        },
+        "paper_response_to_name_proportion": {
+            "paper_feature": "paper_response_to_name_proportion",
+            "our_app_source": "name_response_good/name_response_not_good",
+            "match_type": "proxy",
+            "note": "Paper uses three examiner name calls. Our app currently has one response event."
+        },
+        "paper_blink_rate_social_movies": {
+            "paper_feature": "paper_blink_rate_social_movies",
+            "our_app_source": "video_social_blink_rate_per_min",
+            "match_type": "proxy",
+            "note": "Paper extracts blink rate during social movies. Our app extracts webcam blink rate during social video."
+        },
+        "paper_blink_rate_nonsocial_movies": {
+            "paper_feature": "paper_blink_rate_nonsocial_movies",
+            "our_app_source": "video_nonsocial_blink_rate_per_min",
+            "match_type": "proxy",
+            "note": "Paper extracts blink rate during nonsocial movies. Our app extracts webcam blink rate during nonsocial video."
+        },
+        "paper_eyebrows_complexity_social_movies": {
+            "paper_feature": "paper_eyebrows_complexity_social_movies",
+            "our_app_source": "not_implemented",
+            "match_type": "missing",
+            "note": "Paper uses multiscale entropy of eyebrow landmarks. Our app does not yet calculate eyebrow dynamics complexity."
+        },
+        "paper_eyebrows_complexity_nonsocial_movies": {
+            "paper_feature": "paper_eyebrows_complexity_nonsocial_movies",
+            "our_app_source": "not_implemented",
+            "match_type": "missing",
+            "note": "Paper uses multiscale entropy of eyebrow landmarks. Our app does not yet calculate eyebrow dynamics complexity."
+        },
+        "paper_mouth_complexity_social_movies": {
+            "paper_feature": "paper_mouth_complexity_social_movies",
+            "our_app_source": "video_social_avg_smile_score",
+            "match_type": "proxy",
+            "note": "Paper uses multiscale entropy of mouth landmarks. Our app uses smile/mouth score as proxy."
+        },
+        "paper_mouth_complexity_nonsocial_movies": {
+            "paper_feature": "paper_mouth_complexity_nonsocial_movies",
+            "our_app_source": "video_nonsocial_avg_smile_score",
+            "match_type": "proxy",
+            "note": "Paper uses multiscale entropy of mouth landmarks. Our app uses smile/mouth score as proxy."
+        },
+        "paper_head_movement_social_movies": {
+            "paper_feature": "paper_head_movement_social_movies",
+            "our_app_source": "video_social_head_variability",
+            "match_type": "proxy",
+            "note": "Paper uses head movement from facial landmark time series. Our app uses head position variability."
+        },
+        "paper_head_movement_nonsocial_movies": {
+            "paper_feature": "paper_head_movement_nonsocial_movies",
+            "our_app_source": "video_nonsocial_head_variability",
+            "match_type": "proxy",
+            "note": "Paper uses head movement from facial landmark time series. Our app uses head position variability."
+        },
+        "paper_head_movement_complexity_social_movies": {
+            "paper_feature": "paper_head_movement_complexity_social_movies",
+            "our_app_source": "video_social_head_variability",
+            "match_type": "proxy",
+            "note": "Paper uses multiscale entropy. Our app currently uses variability as a simple proxy."
+        },
+        "paper_head_movement_complexity_nonsocial_movies": {
+            "paper_feature": "paper_head_movement_complexity_nonsocial_movies",
+            "our_app_source": "video_nonsocial_head_variability",
+            "match_type": "proxy",
+            "note": "Paper uses multiscale entropy. Our app currently uses variability as a simple proxy."
+        },
+        "paper_head_movement_acceleration_social_movies": {
+            "paper_feature": "paper_head_movement_acceleration_social_movies",
+            "our_app_source": "not_implemented",
+            "match_type": "missing",
+            "note": "Paper computes derivative/acceleration of head movement. Our app does not yet store frame-wise head movement time series."
+        },
+        "paper_head_movement_acceleration_nonsocial_movies": {
+            "paper_feature": "paper_head_movement_acceleration_nonsocial_movies",
+            "our_app_source": "not_implemented",
+            "match_type": "missing",
+            "note": "Paper computes derivative/acceleration of head movement. Our app does not yet store frame-wise head movement time series."
+        },
+        "paper_pop_the_bubbles_popping_rate": {
+            "paper_feature": "paper_pop_the_bubbles_popping_rate",
+            "our_app_source": "game_popped_count / game_total_reactions",
+            "match_type": "proxy",
+            "note": "Paper uses popped bubbles over touches. Our app uses popped events over total game events."
+        },
+        "paper_pop_the_bubbles_accuracy_std": {
+            "paper_feature": "paper_pop_the_bubbles_accuracy_std",
+            "our_app_source": "game_motor_irregularity",
+            "match_type": "proxy",
+            "note": "Paper uses touch error standard deviation. Our app uses game motor irregularity proxy."
+        },
+        "paper_pop_the_bubbles_average_touch_length": {
+            "paper_feature": "paper_pop_the_bubbles_average_touch_length",
+            "our_app_source": "not_implemented",
+            "match_type": "missing",
+            "note": "Paper uses finger trajectory length on tablet. Our app must log mouse/touch movement path to compute this."
+        },
+        "paper_pop_the_bubbles_average_applied_force": {
+            "paper_feature": "paper_pop_the_bubbles_average_applied_force",
+            "our_app_source": "not_available_on_laptop",
+            "match_type": "missing",
+            "note": "Paper uses device touch force/kinetic data. Standard laptop mouse/webcam setup cannot measure real applied touch force."
+        }
+    },
+    "paper_feature_coverage": {
+        "total_paper_features": 23,
+        "exact_count": 0,
+        "proxy_count": 16,
+        "missing_count": 7,
+        "coverage_score": 0.348
+    },
+    "session_quality": {
+        "is_valid": true,
+        "quality_score": 1.0,
+        "quality_level": "Good",
+        "issues": [],
+        "warnings": [
+            "Motor stereotypy index is very high; verify whether movement was intentional/test behavior."
+        ]
+    },
+    "risk_assessment": {
+        "overall_risk_score": 0.685,
+        "risk_level": "Moderate",
+        "domain_scores": {
+            "scq_risk": 0.715,
+            "game_risk": 0.915,
+            "gaze_risk": 0.032,
+            "expression_risk": 0.974,
+            "pose_risk": 0.528,
+            "motor_risk": 0.867
+        },
+        "primary_concerns": [
+            "SCQ score indicates need for further evaluation",
+            "High missed-response ratio during game task",
+            "Low responsiveness during game task",
+            "Reduced smiling or facial expressiveness",
+            "Low body stability score / increased movement variability",
+            "Elevated repetitive motor movement index",
+            "Motor phenotype risk is elevated"
+        ],
+        "note": "This is a rule-based screening support score, not a clinical diagnosis."
+    },
+    "report_summary": {
+        "session_id": "session_20260615_130954",
+        "child_information": {
+            "name": "Saad",
+            "age": "2",
+            "gender": "Male",
+            "timestamp": "2026-06-15T13:09:59.114649"
+        },
+        "scq_summary": {
+            "score": 21,
+            "outcome": "Further evaluation recommended",
+            "phenotype_scores": {
+                "social_communication": {
+                    "raw_score": 2,
+                    "max_score": 19,
+                    "severity": 0.11
+                },
+                "sensory_sensitivity": {
+                    "raw_score": 4,
+                    "max_score": 4,
+                    "severity": 1.0
+                },
+                "repetitive_behavior": {
+                    "raw_score": 9,
+                    "max_score": 9,
+                    "severity": 1.0
+                },
+                "emotional_regulation": {
+                    "raw_score": 4,
+                    "max_score": 4,
+                    "severity": 1.0
+                },
+                "motor_behavior": {
+                    "raw_score": 2,
+                    "max_score": 2,
+                    "severity": 1.0
+                }
+            }
+        },
+        "name_response_summary": {
+            "response": "good",
+            "response_time_sec": 1.75,
+            "interpretation": "Child reported feeling good during the greeting task."
+        },
+        "game_summary": {
+            "score": 1,
+            "total_events": 21,
+            "popped_count": 1,
+            "missed_count": 20,
+            "miss_ratio": 0.952,
+            "average_reaction_time_sec": 2.31,
+            "interpretation": "The child missed a high proportion of game targets, which may suggest reduced task engagement, attention, or motor responsiveness during this session."
+        },
+        "gaze_attention_summary": {
+            "face_presence_ratio": 0.999,
+            "attention_ratio": 0.973,
+            "blink_rate_per_min": 10.35,
+            "eye_contact_proxy_ratio": 1.0,
+            "interpretation": "Visual attention appeared relatively stable during the observed tasks.",
+            "note": "Eye contact ratio is a proxy measure based on FaceMesh/iris landmarks and should not be treated as clinical eye-tracking."
+        },
+        "facial_expression_summary": {
+            "baseline_smile_score": 4.031,
+            "average_smile_score": 3.839,
+            "smile_ratio": 0.043,
+            "interpretation": "Facial expressiveness appeared reduced based on smile activity during the observed session."
+        },
+        "pose_stability_summary": {
+            "body_stability_score": 0.177,
+            "head_variability": 1.737,
+            "shoulder_variability": 2.923,
+            "interpretation": "Body stability score was low, suggesting increased movement or postural variability during the session."
+        },
+        "motor_stereotypy_summary": {
+            "arm_stereotypy_score": 62.81,
+            "oscillation_frequency_hz": 1.0,
+            "stereotypy_index": 62.81,
+            "interpretation": "Repetitive upper-limb movement index was elevated during the session."
+        },
+        "risk_summary": {
+            "overall_risk_score": 0.685,
+            "risk_level": "Moderate",
+            "domain_scores": {
+                "scq_risk": 0.715,
+                "game_risk": 0.915,
+                "gaze_risk": 0.032,
+                "expression_risk": 0.974,
+                "pose_risk": 0.528,
+                "motor_risk": 0.867
+            },
+            "primary_concerns": [
+                "SCQ score indicates need for further evaluation",
+                "High missed-response ratio during game task",
+                "Low responsiveness during game task",
+                "Reduced smiling or facial expressiveness",
+                "Low body stability score / increased movement variability",
+                "Elevated repetitive motor movement index",
+                "Motor phenotype risk is elevated"
+            ],
+            "note": "This is a rule-based screening support score, not a clinical diagnosis."
+        },
+        "disclaimer": "This report is generated by a prototype screening support system. It is intended for research and decision-support purposes only and must not be used as a clinical diagnosis. Clinical interpretation should be performed by qualified professionals."
+    },
+    "label": ""
+}

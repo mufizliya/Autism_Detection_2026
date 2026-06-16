@@ -155,6 +155,31 @@ class FeatureCleaner:
         "video_motor_difference",
         "video_head_movement_difference",
 
+                # Paper-aligned SenseToKnow feature set
+        "paper_facing_forward_social_movies",
+        "paper_facing_forward_nonsocial_movies",
+        "paper_gaze_percent_social",
+        "paper_gaze_silhouette_score",
+        "paper_attention_to_speech",
+        "paper_response_to_name_delay",
+        "paper_response_to_name_proportion",
+        "paper_blink_rate_social_movies",
+        "paper_blink_rate_nonsocial_movies",
+        "paper_eyebrows_complexity_social_movies",
+        "paper_eyebrows_complexity_nonsocial_movies",
+        "paper_mouth_complexity_social_movies",
+        "paper_mouth_complexity_nonsocial_movies",
+        "paper_head_movement_social_movies",
+        "paper_head_movement_nonsocial_movies",
+        "paper_head_movement_complexity_social_movies",
+        "paper_head_movement_complexity_nonsocial_movies",
+        "paper_head_movement_acceleration_social_movies",
+        "paper_head_movement_acceleration_nonsocial_movies",
+        "paper_pop_the_bubbles_popping_rate",
+        "paper_pop_the_bubbles_accuracy_std",
+        "paper_pop_the_bubbles_average_touch_length",
+        "paper_pop_the_bubbles_average_applied_force",
+
         # Label stays last
         "label"
     ]
