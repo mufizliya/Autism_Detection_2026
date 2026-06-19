@@ -5,33 +5,39 @@ import json
 
 class ResponseToNameExtractor:
 
+    RESPONSE_WINDOW_SEC = 3.0
+    MIN_RESPONSE_DELAY_SEC = 0.15
+
+    YAW_CHANGE_THRESHOLD = 0.12
+    HEAD_MOVEMENT_THRESHOLD = 0.015
+
     @staticmethod
-    def to_float(value):
+    def to_float(value, default=0.0):
 
         try:
 
             if value is None:
-                return 0.0
+                return default
 
             if value == "":
-                return 0.0
+                return default
 
             return float(value)
 
         except Exception:
 
-            return 0.0
+            return default
 
     @staticmethod
-    def read_csv_rows(file_path):
+    def load_csv_rows(path):
 
-        if not os.path.exists(file_path):
+        if not os.path.exists(path):
             return []
 
         rows = []
 
         with open(
-            file_path,
+            path,
             "r",
             newline=""
         ) as f:
@@ -44,46 +50,6 @@ class ResponseToNameExtractor:
         return rows
 
     @staticmethod
-    def get_session_path(session):
-
-        return session[
-            "session_manager"
-        ].get_session_path()
-
-    @staticmethod
-    def find_framewise_log(
-        session,
-        stimulus_id
-    ):
-
-        session_path = (
-            ResponseToNameExtractor.get_session_path(
-                session
-            )
-        )
-
-        expected_file = os.path.join(
-            session_path,
-            f"{stimulus_id}_framewise_log.csv"
-        )
-
-        if os.path.exists(expected_file):
-            return expected_file
-
-        for filename in os.listdir(session_path):
-
-            if filename.endswith("_framewise_log.csv"):
-
-                if filename.startswith(stimulus_id):
-
-                    return os.path.join(
-                        session_path,
-                        filename
-                    )
-
-        return None
-
-    @staticmethod
     def load_name_call_events(session):
 
         video_test = session.get(
@@ -91,43 +57,36 @@ class ResponseToNameExtractor:
             {}
         )
 
-        name_events = video_test.get(
+        triggered_events = video_test.get(
             "triggered_name_call_events",
             []
         )
 
-        if not name_events:
+        if triggered_events:
+            return triggered_events
 
-            name_events = video_test.get(
-                "name_call_events",
-                []
-            )
-
-        if name_events:
-            return name_events
-
-        session_path = (
-            ResponseToNameExtractor.get_session_path(
-                session
-            )
+        session_manager = session.get(
+            "session_manager"
         )
 
-        stimulus_events_path = os.path.join(
-            session_path,
-            "stimulus_events.json"
-        )
+        if session_manager is not None:
 
-        if not os.path.exists(stimulus_events_path):
-            return []
+            session_path = session_manager.get_session_path()
 
-        try:
+            stimulus_events_path = os.path.join(
+                session_path,
+                "stimulus_events.json"
+            )
 
-            with open(
-                stimulus_events_path,
-                "r"
-            ) as f:
+            if os.path.exists(stimulus_events_path):
 
-                data = json.load(f)
+                with open(
+                    stimulus_events_path,
+                    "r",
+                    encoding="utf-8"
+                ) as f:
+
+                    data = json.load(f)
 
                 triggered_events = data.get(
                     "triggered_name_call_events",
@@ -135,41 +94,200 @@ class ResponseToNameExtractor:
                 )
 
                 if triggered_events:
-
                     return triggered_events
 
                 return data.get(
                     "scheduled_name_call_events",
-                    data.get(
-                        "name_call_events",
-                        []
-                    )
+                    []
                 )
-        except Exception:
 
-            return []
+        return []
 
     @staticmethod
-    def detect_response_in_rows(
-        rows,
-        call_time_sec,
-        response_window_sec=3.0,
-        baseline_window_sec=0.8,
-        yaw_threshold=0.08,
-        movement_threshold=0.025
-    ):
+    def get_stimulus_id_from_event(event):
 
-        """
-        Paper idea:
-        after name call, child responds by orienting/head turn.
+        stimulus_id = event.get(
+            "stimulus_id",
+            ""
+        )
 
-        Our detection:
-        - compute baseline yaw before call
-        - search after call for yaw change or head movement spike
-        - first valid response gives delay
-        """
+        if stimulus_id == "":
+
+            stimulus_id = event.get(
+                "during_stimulus",
+                ""
+            )
+
+        return stimulus_id
+
+    @staticmethod
+    def get_call_time_sec(event):
+
+        # In our current master-video pipeline:
+        # actual_trigger_time_sec = local time inside the stimulus.
+        if "actual_trigger_time_sec" in event:
+
+            return ResponseToNameExtractor.to_float(
+                event.get(
+                    "actual_trigger_time_sec",
+                    0
+                )
+            )
+
+        return ResponseToNameExtractor.to_float(
+            event.get(
+                "call_time_sec",
+                0
+            )
+        )
+
+    @staticmethod
+    def normalize_rows_to_local_time(rows):
 
         if len(rows) == 0:
+            return rows
+
+        elapsed_values = [
+            ResponseToNameExtractor.to_float(
+                row.get(
+                    "elapsed_time",
+                    0
+                )
+            )
+            for row in rows
+        ]
+
+        first_elapsed = min(
+            elapsed_values
+        )
+
+        normalized = []
+
+        for row in rows:
+
+            row_copy = dict(
+                row
+            )
+
+            elapsed = ResponseToNameExtractor.to_float(
+                row_copy.get(
+                    "elapsed_time",
+                    0
+                )
+            )
+
+            row_copy["local_elapsed_time"] = (
+                elapsed
+                -
+                first_elapsed
+            )
+
+            normalized.append(
+                row_copy
+            )
+
+        return normalized
+
+    @staticmethod
+    def get_face_rows(rows):
+
+        face_rows = []
+
+        for row in rows:
+
+            face_detected = ResponseToNameExtractor.to_float(
+                row.get(
+                    "face_detected",
+                    0
+                )
+            )
+
+            if face_detected == 1:
+                face_rows.append(row)
+
+        return face_rows
+
+    @staticmethod
+    def get_baseline_yaw(rows, call_time_sec):
+
+        baseline_rows = []
+
+        for row in rows:
+
+            local_time = ResponseToNameExtractor.to_float(
+                row.get(
+                    "local_elapsed_time",
+                    0
+                )
+            )
+
+            if (
+                local_time >= call_time_sec - 0.5
+                and
+                local_time <= call_time_sec
+            ):
+
+                baseline_rows.append(row)
+
+        if baseline_rows:
+
+            yaw_values = [
+                ResponseToNameExtractor.to_float(
+                    row.get(
+                        "yaw_proxy",
+                        0
+                    )
+                )
+                for row in baseline_rows
+            ]
+
+            return sum(yaw_values) / len(yaw_values)
+
+        # Fallback: nearest row before call.
+        before_rows = []
+
+        for row in rows:
+
+            local_time = ResponseToNameExtractor.to_float(
+                row.get(
+                    "local_elapsed_time",
+                    0
+                )
+            )
+
+            if local_time <= call_time_sec:
+                before_rows.append(row)
+
+        if before_rows:
+
+            nearest = before_rows[-1]
+
+            return ResponseToNameExtractor.to_float(
+                nearest.get(
+                    "yaw_proxy",
+                    0
+                )
+            )
+
+        if rows:
+
+            return ResponseToNameExtractor.to_float(
+                rows[0].get(
+                    "yaw_proxy",
+                    0
+                )
+            )
+
+        return 0.0
+
+    @staticmethod
+    def detect_response(rows, call_time_sec):
+
+        face_rows = ResponseToNameExtractor.get_face_rows(
+            rows
+        )
+
+        if len(face_rows) == 0:
 
             return {
                 "responded":
@@ -179,45 +297,32 @@ class ResponseToNameExtractor:
                     None,
 
                 "reason":
-                    "no_framewise_rows"
+                    "no_face_rows",
+
+                "response_window_rows":
+                    0
             }
 
-        baseline_rows = []
+        baseline_yaw = ResponseToNameExtractor.get_baseline_yaw(
+            face_rows,
+            call_time_sec
+        )
+
         response_rows = []
 
-        for row in rows:
+        for row in face_rows:
 
-            elapsed = ResponseToNameExtractor.to_float(
+            local_time = ResponseToNameExtractor.to_float(
                 row.get(
-                    "elapsed_time",
+                    "local_elapsed_time",
                     0
                 )
             )
 
-            face_detected = int(
-                ResponseToNameExtractor.to_float(
-                    row.get(
-                        "face_detected",
-                        0
-                    )
-                )
-            )
-
-            if face_detected != 1:
-                continue
-
             if (
-                elapsed >= call_time_sec - baseline_window_sec
+                local_time >= call_time_sec + ResponseToNameExtractor.MIN_RESPONSE_DELAY_SEC
                 and
-                elapsed < call_time_sec
-            ):
-
-                baseline_rows.append(row)
-
-            if (
-                elapsed >= call_time_sec
-                and
-                elapsed <= call_time_sec + response_window_sec
+                local_time <= call_time_sec + ResponseToNameExtractor.RESPONSE_WINDOW_SEC
             ):
 
                 response_rows.append(row)
@@ -232,35 +337,26 @@ class ResponseToNameExtractor:
                     None,
 
                 "reason":
-                    "no_response_window_rows"
+                    "no_response_window_rows",
+
+                "response_window_rows":
+                    0,
+
+                "baseline_yaw":
+                    round(
+                        baseline_yaw,
+                        4
+                    )
             }
 
-        if len(baseline_rows) > 0:
-
-            baseline_yaw = sum(
-                ResponseToNameExtractor.to_float(
-                    row.get(
-                        "yaw_proxy",
-                        0
-                    )
-                )
-                for row in baseline_rows
-            ) / len(baseline_rows)
-
-        else:
-
-            baseline_yaw = ResponseToNameExtractor.to_float(
-                response_rows[0].get(
-                    "yaw_proxy",
-                    0
-                )
-            )
+        max_yaw_change = 0.0
+        max_head_movement = 0.0
 
         for row in response_rows:
 
-            elapsed = ResponseToNameExtractor.to_float(
+            local_time = ResponseToNameExtractor.to_float(
                 row.get(
-                    "elapsed_time",
+                    "local_elapsed_time",
                     0
                 )
             )
@@ -280,13 +376,25 @@ class ResponseToNameExtractor:
             )
 
             yaw_change = abs(
-                yaw - baseline_yaw
+                yaw
+                -
+                baseline_yaw
+            )
+
+            max_yaw_change = max(
+                max_yaw_change,
+                yaw_change
+            )
+
+            max_head_movement = max(
+                max_head_movement,
+                head_movement
             )
 
             if (
-                yaw_change >= yaw_threshold
+                yaw_change >= ResponseToNameExtractor.YAW_CHANGE_THRESHOLD
                 or
-                head_movement >= movement_threshold
+                head_movement >= ResponseToNameExtractor.HEAD_MOVEMENT_THRESHOLD
             ):
 
                 return {
@@ -295,9 +403,12 @@ class ResponseToNameExtractor:
 
                     "delay_sec":
                         round(
-                            elapsed - call_time_sec,
+                            local_time - call_time_sec,
                             4
                         ),
+
+                    "reason":
+                        "head_turn_detected",
 
                     "yaw_change":
                         round(
@@ -311,8 +422,26 @@ class ResponseToNameExtractor:
                             4
                         ),
 
-                    "reason":
-                        "head_turn_detected"
+                    "baseline_yaw":
+                        round(
+                            baseline_yaw,
+                            4
+                        ),
+
+                    "response_window_rows":
+                        len(response_rows),
+
+                    "max_yaw_change_in_window":
+                        round(
+                            max_yaw_change,
+                            4
+                        ),
+
+                    "max_head_movement_in_window":
+                        round(
+                            max_head_movement,
+                            4
+                        )
                 }
 
         return {
@@ -323,167 +452,147 @@ class ResponseToNameExtractor:
                 None,
 
             "reason":
-                "no_head_turn_detected"
+                "no_head_turn_above_threshold",
+
+            "baseline_yaw":
+                round(
+                    baseline_yaw,
+                    4
+                ),
+
+            "response_window_rows":
+                len(response_rows),
+
+            "max_yaw_change_in_window":
+                round(
+                    max_yaw_change,
+                    4
+                ),
+
+            "max_head_movement_in_window":
+                round(
+                    max_head_movement,
+                    4
+                )
         }
+
+    @staticmethod
+    def analyze_event(session, event):
+
+        stimulus_id = ResponseToNameExtractor.get_stimulus_id_from_event(
+            event
+        )
+
+        call_time_sec = ResponseToNameExtractor.get_call_time_sec(
+            event
+        )
+
+        session_manager = session.get(
+            "session_manager"
+        )
+
+        session_path = session_manager.get_session_path()
+
+        framewise_log_path = os.path.join(
+            session_path,
+            f"{stimulus_id}_framewise_log.csv"
+        )
+
+        rows = ResponseToNameExtractor.load_csv_rows(
+            framewise_log_path
+        )
+
+        rows = ResponseToNameExtractor.normalize_rows_to_local_time(
+            rows
+        )
+
+        result = ResponseToNameExtractor.detect_response(
+            rows,
+            call_time_sec
+        )
+
+        output = {
+            "call_index":
+                event.get(
+                    "call_index"
+                ),
+
+            "during_stimulus":
+                stimulus_id,
+
+            "call_time_sec":
+                round(
+                    call_time_sec,
+                    4
+                ),
+
+            "framewise_log":
+                framewise_log_path
+        }
+
+        output.update(
+            result
+        )
+
+        return output
 
     @staticmethod
     def build(session):
 
-        name_events = (
-            ResponseToNameExtractor.load_name_call_events(
-                session
-            )
+        name_call_events = ResponseToNameExtractor.load_name_call_events(
+            session
         )
 
         call_results = []
 
-        for event in name_events:
+        response_count = 0
+        delays = []
 
-            stimulus_id = event.get(
-                "during_stimulus"
+        for event in name_call_events:
+
+            result = ResponseToNameExtractor.analyze_event(
+                session,
+                event
             )
-
-            call_index = event.get(
-                "call_index",
-                len(call_results) + 1
-            )
-
-            call_time_sec = (
-                ResponseToNameExtractor.to_float(
-                    event.get(
-                        "actual_trigger_time_sec",
-                        event.get(
-                            "call_time_sec",
-                            0
-                        )
-                    )
-                )
-            )
-
-            log_path = (
-                ResponseToNameExtractor.find_framewise_log(
-                    session,
-                    stimulus_id
-                )
-            )
-
-            if log_path is None:
-
-                call_results.append(
-                    {
-                        "call_index":
-                            call_index,
-
-                        "during_stimulus":
-                            stimulus_id,
-
-                        "call_time_sec":
-                            call_time_sec,
-
-                        "responded":
-                            False,
-
-                        "delay_sec":
-                            None,
-
-                        "reason":
-                            "framewise_log_not_found"
-                    }
-                )
-
-                continue
-
-            rows = (
-                ResponseToNameExtractor.read_csv_rows(
-                    log_path
-                )
-            )
-
-            detection = (
-                ResponseToNameExtractor.detect_response_in_rows(
-                    rows,
-                    call_time_sec
-                )
-            )
-
-            result = {
-                "call_index":
-                    call_index,
-
-                "during_stimulus":
-                    stimulus_id,
-
-                "call_time_sec":
-                    call_time_sec,
-
-                "framewise_log":
-                    log_path,
-
-                "responded":
-                    detection.get(
-                        "responded",
-                        False
-                    ),
-
-                "delay_sec":
-                    detection.get(
-                        "delay_sec"
-                    ),
-
-                "reason":
-                    detection.get(
-                        "reason"
-                    )
-            }
-
-            if "yaw_change" in detection:
-
-                result["yaw_change"] = detection.get(
-                    "yaw_change"
-                )
-
-            if "head_movement" in detection:
-
-                result["head_movement"] = detection.get(
-                    "head_movement"
-                )
 
             call_results.append(
                 result
             )
 
-        total_calls = len(
-            call_results
+            if result.get(
+                "responded",
+                False
+            ):
+
+                response_count += 1
+
+                delay = result.get(
+                    "delay_sec"
+                )
+
+                if delay is not None:
+
+                    delays.append(
+                        delay
+                    )
+
+        call_count = len(
+            name_call_events
         )
 
-        responded_calls = [
-            call
-            for call in call_results
-            if call.get("responded") is True
-        ]
-
-        delays = [
-            call.get("delay_sec")
-            for call in responded_calls
-            if call.get("delay_sec") is not None
-        ]
-
-        response_count = len(
-            responded_calls
-        )
-
-        if total_calls > 0:
+        if call_count > 0:
 
             response_proportion = (
-                response_count /
-                total_calls
+                response_count
+                /
+                call_count
             )
 
         else:
 
             response_proportion = 0.0
 
-        if len(delays) > 0:
+        if delays:
 
             average_delay = (
                 sum(delays)
@@ -493,9 +602,9 @@ class ResponseToNameExtractor:
 
         else:
 
-            average_delay = 0.0
+            average_delay = None
 
-        features = {
+        return {
             "paper_response_to_name_proportion":
                 round(
                     response_proportion,
@@ -503,13 +612,17 @@ class ResponseToNameExtractor:
                 ),
 
             "paper_response_to_name_delay":
-                round(
-                    average_delay,
-                    4
+                (
+                    round(
+                        average_delay,
+                        4
+                    )
+                    if average_delay is not None
+                    else None
                 ),
 
             "name_call_count":
-                total_calls,
+                call_count,
 
             "name_response_count":
                 response_count,
@@ -517,5 +630,3 @@ class ResponseToNameExtractor:
             "name_call_results":
                 call_results
         }
-
-        return features

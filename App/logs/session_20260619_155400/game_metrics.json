@@ -1,0 +1,226 @@
+{
+    "score": 2,
+    "total_reactions": 21,
+    "reaction_data": [
+        {
+            "x": 903,
+            "y": 472,
+            "reaction_time_sec": 0.79,
+            "timestamp": "2026-06-19 15:56:10",
+            "status": "popped"
+        },
+        {
+            "x": 703,
+            "y": 318,
+            "reaction_time_sec": 0.85,
+            "timestamp": "2026-06-19 15:56:12",
+            "status": "popped"
+        },
+        {
+            "x": 473,
+            "y": 961,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:15",
+            "status": "missed"
+        },
+        {
+            "x": 1036,
+            "y": 912,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:17",
+            "status": "missed"
+        },
+        {
+            "x": 1092,
+            "y": 324,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:18",
+            "status": "missed"
+        },
+        {
+            "x": 767,
+            "y": 1050,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:20",
+            "status": "missed"
+        },
+        {
+            "x": 856,
+            "y": 776,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:21",
+            "status": "missed"
+        },
+        {
+            "x": 95,
+            "y": 355,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:23",
+            "status": "missed"
+        },
+        {
+            "x": 1192,
+            "y": 508,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:24",
+            "status": "missed"
+        },
+        {
+            "x": 610,
+            "y": 841,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:26",
+            "status": "missed"
+        },
+        {
+            "x": 622,
+            "y": 447,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:27",
+            "status": "missed"
+        },
+        {
+            "x": 278,
+            "y": 296,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:29",
+            "status": "missed"
+        },
+        {
+            "x": 1515,
+            "y": 1017,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:30",
+            "status": "missed"
+        },
+        {
+            "x": 754,
+            "y": 885,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:32",
+            "status": "missed"
+        },
+        {
+            "x": 1663,
+            "y": 596,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:33",
+            "status": "missed"
+        },
+        {
+            "x": 1307,
+            "y": 1003,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:35",
+            "status": "missed"
+        },
+        {
+            "x": 243,
+            "y": 1056,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:36",
+            "status": "missed"
+        },
+        {
+            "x": 1624,
+            "y": 966,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:38",
+            "status": "missed"
+        },
+        {
+            "x": 667,
+            "y": 563,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:39",
+            "status": "missed"
+        },
+        {
+            "x": 1485,
+            "y": 613,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:41",
+            "status": "missed"
+        },
+        {
+            "x": 1227,
+            "y": 888,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 15:56:42",
+            "status": "missed"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.27,
+        "disengagement": 0.9,
+        "motor_irregularity": 0.0,
+        "responsiveness": 0.1
+    },
+    "touch_events": [
+        {
+            "touch_id": 1,
+            "start_time": 1781864770.436158,
+            "end_time": 1781864770.436291,
+            "duration_seconds": 0.0001,
+            "start_x": 946,
+            "start_y": 483,
+            "end_x": 946,
+            "end_y": 483,
+            "path_points": [
+                [
+                    946,
+                    483
+                ],
+                [
+                    946,
+                    483
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 44.3847,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 2,
+            "start_time": 1781864772.00895,
+            "end_time": 1781864772.009016,
+            "duration_seconds": 0.0001,
+            "start_x": 685,
+            "start_y": 308,
+            "end_x": 685,
+            "end_y": 308,
+            "path_points": [
+                [
+                    685,
+                    308
+                ],
+                [
+                    685,
+                    308
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 20.5913,
+            "hit": true,
+            "pressure_value": 0
+        }
+    ],
+    "touch_features": {
+        "touch_total_count": 2,
+        "touch_popped_count": 2,
+        "touch_popping_rate": 1.0,
+        "touch_error_std": 16.8245,
+        "touch_error_mean": 32.488,
+        "touch_average_length": 0.0,
+        "touch_average_duration": 0.0001,
+        "touch_average_applied_force": 0.0,
+        "touch_force_available": false,
+        "touch_force_note": "Laptop/Pygame mouse input does not provide real touch force. On Android/iOS/tablet, replace pressure_value with device touch pressure if available."
+    },
+    "paper_pop_the_bubbles_popping_rate": 1.0,
+    "paper_pop_the_bubbles_accuracy_std": 16.8245,
+    "paper_pop_the_bubbles_average_touch_length": 0.0,
+    "paper_pop_the_bubbles_average_applied_force": 0.0,
+    "touch_force_available": false
+}

@@ -1,0 +1,26 @@
+{
+    "paper_response_to_name_proportion": 0.0,
+    "paper_response_to_name_delay": 0.0,
+    "name_call_count": 2,
+    "name_response_count": 0,
+    "name_call_results": [
+        {
+            "call_index": 1,
+            "during_stimulus": "floating_bubbles",
+            "call_time_sec": 2.5078,
+            "framewise_log": "logs/session_20260619_162429/floating_bubbles_framewise_log.csv",
+            "responded": false,
+            "delay_sec": null,
+            "reason": "no_head_turn_detected"
+        },
+        {
+            "call_index": 2,
+            "during_stimulus": "mechanical_puppy",
+            "call_time_sec": 2.5019,
+            "framewise_log": "logs/session_20260619_162429/mechanical_puppy_framewise_log.csv",
+            "responded": false,
+            "delay_sec": null,
+            "reason": "no_response_window_rows"
+        }
+    ]
+}

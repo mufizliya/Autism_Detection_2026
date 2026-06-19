@@ -5,121 +5,98 @@ import csv
 class AttentionToSpeechExtractor:
 
     @staticmethod
-    def to_float(value):
+    def to_float(value, default=0.0):
 
         try:
 
             if value is None:
-                return 0.0
+                return default
 
             if value == "":
-                return 0.0
+                return default
 
             return float(value)
 
         except Exception:
 
-            return 0.0
+            return default
 
     @staticmethod
-    def read_csv_rows(file_path):
+    def is_face_valid(row):
 
-        if not os.path.exists(file_path):
+        face_detected = AttentionToSpeechExtractor.to_float(
+            row.get(
+                "face_detected",
+                0
+            )
+        )
+
+        return face_detected == 1
+
+    @staticmethod
+    def get_gaze_xy(row):
+
+        gaze_x = AttentionToSpeechExtractor.to_float(
+            row.get(
+                "gaze_x",
+                -1
+            ),
+            default=-1
+        )
+
+        gaze_y = AttentionToSpeechExtractor.to_float(
+            row.get(
+                "gaze_y",
+                -1
+            ),
+            default=-1
+        )
+
+        return gaze_x, gaze_y
+
+    @staticmethod
+    def load_framewise_rows(framewise_log_path):
+
+        if not os.path.exists(
+            framewise_log_path
+        ):
+
             return []
 
         rows = []
 
         with open(
-            file_path,
+            framewise_log_path,
             "r",
             newline=""
         ) as f:
 
-            reader = csv.DictReader(f)
+            reader = csv.DictReader(
+                f
+            )
 
             for row in reader:
 
-                rows.append(row)
+                rows.append(
+                    row
+                )
 
         return rows
 
     @staticmethod
-    def get_session_path(session):
+    def get_local_elapsed_time(row, first_elapsed_time):
 
-        return session[
-            "session_manager"
-        ].get_session_path()
-
-    @staticmethod
-    def find_speech_stimuli(session):
-
-        video_test = session.get(
-            "video_test",
-            {}
-        )
-
-        stimulus_results = video_test.get(
-            "stimulus_results",
-            []
-        )
-
-        speech_stimuli = []
-
-        for result in stimulus_results:
-
-            stimulus = result.get(
-                "stimulus",
-                {}
-            )
-
-            if stimulus.get("type") == "speech_attention_movie":
-
-                speech_stimuli.append(
-                    stimulus
-                )
-
-        return speech_stimuli
-
-    @staticmethod
-    def find_framewise_log(
-        session,
-        stimulus_id
-    ):
-
-        session_path = (
-            AttentionToSpeechExtractor.get_session_path(
-                session
+        elapsed_time = AttentionToSpeechExtractor.to_float(
+            row.get(
+                "elapsed_time",
+                0
             )
         )
 
-        expected_path = os.path.join(
-            session_path,
-            f"{stimulus_id}_framewise_log.csv"
-        )
-
-        if os.path.exists(expected_path):
-            return expected_path
-
-        for filename in os.listdir(session_path):
-
-            if (
-                filename.startswith(stimulus_id)
-                and
-                filename.endswith("_framewise_log.csv")
-            ):
-
-                return os.path.join(
-                    session_path,
-                    filename
-                )
-
-        return None
+        return elapsed_time - first_elapsed_time
 
     @staticmethod
-    def get_active_speaker(
-        elapsed_time,
-        speaker_turns
-    ):
+    def get_active_speaker_turn(local_time, speaker_turns):
 
         for turn in speaker_turns:
 
@@ -138,136 +115,300 @@ class AttentionToSpeechExtractor:
             )
 
             if (
-                elapsed_time >= start_sec
+                local_time >= start_sec
                 and
-                elapsed_time < end_sec
+                local_time <= end_sec
             ):
 
-                return turn.get(
-                    "speaker",
-                    ""
+                return turn
+
+        return None
+
+    @staticmethod
+    def gaze_matches_speaker(
+        gaze_x,
+        gaze_y,
+        speaker_turn
+    ):
+
+        speaker = str(
+            speaker_turn.get(
+                "speaker",
+                ""
+            )
+        ).strip().lower()
+
+        aoi = speaker_turn.get(
+            "aoi",
+            None
+        )
+
+        # Preferred logic: use AOI boxes if present.
+        if isinstance(aoi, dict):
+
+            x_min = AttentionToSpeechExtractor.to_float(
+                aoi.get(
+                    "x_min",
+                    0
+                )
+            )
+
+            y_min = AttentionToSpeechExtractor.to_float(
+                aoi.get(
+                    "y_min",
+                    0
+                )
+            )
+
+            x_max = AttentionToSpeechExtractor.to_float(
+                aoi.get(
+                    "x_max",
+                    1
+                )
+            )
+
+            y_max = AttentionToSpeechExtractor.to_float(
+                aoi.get(
+                    "y_max",
+                    1
+                )
+            )
+
+            if (
+                gaze_x >= x_min
+                and
+                gaze_x <= x_max
+                and
+                gaze_y >= y_min
+                and
+                gaze_y <= y_max
+            ):
+
+                return True
+
+        # Fallback logic for older schedules.
+        if speaker == "left":
+
+            return gaze_x < 0.5
+
+        if speaker == "right":
+
+            return gaze_x >= 0.5
+
+        if speaker == "center":
+
+            return (
+                gaze_x >= 0.20
+                and
+                gaze_x <= 0.80
+            )
+
+        return False
+
+    @staticmethod
+    def find_speech_stimulus_results(session):
+
+        video_test = session.get(
+            "video_test",
+            {}
+        )
+
+        stimulus_results = video_test.get(
+            "stimulus_results",
+            []
+        )
+
+        speech_results = []
+
+        for result in stimulus_results:
+
+            stimulus = result.get(
+                "stimulus",
+                {}
+            )
+
+            speaker_turns = stimulus.get(
+                "speaker_turns",
+                []
+            )
+
+            if isinstance(
+                speaker_turns,
+                list
+            ) and len(speaker_turns) > 0:
+
+                speech_results.append(
+                    result
                 )
 
-        return ""
+        return speech_results
 
     @staticmethod
-    def get_gaze_side(gaze_x):
-
-        if gaze_x <= 0:
-            return ""
-
-        if gaze_x < 0.5:
-            return "left"
-
-        return "right"
-
-    @staticmethod
-    def compute_for_stimulus(
-        rows,
-        speaker_turns
+    def analyze_stimulus(
+        session,
+        stimulus_result
     ):
+
+        stimulus = stimulus_result.get(
+            "stimulus",
+            {}
+        )
+
+        stimulus_id = stimulus.get(
+            "id",
+            ""
+        )
+
+        speaker_turns = stimulus.get(
+            "speaker_turns",
+            []
+        )
+
+        session_manager = session.get(
+            "session_manager"
+        )
+
+        session_path = session_manager.get_session_path()
+
+        framewise_log_path = os.path.join(
+            session_path,
+            f"{stimulus_id}_framewise_log.csv"
+        )
+
+        rows = AttentionToSpeechExtractor.load_framewise_rows(
+            framewise_log_path
+        )
+
+        if len(rows) == 0:
+
+            return {
+                "stimulus_id":
+                    stimulus_id,
+
+                "framewise_log":
+                    framewise_log_path,
+
+                "speaker_turns":
+                    speaker_turns,
+
+                "valid_frames":
+                    0,
+
+                "matched_frames":
+                    0,
+
+                "attention_to_speech_score":
+                    0.0,
+
+                "frame_results_sample":
+                    [],
+
+                "error":
+                    "no_framewise_rows"
+            }
+
+        first_elapsed_time = AttentionToSpeechExtractor.to_float(
+            rows[0].get(
+                "elapsed_time",
+                0
+            )
+        )
 
         valid_frames = 0
         matched_frames = 0
-
-        frame_results = []
+        frame_results_sample = []
 
         for row in rows:
 
-            face_detected = int(
-                AttentionToSpeechExtractor.to_float(
-                    row.get(
-                        "face_detected",
-                        0
-                    )
-                )
-            )
-
-            if face_detected != 1:
-                continue
-
-            elapsed_time = AttentionToSpeechExtractor.to_float(
-                row.get(
-                    "elapsed_time",
-                    0
-                )
-            )
-
-            gaze_x = AttentionToSpeechExtractor.to_float(
-                row.get(
-                    "gaze_x",
-                    0
-                )
-            )
-
-            active_speaker = (
-                AttentionToSpeechExtractor.get_active_speaker(
-                    elapsed_time,
-                    speaker_turns
-                )
-            )
-
-            if active_speaker not in [
-                "left",
-                "right"
-            ]:
+            if not AttentionToSpeechExtractor.is_face_valid(
+                row
+            ):
 
                 continue
 
-            gaze_side = (
-                AttentionToSpeechExtractor.get_gaze_side(
-                    gaze_x
-                )
+            local_time = AttentionToSpeechExtractor.get_local_elapsed_time(
+                row,
+                first_elapsed_time
             )
 
-            if gaze_side not in [
-                "left",
-                "right"
-            ]:
+            active_turn = AttentionToSpeechExtractor.get_active_speaker_turn(
+                local_time,
+                speaker_turns
+            )
 
+            if active_turn is None:
+                continue
+
+            gaze_x, gaze_y = AttentionToSpeechExtractor.get_gaze_xy(
+                row
+            )
+
+            if gaze_x < 0 or gaze_y < 0:
                 continue
 
             valid_frames += 1
 
-            matched = (
-                gaze_side == active_speaker
+            matched = AttentionToSpeechExtractor.gaze_matches_speaker(
+                gaze_x,
+                gaze_y,
+                active_turn
             )
 
             if matched:
 
                 matched_frames += 1
 
-            frame_results.append(
-                {
-                    "elapsed_time":
-                        round(
-                            elapsed_time,
-                            4
-                        ),
+            if len(frame_results_sample) < 20:
 
-                    "active_speaker":
-                        active_speaker,
+                frame_results_sample.append(
+                    {
+                        "local_time":
+                            round(
+                                local_time,
+                                3
+                            ),
 
-                    "gaze_side":
-                        gaze_side,
+                        "speaker":
+                            active_turn.get(
+                                "speaker",
+                                ""
+                            ),
 
-                    "matched":
-                        matched
-                }
-            )
+                        "gaze_x":
+                            round(
+                                gaze_x,
+                                4
+                            ),
+
+                        "gaze_y":
+                            round(
+                                gaze_y,
+                                4
+                            ),
+
+                        "matched":
+                            matched
+                    }
+                )
 
         if valid_frames > 0:
 
-            attention_score = (
-                matched_frames /
-                valid_frames
-            )
+            attention_score = matched_frames / valid_frames
 
         else:
 
             attention_score = 0.0
 
         return {
+            "stimulus_id":
+                stimulus_id,
+
+            "framewise_log":
+                framewise_log_path,
+
+            "speaker_turns":
+                speaker_turns,
+
             "valid_frames":
                 valid_frames,
 
@@ -281,111 +422,71 @@ class AttentionToSpeechExtractor:
                 ),
 
             "frame_results_sample":
-                frame_results[:50]
+                frame_results_sample
         }
 
     @staticmethod
     def build(session):
 
-        speech_stimuli = (
-            AttentionToSpeechExtractor.find_speech_stimuli(
+        speech_results = (
+            AttentionToSpeechExtractor
+            .find_speech_stimulus_results(
                 session
             )
         )
 
-        stimulus_results = []
+        stimulus_outputs = []
 
         total_valid_frames = 0
         total_matched_frames = 0
 
-        for stimulus in speech_stimuli:
+        for stimulus_result in speech_results:
 
-            stimulus_id = stimulus.get(
-                "id",
-                ""
+            output = AttentionToSpeechExtractor.analyze_stimulus(
+                session,
+                stimulus_result
             )
 
-            speaker_turns = stimulus.get(
-                "speaker_turns",
-                []
+            stimulus_outputs.append(
+                output
             )
 
-            log_path = (
-                AttentionToSpeechExtractor.find_framewise_log(
-                    session,
-                    stimulus_id
+            total_valid_frames += int(
+                output.get(
+                    "valid_frames",
+                    0
                 )
             )
 
-            if log_path is None:
-
-                stimulus_results.append(
-                    {
-                        "stimulus_id":
-                            stimulus_id,
-
-                        "error":
-                            "framewise_log_not_found",
-
-                        "attention_to_speech_score":
-                            0
-                    }
+            total_matched_frames += int(
+                output.get(
+                    "matched_frames",
+                    0
                 )
-
-                continue
-
-            rows = (
-                AttentionToSpeechExtractor.read_csv_rows(
-                    log_path
-                )
-            )
-
-            result = (
-                AttentionToSpeechExtractor.compute_for_stimulus(
-                    rows,
-                    speaker_turns
-                )
-            )
-
-            result["stimulus_id"] = stimulus_id
-            result["framewise_log"] = log_path
-            result["speaker_turns"] = speaker_turns
-
-            stimulus_results.append(
-                result
-            )
-
-            total_valid_frames += result.get(
-                "valid_frames",
-                0
-            )
-
-            total_matched_frames += result.get(
-                "matched_frames",
-                0
             )
 
         if total_valid_frames > 0:
 
-            overall_score = (
-                total_matched_frames /
+            attention_to_speech = (
+                total_matched_frames
+                /
                 total_valid_frames
             )
 
         else:
 
-            overall_score = 0.0
+            attention_to_speech = 0.0
 
         return {
             "paper_attention_to_speech":
                 round(
-                    overall_score,
+                    attention_to_speech,
                     4
                 ),
 
             "paper_gaze_speech_correlation":
                 round(
-                    overall_score,
+                    attention_to_speech,
                     4
                 ),
 
@@ -397,9 +498,9 @@ class AttentionToSpeechExtractor:
 
             "speech_stimulus_count":
                 len(
-                    speech_stimuli
+                    speech_results
                 ),
 
             "speech_stimulus_results":
-                stimulus_results
+                stimulus_outputs
         }

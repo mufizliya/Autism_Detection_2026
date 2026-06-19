@@ -11,4 +11,6 @@ venv/
 .venv/
 __pycache__/
 *.pyc
-.DS_Store
+.DS_StoreApp/assets/stimuli/master/*.avi
+App/assets/stimuli/master/*.mp4
+App/assets/stimuli/master/*.mov

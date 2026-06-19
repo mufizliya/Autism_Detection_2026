@@ -1,0 +1,14 @@
+{
+    "total_video_stimuli": 9,
+    "total_name_call_events": 3,
+    "total_triggered_name_call_events": 3,
+    "uses_tracker_manager": false,
+    "measurement_source": "continuous_framewise_behavior_recorder",
+    "smooth_playlist": true,
+    "playback_backend": "prebuilt_master_ffplay_with_srt",
+    "master_video_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/master/stimulus_master_protocol_cued.mp4",
+    "master_timeline_path": "/Users/liya/Downloads/Autism_Detection_2026-main/Autism_Detection_2026-main/App/assets/stimuli/master/stimulus_master_timeline.json",
+    "subtitle_path": "logs/session_20260619_170640/parent_name_call_cues.srt",
+    "on_screen_name_call_cue": true,
+    "paper_style_note": "A prebuilt master stimulus video is played with ffplay for smooth synchronized audio-video playback. A generated SRT subtitle provides parent name-call cues while a continuous recorder tags frames using the master timeline."
+}

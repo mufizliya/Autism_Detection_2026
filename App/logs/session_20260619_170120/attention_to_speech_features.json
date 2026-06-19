@@ -1,0 +1,366 @@
+{
+    "paper_attention_to_speech": 0.7487,
+    "paper_gaze_speech_correlation": 0.7487,
+    "speech_valid_frames": 577,
+    "speech_matched_frames": 432,
+    "speech_stimulus_count": 2,
+    "speech_stimulus_results": [
+        {
+            "stimulus_id": "rhymes_and_toys",
+            "framewise_log": "logs/session_20260619_170120/rhymes_and_toys_framewise_log.csv",
+            "speaker_turns": [
+                {
+                    "speaker": "center",
+                    "start_sec": 0.0,
+                    "end_sec": 10.0,
+                    "aoi": {
+                        "x_min": 0.1,
+                        "y_min": 0.05,
+                        "x_max": 0.9,
+                        "y_max": 0.95
+                    }
+                }
+            ],
+            "valid_frames": 288,
+            "matched_frames": 288,
+            "attention_to_speech_score": 1.0,
+            "frame_results_sample": [
+                {
+                    "local_time": 0.0,
+                    "speaker": "center",
+                    "gaze_x": 0.5711,
+                    "gaze_y": 0.8625,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.033,
+                    "speaker": "center",
+                    "gaze_x": 0.5708,
+                    "gaze_y": 0.862,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.069,
+                    "speaker": "center",
+                    "gaze_x": 0.5716,
+                    "gaze_y": 0.8624,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.101,
+                    "speaker": "center",
+                    "gaze_x": 0.5716,
+                    "gaze_y": 0.8622,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.136,
+                    "speaker": "center",
+                    "gaze_x": 0.5719,
+                    "gaze_y": 0.8627,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.17,
+                    "speaker": "center",
+                    "gaze_x": 0.5722,
+                    "gaze_y": 0.8624,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.204,
+                    "speaker": "center",
+                    "gaze_x": 0.572,
+                    "gaze_y": 0.8625,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.239,
+                    "speaker": "center",
+                    "gaze_x": 0.5721,
+                    "gaze_y": 0.8624,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.273,
+                    "speaker": "center",
+                    "gaze_x": 0.5716,
+                    "gaze_y": 0.8619,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.308,
+                    "speaker": "center",
+                    "gaze_x": 0.5717,
+                    "gaze_y": 0.862,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.342,
+                    "speaker": "center",
+                    "gaze_x": 0.572,
+                    "gaze_y": 0.8624,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.377,
+                    "speaker": "center",
+                    "gaze_x": 0.572,
+                    "gaze_y": 0.8622,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.411,
+                    "speaker": "center",
+                    "gaze_x": 0.5721,
+                    "gaze_y": 0.862,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.445,
+                    "speaker": "center",
+                    "gaze_x": 0.572,
+                    "gaze_y": 0.8621,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.479,
+                    "speaker": "center",
+                    "gaze_x": 0.5722,
+                    "gaze_y": 0.8621,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.515,
+                    "speaker": "center",
+                    "gaze_x": 0.572,
+                    "gaze_y": 0.8625,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.548,
+                    "speaker": "center",
+                    "gaze_x": 0.5725,
+                    "gaze_y": 0.8621,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.583,
+                    "speaker": "center",
+                    "gaze_x": 0.5721,
+                    "gaze_y": 0.8627,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.62,
+                    "speaker": "center",
+                    "gaze_x": 0.5721,
+                    "gaze_y": 0.8624,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.652,
+                    "speaker": "center",
+                    "gaze_x": 0.5717,
+                    "gaze_y": 0.862,
+                    "matched": true
+                }
+            ]
+        },
+        {
+            "stimulus_id": "fun_at_the_park",
+            "framewise_log": "logs/session_20260619_170120/fun_at_the_park_framewise_log.csv",
+            "speaker_turns": [
+                {
+                    "speaker": "left",
+                    "start_sec": 0.0,
+                    "end_sec": 2.5,
+                    "aoi": {
+                        "x_min": 0.0,
+                        "y_min": 0.05,
+                        "x_max": 0.5,
+                        "y_max": 0.95
+                    }
+                },
+                {
+                    "speaker": "right",
+                    "start_sec": 2.5,
+                    "end_sec": 5.0,
+                    "aoi": {
+                        "x_min": 0.5,
+                        "y_min": 0.05,
+                        "x_max": 1.0,
+                        "y_max": 0.95
+                    }
+                },
+                {
+                    "speaker": "left",
+                    "start_sec": 5.0,
+                    "end_sec": 7.5,
+                    "aoi": {
+                        "x_min": 0.0,
+                        "y_min": 0.05,
+                        "x_max": 0.5,
+                        "y_max": 0.95
+                    }
+                },
+                {
+                    "speaker": "right",
+                    "start_sec": 7.5,
+                    "end_sec": 10.0,
+                    "aoi": {
+                        "x_min": 0.5,
+                        "y_min": 0.05,
+                        "x_max": 1.0,
+                        "y_max": 0.95
+                    }
+                }
+            ],
+            "valid_frames": 289,
+            "matched_frames": 144,
+            "attention_to_speech_score": 0.4983,
+            "frame_results_sample": [
+                {
+                    "local_time": 0.0,
+                    "speaker": "left",
+                    "gaze_x": 0.5707,
+                    "gaze_y": 0.8648,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.034,
+                    "speaker": "left",
+                    "gaze_x": 0.5705,
+                    "gaze_y": 0.8648,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.069,
+                    "speaker": "left",
+                    "gaze_x": 0.571,
+                    "gaze_y": 0.8649,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.103,
+                    "speaker": "left",
+                    "gaze_x": 0.5708,
+                    "gaze_y": 0.8646,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.138,
+                    "speaker": "left",
+                    "gaze_x": 0.5706,
+                    "gaze_y": 0.8648,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.173,
+                    "speaker": "left",
+                    "gaze_x": 0.5706,
+                    "gaze_y": 0.8652,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.206,
+                    "speaker": "left",
+                    "gaze_x": 0.5712,
+                    "gaze_y": 0.8653,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.24,
+                    "speaker": "left",
+                    "gaze_x": 0.5711,
+                    "gaze_y": 0.8655,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.276,
+                    "speaker": "left",
+                    "gaze_x": 0.5712,
+                    "gaze_y": 0.8653,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.309,
+                    "speaker": "left",
+                    "gaze_x": 0.5716,
+                    "gaze_y": 0.8655,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.344,
+                    "speaker": "left",
+                    "gaze_x": 0.5718,
+                    "gaze_y": 0.8654,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.379,
+                    "speaker": "left",
+                    "gaze_x": 0.5712,
+                    "gaze_y": 0.8651,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.413,
+                    "speaker": "left",
+                    "gaze_x": 0.5708,
+                    "gaze_y": 0.8648,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.448,
+                    "speaker": "left",
+                    "gaze_x": 0.5715,
+                    "gaze_y": 0.8649,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.483,
+                    "speaker": "left",
+                    "gaze_x": 0.5711,
+                    "gaze_y": 0.8651,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.517,
+                    "speaker": "left",
+                    "gaze_x": 0.5711,
+                    "gaze_y": 0.8647,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.551,
+                    "speaker": "left",
+                    "gaze_x": 0.5716,
+                    "gaze_y": 0.865,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.585,
+                    "speaker": "left",
+                    "gaze_x": 0.5716,
+                    "gaze_y": 0.8648,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.62,
+                    "speaker": "left",
+                    "gaze_x": 0.5718,
+                    "gaze_y": 0.8648,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.653,
+                    "speaker": "left",
+                    "gaze_x": 0.5716,
+                    "gaze_y": 0.8648,
+                    "matched": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "score": 0,
+    "total_reactions": 2,
+    "reaction_data": [
+        {
+            "x": 115,
+            "y": 419,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 17:03:27",
+            "status": "missed"
+        },
+        {
+            "x": 564,
+            "y": 69,
+            "reaction_time_sec": null,
+            "timestamp": "2026-06-19 17:03:29",
+            "status": "missed"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.0,
+        "disengagement": 1.0,
+        "motor_irregularity": 0,
+        "responsiveness": 0.0
+    },
+    "touch_events": [],
+    "touch_features": {
+        "touch_total_count": 0,
+        "touch_popped_count": 0,
+        "touch_popping_rate": 0.0,
+        "touch_error_std": 0.0,
+        "touch_error_mean": 0.0,
+        "touch_average_length": 0.0,
+        "touch_average_duration": 0.0,
+        "touch_average_applied_force": 0.0,
+        "touch_force_available": false,
+        "touch_force_note": "Laptop/Pygame mouse input does not provide real touch force. On Android/iOS/tablet, replace pressure_value with device touch pressure if available."
+    },
+    "paper_pop_the_bubbles_popping_rate": 0.0,
+    "paper_pop_the_bubbles_accuracy_std": 0.0,
+    "paper_pop_the_bubbles_average_touch_length": 0.0,
+    "paper_pop_the_bubbles_average_applied_force": 0.0,
+    "touch_force_available": false
+}

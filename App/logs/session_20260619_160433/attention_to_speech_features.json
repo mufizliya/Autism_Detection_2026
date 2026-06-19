@@ -1,0 +1,8 @@
+{
+    "paper_attention_to_speech": 0.0,
+    "paper_gaze_speech_correlation": 0.0,
+    "speech_valid_frames": 0,
+    "speech_matched_frames": 0,
+    "speech_stimulus_count": 0,
+    "speech_stimulus_results": []
+}

@@ -1,789 +1,792 @@
+import os
+import json
+
+
 class SessionValidator:
 
+    REQUIRED_JSON_FILES = [
+        "video_test.json",
+        "stimulus_events.json",
+        "response_to_name_features.json",
+        "attention_to_speech_features.json",
+        "gaze_silhouette_features.json",
+        "paper_aligned_features.json",
+        "paper_feature_coverage.json",
+        "phenotype_vector.json"
+    ]
+
+    EXPECTED_VIDEO_STIMULI = 9
+    EXPECTED_NAME_CALLS = 3
+    EXPECTED_PAPER_FEATURES = 23
+
+    MIN_GAZE_VALID_POINTS = 100
+    MIN_SPEECH_VALID_FRAMES = 50
+    MIN_FRAMEWISE_STIMULI_WITH_FACE = 5
+
     @staticmethod
-    def to_float(value, default=0.0):
+    def load_json(path):
+
+        if not os.path.exists(path):
+            return None
 
         try:
 
-            if value is None:
-                return default
+            with open(
+                path,
+                "r",
+                encoding="utf-8"
+            ) as f:
 
-            if value == "":
-                return default
-
-            return float(value)
+                return json.load(f)
 
         except Exception:
 
-            return default
+            return None
 
     @staticmethod
-    def section_exists(session, key):
+    def add_issue(
+        issues,
+        severity,
+        code,
+        message
+    ):
 
-        value = session.get(
-            key
+        issues.append(
+            {
+                "severity": severity,
+                "code": code,
+                "message": message
+            }
         )
 
-        if value is None:
-            return False
+    @staticmethod
+    def get_session_path(session):
 
-        if isinstance(value, dict) and len(value) == 0:
-            return False
+        session_manager = session.get(
+            "session_manager"
+        )
 
-        if isinstance(value, list) and len(value) == 0:
-            return False
+        if session_manager is None:
+            return None
 
-        return True
+        return session_manager.get_session_path()
 
     @staticmethod
-    def get_quality_level(score):
+    def check_required_files(
+        session_path,
+        issues
+    ):
 
-        if score >= 0.85:
-            return "Excellent"
+        missing = []
 
-        if score >= 0.70:
-            return "Good"
+        unreadable = []
 
-        if score >= 0.50:
-            return "Fair"
+        for filename in SessionValidator.REQUIRED_JSON_FILES:
 
-        return "Poor"
+            path = os.path.join(
+                session_path,
+                filename
+            )
 
-    @staticmethod
-    def validate_required_sections(session):
+            if not os.path.exists(path):
 
-        issues = []
-        passed = 0
-        total = 0
-
-        required_sections = [
-            "questionnaire",
-            "video_test",
-            "game_metrics",
-            "phenotype_vector",
-            "paper_timeseries_features",
-            "response_to_name_features",
-            "attention_to_speech_features",
-            "gaze_silhouette_features",
-            "paper_aligned_features",
-            "paper_feature_coverage"
-        ]
-
-        for section in required_sections:
-
-            total += 1
-
-            if SessionValidator.section_exists(
-                session,
-                section
-            ):
-
-                passed += 1
-
-            else:
-
-                issues.append(
-                    f"Missing session section: {section}"
+                missing.append(
+                    filename
                 )
 
-        return passed, total, issues
+                continue
+
+            data = SessionValidator.load_json(
+                path
+            )
+
+            if data is None:
+
+                unreadable.append(
+                    filename
+                )
+
+        if missing:
+
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "missing_required_json",
+                f"Missing required JSON files: {missing}"
+            )
+
+        if unreadable:
+
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "unreadable_required_json",
+                f"Unreadable/corrupt JSON files: {unreadable}"
+            )
 
     @staticmethod
-    def validate_video_protocol(session):
+    def check_video_protocol(
+        session_path,
+        issues
+    ):
 
-        issues = []
-        warnings = []
-        passed = 0
-        total = 0
-
-        video_test = session.get(
-            "video_test",
-            {}
+        video_test = SessionValidator.load_json(
+            os.path.join(
+                session_path,
+                "video_test.json"
+            )
         )
 
-        stimulus_results = video_test.get(
-            "stimulus_results",
-            []
+        stimulus_events = SessionValidator.load_json(
+            os.path.join(
+                session_path,
+                "stimulus_events.json"
+            )
         )
+
+        if video_test is None:
+
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "video_test_missing",
+                "video_test.json could not be loaded."
+            )
+
+            return
 
         protocol_summary = video_test.get(
             "protocol_summary",
             {}
         )
 
-        total += 1
+        stimulus_results = video_test.get(
+            "stimulus_results",
+            []
+        )
 
-        if len(stimulus_results) > 0:
+        triggered = video_test.get(
+            "triggered_name_call_events",
+            []
+        )
 
-            passed += 1
+        total_video_stimuli = protocol_summary.get(
+            "total_video_stimuli",
+            len(stimulus_results)
+        )
 
-        else:
-
-            issues.append(
-                "No video stimulus results were recorded."
-            )
-
-        total += 1
+        smooth_playlist = protocol_summary.get(
+            "smooth_playlist",
+            False
+        )
 
         uses_tracker_manager = protocol_summary.get(
             "uses_tracker_manager",
             None
         )
 
-        if uses_tracker_manager is False:
+        if total_video_stimuli != SessionValidator.EXPECTED_VIDEO_STIMULI:
 
-            passed += 1
-
-        else:
-
-            issues.append(
-                "Video protocol still appears to use TrackerManager or does not report uses_tracker_manager=false."
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "wrong_video_stimulus_count",
+                f"Expected {SessionValidator.EXPECTED_VIDEO_STIMULI} video stimuli, found {total_video_stimuli}."
             )
 
-        total += 1
+        if not smooth_playlist:
 
-        measurement_source = protocol_summary.get(
-            "measurement_source",
-            ""
-        )
-
-        if measurement_source in [
-            "continuous_framewise_behavior_recorder",
-            "framewise_behavior_recorder"
-        ]:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                "Video measurement source is not framewise behavior recording."
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "not_smooth_playlist",
+                "Protocol summary does not report smooth_playlist=true."
             )
 
-        total += 1
+        if uses_tracker_manager is not False:
 
-        if protocol_summary.get(
-            "smooth_playlist",
-            False
-        ) is True:
-
-            passed += 1
-
-        else:
-
-            warnings.append(
-                "Stimulus protocol is not marked as smooth_playlist=true."
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "legacy_tracker_manager_possible",
+                "uses_tracker_manager is not false. Check that old TrackerManager pipeline is inactive."
             )
 
-        scheduled_calls = (
-            protocol_summary.get(
-                "total_name_call_events",
-                0
-            )
-        )
+        if len(triggered) != SessionValidator.EXPECTED_NAME_CALLS:
 
-        triggered_calls = (
-            protocol_summary.get(
-                "total_triggered_name_call_events",
-                0
-            )
-        )
-
-        total += 1
-
-        if scheduled_calls == 0:
-
-            warnings.append(
-                "No scheduled name-call events found."
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "wrong_triggered_name_call_count",
+                f"Expected {SessionValidator.EXPECTED_NAME_CALLS} triggered name calls, found {len(triggered)}."
             )
 
-        elif triggered_calls >= scheduled_calls:
+        if stimulus_events is not None:
 
-            passed += 1
-
-        else:
-
-            issues.append(
-                f"Only {triggered_calls}/{scheduled_calls} scheduled name-call events were triggered."
+            triggered_events = stimulus_events.get(
+                "triggered_name_call_events",
+                []
             )
 
-        return passed, total, issues, warnings
+            if len(triggered_events) != SessionValidator.EXPECTED_NAME_CALLS:
+
+                SessionValidator.add_issue(
+                    issues,
+                    "error",
+                    "stimulus_events_name_call_mismatch",
+                    f"stimulus_events.json has {len(triggered_events)} triggered name calls."
+                )
 
     @staticmethod
-    def validate_framewise_quality(session):
+    def check_response_to_name(
+        session_path,
+        issues
+    ):
 
-        issues = []
-        warnings = []
-        passed = 0
-        total = 0
-
-        video_test = session.get(
-            "video_test",
-            {}
+        data = SessionValidator.load_json(
+            os.path.join(
+                session_path,
+                "response_to_name_features.json"
+            )
         )
 
-        stimulus_results = video_test.get(
-            "stimulus_results",
+        if data is None:
+
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "response_to_name_missing",
+                "response_to_name_features.json could not be loaded."
+            )
+
+            return
+
+        call_count = data.get(
+            "name_call_count",
+            0
+        )
+
+        response_count = data.get(
+            "name_response_count",
+            0
+        )
+
+        call_results = data.get(
+            "name_call_results",
             []
         )
 
-        if len(stimulus_results) == 0:
+        if call_count != SessionValidator.EXPECTED_NAME_CALLS:
 
-            return passed, total, issues, warnings
-
-        face_ratios = []
-        total_frames_all = 0
-        weak_stimuli = []
-
-        for result in stimulus_results:
-
-            stimulus = result.get(
-                "stimulus",
-                {}
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "wrong_name_call_count",
+                f"Expected {SessionValidator.EXPECTED_NAME_CALLS} name calls, found {call_count}."
             )
 
-            stimulus_id = stimulus.get(
-                "id",
-                "unknown"
+        for result in call_results:
+
+            call_index = result.get(
+                "call_index"
             )
 
-            summary = result.get(
-                "framewise_summary",
-                {}
+            reason = result.get(
+                "reason",
+                ""
             )
 
-            total += 1
-
-            total_frames = int(
-                SessionValidator.to_float(
-                    summary.get(
-                        "total_frames",
-                        0
-                    )
-                )
-            )
-
-            face_presence_ratio = SessionValidator.to_float(
-                summary.get(
-                    "face_presence_ratio",
-                    0
-                )
-            )
-
-            total_frames_all += total_frames
-            face_ratios.append(
-                face_presence_ratio
-            )
-
-            if total_frames <= 0:
-
-                issues.append(
-                    f"No framewise rows recorded for stimulus: {stimulus_id}"
-                )
-
-                continue
-
-            if face_presence_ratio >= 0.50:
-
-                passed += 1
-
-            else:
-
-                weak_stimuli.append(
-                    stimulus_id
-                )
-
-        total += 1
-
-        if total_frames_all > 0:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                "No framewise video frames were recorded across the stimulus protocol."
-            )
-
-        if weak_stimuli:
-
-            warnings.append(
-                "Low face presence ratio for stimuli: "
-                +
-                ", ".join(weak_stimuli)
-            )
-
-        if len(face_ratios) > 0:
-
-            average_face_presence = (
-                sum(face_ratios) / len(face_ratios)
-            )
-
-            if average_face_presence < 0.50:
-
-                issues.append(
-                    "Average face presence during stimulus protocol is too low."
-                )
-
-        return passed, total, issues, warnings
-
-    @staticmethod
-    def validate_bubble_game(session):
-
-        issues = []
-        warnings = []
-        passed = 0
-        total = 0
-
-        game_metrics = session.get(
-            "game_metrics",
-            {}
-        )
-
-        total += 1
-
-        if game_metrics:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                "Bubble game metrics are missing."
-            )
-
-            return passed, total, issues, warnings
-
-        touch_features = game_metrics.get(
-            "touch_features",
-            {}
-        )
-
-        total += 1
-
-        if touch_features:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                "Bubble game touch_features are missing."
-            )
-
-        total_touches = SessionValidator.to_float(
-            touch_features.get(
-                "touch_total_count",
+            window_rows = result.get(
+                "response_window_rows",
                 0
             )
-        )
 
-        total += 1
+            if reason == "no_response_window_rows":
 
-        if total_touches > 0:
+                SessionValidator.add_issue(
+                    issues,
+                    "error",
+                    "name_call_no_response_window",
+                    f"Name call {call_index} has no response-window rows. Likely timing mismatch."
+                )
 
-            passed += 1
+            if reason == "no_face_rows":
 
-        else:
+                SessionValidator.add_issue(
+                    issues,
+                    "warning",
+                    "name_call_no_face_rows",
+                    f"Name call {call_index} has no face rows."
+                )
 
-            warnings.append(
-                "No bubble-game touches were recorded."
+            if window_rows == 0:
+
+                SessionValidator.add_issue(
+                    issues,
+                    "warning",
+                    "name_call_zero_window_rows",
+                    f"Name call {call_index} has zero response-window rows."
+                )
+
+        if response_count == 0 and call_count > 0:
+
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "no_name_responses_detected",
+                "No response-to-name events detected. This may be valid behavior, but verify tracking quality."
             )
-
-        popping_rate = SessionValidator.to_float(
-            touch_features.get(
-                "touch_popping_rate",
-                0
-            )
-        )
-
-        total += 1
-
-        if 0 <= popping_rate <= 1:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                "Bubble-game popping rate is outside expected range 0..1."
-            )
-
-        force_available = touch_features.get(
-            "touch_force_available",
-            False
-        )
-
-        if force_available is False:
-
-            warnings.append(
-                "Touch force is unavailable on desktop/Pygame; this is expected unless running on touch hardware."
-            )
-
-        return passed, total, issues, warnings
 
     @staticmethod
-    def validate_paper_features(session):
+    def check_attention_to_speech(
+        session_path,
+        issues
+    ):
 
-        issues = []
-        warnings = []
-        passed = 0
-        total = 0
-
-        paper_features = session.get(
-            "paper_aligned_features",
-            {}
-        )
-
-        coverage = session.get(
-            "paper_feature_coverage",
-            {}
-        )
-
-        expected_features = [
-            "paper_facing_forward_social_movies",
-            "paper_facing_forward_nonsocial_movies",
-            "paper_gaze_percent_social",
-            "paper_gaze_silhouette_score",
-            "paper_attention_to_speech",
-            "paper_response_to_name_delay",
-            "paper_response_to_name_proportion",
-            "paper_blink_rate_social_movies",
-            "paper_blink_rate_nonsocial_movies",
-            "paper_eyebrows_complexity_social_movies",
-            "paper_eyebrows_complexity_nonsocial_movies",
-            "paper_mouth_complexity_social_movies",
-            "paper_mouth_complexity_nonsocial_movies",
-            "paper_head_movement_social_movies",
-            "paper_head_movement_nonsocial_movies",
-            "paper_head_movement_complexity_social_movies",
-            "paper_head_movement_complexity_nonsocial_movies",
-            "paper_head_movement_acceleration_social_movies",
-            "paper_head_movement_acceleration_nonsocial_movies",
-            "paper_pop_the_bubbles_popping_rate",
-            "paper_pop_the_bubbles_accuracy_std",
-            "paper_pop_the_bubbles_average_touch_length",
-            "paper_pop_the_bubbles_average_applied_force"
-        ]
-
-        for feature in expected_features:
-
-            total += 1
-
-            if feature in paper_features:
-
-                passed += 1
-
-            else:
-
-                issues.append(
-                    f"Missing paper-aligned feature: {feature}"
-                )
-
-        total += 1
-
-        if coverage:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                "paper_feature_coverage is missing."
-            )
-
-        total_features = int(
-            SessionValidator.to_float(
-                coverage.get(
-                    "total_paper_features",
-                    0
-                )
+        data = SessionValidator.load_json(
+            os.path.join(
+                session_path,
+                "attention_to_speech_features.json"
             )
         )
 
-        total += 1
+        if data is None:
 
-        if total_features == 23:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                f"Expected 23 paper features, found {total_features}."
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "attention_to_speech_missing",
+                "attention_to_speech_features.json could not be loaded."
             )
 
-        missing_count = int(
-            SessionValidator.to_float(
-                coverage.get(
-                    "missing_count",
-                    0
-                )
-            )
-        )
+            return
 
-        total += 1
-
-        if missing_count == 0:
-
-            passed += 1
-
-        else:
-
-            warnings.append(
-                f"Paper feature mapper reports {missing_count} missing features."
-            )
-
-        coverage_score = SessionValidator.to_float(
-            coverage.get(
-                "coverage_score",
-                0
-            )
-        )
-
-        total += 1
-
-        if coverage_score >= 0.70:
-
-            passed += 1
-
-        else:
-
-            warnings.append(
-                f"Paper feature coverage score is low: {coverage_score}"
-            )
-
-        return passed, total, issues, warnings
-
-    @staticmethod
-    def validate_specialized_extractors(session):
-
-        issues = []
-        warnings = []
-        passed = 0
-        total = 0
-
-        response_to_name = session.get(
-            "response_to_name_features",
-            {}
-        )
-
-        total += 1
-
-        if response_to_name.get(
-            "name_call_count",
-            0
-        ) > 0:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                "Response-to-name extractor found no name-call events."
-            )
-
-        total += 1
-
-        if "paper_response_to_name_proportion" in response_to_name:
-
-            passed += 1
-
-        else:
-
-            issues.append(
-                "Response-to-name proportion is missing."
-            )
-
-        attention_to_speech = session.get(
-            "attention_to_speech_features",
-            {}
-        )
-
-        total += 1
-
-        if attention_to_speech.get(
+        stimulus_count = data.get(
             "speech_stimulus_count",
             0
-        ) > 0:
-
-            passed += 1
-
-        else:
-
-            warnings.append(
-                "Attention-to-speech extractor found no speech stimulus."
-            )
-
-        gaze_silhouette = session.get(
-            "gaze_silhouette_features",
-            {}
         )
 
-        total += 1
-
-        if gaze_silhouette.get(
-            "gaze_silhouette_stimulus_count",
+        valid_frames = data.get(
+            "speech_valid_frames",
             0
-        ) > 0:
+        )
 
-            passed += 1
+        matched_frames = data.get(
+            "speech_matched_frames",
+            0
+        )
 
-        else:
+        if stimulus_count < 2:
 
-            warnings.append(
-                "Gaze silhouette extractor found no mixed social/non-social stimulus."
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "low_speech_stimulus_count",
+                f"Expected 2 speech stimuli, found {stimulus_count}."
             )
 
-        valid_gaze_points = gaze_silhouette.get(
+        if valid_frames < SessionValidator.MIN_SPEECH_VALID_FRAMES:
+
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "low_speech_valid_frames",
+                f"Speech valid frames are low: {valid_frames}."
+            )
+
+        if valid_frames > 0 and matched_frames == 0:
+
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "zero_attention_to_speech_matches",
+                "Speech frames exist but no gaze matched speaker AOI."
+            )
+
+    @staticmethod
+    def check_gaze_silhouette(
+        session_path,
+        issues
+    ):
+
+        data = SessionValidator.load_json(
+            os.path.join(
+                session_path,
+                "gaze_silhouette_features.json"
+            )
+        )
+
+        if data is None:
+
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "gaze_silhouette_missing",
+                "gaze_silhouette_features.json could not be loaded."
+            )
+
+            return
+
+        valid_points = data.get(
             "gaze_silhouette_valid_points",
             0
         )
 
-        total += 1
+        stimulus_count = data.get(
+            "gaze_silhouette_stimulus_count",
+            0
+        )
 
-        if valid_gaze_points >= 20:
+        results = data.get(
+            "gaze_silhouette_stimulus_results",
+            []
+        )
 
-            passed += 1
+        if valid_points < SessionValidator.MIN_GAZE_VALID_POINTS:
 
-        else:
-
-            warnings.append(
-                f"Low valid gaze points for silhouette extraction: {valid_gaze_points}"
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "low_gaze_valid_points",
+                f"Gaze silhouette valid points are low: {valid_points}."
             )
 
-        return passed, total, issues, warnings
+        if stimulus_count == 0:
+
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "zero_gaze_silhouette_stimuli",
+                "No gaze silhouette stimuli were analyzed."
+            )
+
+        no_aoi_hits = []
+
+        one_sided = []
+
+        for result in results:
+
+            stimulus_id = result.get(
+                "stimulus_id",
+                "unknown"
+            )
+
+            gaze_quality = result.get(
+                "gaze_quality",
+                ""
+            )
+
+            if gaze_quality == "no_aoi_hits":
+
+                no_aoi_hits.append(
+                    stimulus_id
+                )
+
+            if gaze_quality == "one_sided_aoi_attention":
+
+                one_sided.append(
+                    stimulus_id
+                )
+
+        if no_aoi_hits:
+
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "gaze_no_aoi_hits",
+                f"No AOI hits for stimuli: {no_aoi_hits}"
+            )
+
+        if one_sided:
+
+            SessionValidator.add_issue(
+                issues,
+                "info",
+                "gaze_one_sided_attention",
+                f"Only one AOI side was attended for stimuli: {one_sided}"
+            )
 
     @staticmethod
-    def validate(session):
+    def check_paper_feature_coverage(
+        session_path,
+        issues
+    ):
+
+        data = SessionValidator.load_json(
+            os.path.join(
+                session_path,
+                "paper_feature_coverage.json"
+            )
+        )
+
+        if data is None:
+
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "paper_feature_coverage_missing",
+                "paper_feature_coverage.json could not be loaded."
+            )
+
+            return
+
+        present_count = data.get(
+            "present_feature_count",
+            data.get(
+                "paper_feature_count",
+                0
+            )
+        )
+
+        missing = data.get(
+            "missing_features",
+            []
+        )
+
+        if present_count < SessionValidator.EXPECTED_PAPER_FEATURES:
+
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "paper_feature_coverage_low",
+                f"Expected {SessionValidator.EXPECTED_PAPER_FEATURES} paper features, found {present_count}."
+            )
+
+        if missing:
+
+            SessionValidator.add_issue(
+                issues,
+                "error",
+                "paper_features_missing",
+                f"Missing paper features: {missing}"
+            )
+
+    @staticmethod
+    def check_framewise_logs(
+        session_path,
+        issues
+    ):
+
+        framewise_files = [
+            file
+            for file in os.listdir(
+                session_path
+            )
+            if file.endswith(
+                "_framewise_log.csv"
+            )
+        ]
+
+        if len(framewise_files) < SessionValidator.EXPECTED_VIDEO_STIMULI:
+
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "low_framewise_log_count",
+                f"Expected at least {SessionValidator.EXPECTED_VIDEO_STIMULI} framewise logs, found {len(framewise_files)}."
+            )
+
+        usable_face_logs = 0
+
+        for filename in framewise_files:
+
+            path = os.path.join(
+                session_path,
+                filename
+            )
+
+            try:
+
+                with open(
+                    path,
+                    "r",
+                    encoding="utf-8"
+                ) as f:
+
+                    content = f.read()
+
+                if "face_detected" in content and ",1" in content:
+
+                    usable_face_logs += 1
+
+            except Exception:
+
+                pass
+
+        if usable_face_logs < SessionValidator.MIN_FRAMEWISE_STIMULI_WITH_FACE:
+
+            SessionValidator.add_issue(
+                issues,
+                "warning",
+                "low_face_usable_framewise_logs",
+                f"Only {usable_face_logs} framewise logs appear to contain face-detected rows."
+            )
+
+    @staticmethod
+    def compute_quality_score(issues):
+
+        score = 1.0
+
+        for issue in issues:
+
+            severity = issue.get(
+                "severity",
+                "info"
+            )
+
+            if severity == "error":
+
+                score -= 0.25
+
+            elif severity == "warning":
+
+                score -= 0.08
+
+            elif severity == "info":
+
+                score -= 0.02
+
+        if score < 0:
+            score = 0.0
+
+        return round(
+            score,
+            4
+        )
+
+    @staticmethod
+    def validate(
+        session,
+        *args,
+        **kwargs
+    ):
+
+        return SessionValidator.build(
+            session
+        )
+    @staticmethod
+    def build(session):
+
+        session_path = SessionValidator.get_session_path(
+            session
+        )
 
         issues = []
-        warnings = []
 
-        passed_total = 0
-        checks_total = 0
+        if session_path is None:
 
-        result = SessionValidator.validate_required_sections(
-            session
-        )
+            return {
+                "is_valid": False,
+                "quality_score": 0.0,
+                "quality_grade": "Failed",
+                "issues": [
+                    {
+                        "severity": "error",
+                        "code": "missing_session_manager",
+                        "message": "Session manager missing from session."
+                    }
+                ]
+            }
 
-        passed_total += result[0]
-        checks_total += result[1]
-        issues.extend(
-            result[2]
-        )
-
-        result = SessionValidator.validate_video_protocol(
-            session
-        )
-
-        passed_total += result[0]
-        checks_total += result[1]
-        issues.extend(
-            result[2]
-        )
-        warnings.extend(
-            result[3]
+        SessionValidator.check_required_files(
+            session_path,
+            issues
         )
 
-        result = SessionValidator.validate_framewise_quality(
-            session
+        SessionValidator.check_video_protocol(
+            session_path,
+            issues
         )
 
-        passed_total += result[0]
-        checks_total += result[1]
-        issues.extend(
-            result[2]
-        )
-        warnings.extend(
-            result[3]
+        SessionValidator.check_response_to_name(
+            session_path,
+            issues
         )
 
-        result = SessionValidator.validate_bubble_game(
-            session
+        SessionValidator.check_attention_to_speech(
+            session_path,
+            issues
         )
 
-        passed_total += result[0]
-        checks_total += result[1]
-        issues.extend(
-            result[2]
-        )
-        warnings.extend(
-            result[3]
+        SessionValidator.check_gaze_silhouette(
+            session_path,
+            issues
         )
 
-        result = SessionValidator.validate_paper_features(
-            session
+        SessionValidator.check_paper_feature_coverage(
+            session_path,
+            issues
         )
 
-        passed_total += result[0]
-        checks_total += result[1]
-        issues.extend(
-            result[2]
-        )
-        warnings.extend(
-            result[3]
+        SessionValidator.check_framewise_logs(
+            session_path,
+            issues
         )
 
-        result = SessionValidator.validate_specialized_extractors(
-            session
+        quality_score = SessionValidator.compute_quality_score(
+            issues
         )
 
-        passed_total += result[0]
-        checks_total += result[1]
-        issues.extend(
-            result[2]
-        )
-        warnings.extend(
-            result[3]
+        has_error = any(
+            issue.get(
+                "severity"
+            )
+            ==
+            "error"
+            for issue in issues
         )
 
-        if checks_total > 0:
+        if has_error:
 
-            quality_score = passed_total / checks_total
+            quality_grade = "Failed"
+
+        elif quality_score >= 0.9:
+
+            quality_grade = "Excellent"
+
+        elif quality_score >= 0.75:
+
+            quality_grade = "Good"
+
+        elif quality_score >= 0.6:
+
+            quality_grade = "Usable with caution"
 
         else:
 
-            quality_score = 0
-
-        is_valid = (
-            len(issues) == 0
-            and
-            quality_score >= 0.70
-        )
-
-        quality_level = SessionValidator.get_quality_level(
-            quality_score
-        )
+            quality_grade = "Poor"
 
         return {
             "is_valid":
-                is_valid,
+                not has_error,
 
             "quality_score":
-                round(
-                    quality_score,
-                    3
-                ),
+                quality_score,
 
-            "quality_level":
-                quality_level,
-
-            "checks_passed":
-                passed_total,
-
-            "checks_total":
-                checks_total,
+            "quality_grade":
+                quality_grade,
 
             "issues":
                 issues,
 
-            "warnings":
-                warnings,
-
             "validator_version":
-                "sensetoknow_style_v2",
+                "paper_aligned_strict_v2",
 
-            "note":
-                "Validator checks questionnaire context, continuous video protocol, framewise logs, bubble touch features, and 23 paper-aligned features. It no longer checks removed TrackerManager/name-response standalone modules."
+            "checks":
+                {
+                    "expected_video_stimuli":
+                        SessionValidator.EXPECTED_VIDEO_STIMULI,
+
+                    "expected_name_calls":
+                        SessionValidator.EXPECTED_NAME_CALLS,
+
+                    "expected_paper_features":
+                        SessionValidator.EXPECTED_PAPER_FEATURES,
+
+                    "min_gaze_valid_points":
+                        SessionValidator.MIN_GAZE_VALID_POINTS,
+
+                    "min_speech_valid_frames":
+                        SessionValidator.MIN_SPEECH_VALID_FRAMES
+                }
         }

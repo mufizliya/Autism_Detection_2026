@@ -1,0 +1,53 @@
+{
+    "paper_gaze_silhouette_score": 0.7896,
+    "paper_gaze_percent_social": 0.977,
+    "gaze_silhouette_valid_points": 434,
+    "gaze_silhouette_stimulus_count": 3,
+    "gaze_silhouette_stimulus_results": [
+        {
+            "stimulus_id": "mechanical_puppy",
+            "valid_gaze_points": 119,
+            "left_gaze_count": 109,
+            "right_gaze_count": 10,
+            "left_gaze_ratio": 0.916,
+            "right_gaze_ratio": 0.084,
+            "social_aoi_side": "left",
+            "paper_gaze_percent_social": 0.916,
+            "paper_gaze_silhouette_score": 0.9216,
+            "silhouette_method": "kmeans_silhouette",
+            "silhouette_note": "Silhouette computed using KMeans clusters over frame-wise gaze points.",
+            "gaze_quality": "usable",
+            "framewise_log": "logs/session_20260619_163132/mechanical_puppy_framewise_log.csv"
+        },
+        {
+            "stimulus_id": "blowing_bubbles",
+            "valid_gaze_points": 26,
+            "left_gaze_count": 26,
+            "right_gaze_count": 0,
+            "left_gaze_ratio": 1.0,
+            "right_gaze_ratio": 0.0,
+            "social_aoi_side": "left",
+            "paper_gaze_percent_social": 1.0,
+            "paper_gaze_silhouette_score": 0.8864,
+            "silhouette_method": "kmeans_silhouette",
+            "silhouette_note": "Silhouette computed using KMeans clusters over frame-wise gaze points.",
+            "gaze_quality": "weak_one_sided_gaze",
+            "framewise_log": "logs/session_20260619_163132/blowing_bubbles_framewise_log.csv"
+        },
+        {
+            "stimulus_id": "playing_with_blocks",
+            "valid_gaze_points": 289,
+            "left_gaze_count": 289,
+            "right_gaze_count": 0,
+            "left_gaze_ratio": 1.0,
+            "right_gaze_ratio": 0.0,
+            "social_aoi_side": "left",
+            "paper_gaze_percent_social": 1.0,
+            "paper_gaze_silhouette_score": 0.7266,
+            "silhouette_method": "kmeans_silhouette",
+            "silhouette_note": "Silhouette computed using KMeans clusters over frame-wise gaze points.",
+            "gaze_quality": "weak_one_sided_gaze",
+            "framewise_log": "logs/session_20260619_163132/playing_with_blocks_framewise_log.csv"
+        }
+    ]
+}

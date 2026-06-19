@@ -1,0 +1,35 @@
+{
+    "is_valid": false,
+    "quality_score": 0.4,
+    "quality_grade": "Failed",
+    "issues": [
+        {
+            "severity": "error",
+            "code": "name_call_no_response_window",
+            "message": "Name call 2 has no response-window rows. Likely timing mismatch."
+        },
+        {
+            "severity": "warning",
+            "code": "name_call_zero_window_rows",
+            "message": "Name call 2 has zero response-window rows."
+        },
+        {
+            "severity": "info",
+            "code": "gaze_one_sided_attention",
+            "message": "Only one AOI side was attended for stimuli: ['mechanical_puppy']"
+        },
+        {
+            "severity": "error",
+            "code": "paper_feature_coverage_low",
+            "message": "Expected 23 paper features, found 0."
+        }
+    ],
+    "validator_version": "paper_aligned_strict_v2",
+    "checks": {
+        "expected_video_stimuli": 9,
+        "expected_name_calls": 3,
+        "expected_paper_features": 23,
+        "min_gaze_valid_points": 100,
+        "min_speech_valid_frames": 50
+    }
+}

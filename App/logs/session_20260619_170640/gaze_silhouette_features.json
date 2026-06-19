@@ -1,0 +1,99 @@
+{
+    "paper_gaze_silhouette_score": -0.1166,
+    "paper_gaze_percent_social": 0.2119,
+    "paper_gaze_aoi_preference_score": -0.5761,
+    "gaze_silhouette_valid_points": 184,
+    "gaze_silhouette_stimulus_count": 3,
+    "gaze_silhouette_stimulus_results": [
+        {
+            "stimulus_id": "mechanical_puppy",
+            "valid_gaze_points": 35,
+            "face_valid_gaze_points": 35,
+            "social_look_count": 0,
+            "nonsocial_look_count": 35,
+            "other_look_count": 0,
+            "social_nonsocial_aoi_total": 35,
+            "paper_gaze_percent_social": 0.0,
+            "paper_gaze_silhouette_score": -0.2282,
+            "aoi_preference_score": -1.0,
+            "social_aoi": {
+                "label": "person",
+                "x_min": 0.0,
+                "y_min": 0.05,
+                "x_max": 0.45,
+                "y_max": 0.95
+            },
+            "nonsocial_aoi": {
+                "label": "mechanical_puppy",
+                "x_min": 0.45,
+                "y_min": 0.1,
+                "x_max": 1.0,
+                "y_max": 0.95
+            },
+            "gaze_quality": "one_sided_aoi_attention",
+            "silhouette_method": "aoi_rectangle_distance_proxy",
+            "silhouette_note": "Uses actual social/nonsocial AOI rectangles from stimulus_schedule/video_test instead of coarse left/right gaze split.",
+            "framewise_log": "logs/session_20260619_170640/mechanical_puppy_framewise_log.csv"
+        },
+        {
+            "stimulus_id": "blowing_bubbles",
+            "valid_gaze_points": 16,
+            "face_valid_gaze_points": 16,
+            "social_look_count": 0,
+            "nonsocial_look_count": 16,
+            "other_look_count": 0,
+            "social_nonsocial_aoi_total": 16,
+            "paper_gaze_percent_social": 0.0,
+            "paper_gaze_silhouette_score": 0.0,
+            "aoi_preference_score": -1.0,
+            "social_aoi": {
+                "label": "person_face_body",
+                "x_min": 0.0,
+                "y_min": 0.05,
+                "x_max": 0.5,
+                "y_max": 0.95
+            },
+            "nonsocial_aoi": {
+                "label": "bubbles",
+                "x_min": 0.45,
+                "y_min": 0.05,
+                "x_max": 1.0,
+                "y_max": 0.95
+            },
+            "gaze_quality": "too_few_valid_points",
+            "silhouette_method": "aoi_rectangle_distance_proxy",
+            "silhouette_note": "Uses actual social/nonsocial AOI rectangles from stimulus_schedule/video_test instead of coarse left/right gaze split.",
+            "framewise_log": "logs/session_20260619_170640/blowing_bubbles_framewise_log.csv"
+        },
+        {
+            "stimulus_id": "playing_with_blocks",
+            "valid_gaze_points": 133,
+            "face_valid_gaze_points": 133,
+            "social_look_count": 39,
+            "nonsocial_look_count": 94,
+            "other_look_count": 0,
+            "social_nonsocial_aoi_total": 133,
+            "paper_gaze_percent_social": 0.2932,
+            "paper_gaze_silhouette_score": -0.1013,
+            "aoi_preference_score": -0.4135,
+            "social_aoi": {
+                "label": "person",
+                "x_min": 0.0,
+                "y_min": 0.05,
+                "x_max": 0.5,
+                "y_max": 0.95
+            },
+            "nonsocial_aoi": {
+                "label": "blocks",
+                "x_min": 0.4,
+                "y_min": 0.2,
+                "x_max": 1.0,
+                "y_max": 0.95
+            },
+            "gaze_quality": "usable",
+            "silhouette_method": "aoi_rectangle_distance_proxy",
+            "silhouette_note": "Uses actual social/nonsocial AOI rectangles from stimulus_schedule/video_test instead of coarse left/right gaze split.",
+            "framewise_log": "logs/session_20260619_170640/playing_with_blocks_framewise_log.csv"
+        }
+    ]
+}

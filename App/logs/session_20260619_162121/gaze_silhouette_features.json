@@ -1,0 +1,37 @@
+{
+    "paper_gaze_silhouette_score": 0.7056,
+    "paper_gaze_percent_social": 0.0,
+    "gaze_silhouette_valid_points": 60,
+    "gaze_silhouette_stimulus_count": 3,
+    "gaze_silhouette_stimulus_results": [
+        {
+            "stimulus_id": "mechanical_puppy",
+            "valid_gaze_points": 60,
+            "left_gaze_count": 0,
+            "right_gaze_count": 60,
+            "left_gaze_ratio": 0.0,
+            "right_gaze_ratio": 1.0,
+            "social_aoi_side": "left",
+            "paper_gaze_percent_social": 0.0,
+            "paper_gaze_silhouette_score": 0.7056,
+            "silhouette_method": "kmeans_silhouette",
+            "silhouette_note": "Silhouette computed using KMeans clusters over frame-wise gaze points.",
+            "gaze_quality": "weak_one_sided_gaze",
+            "framewise_log": "logs/session_20260619_162121/mechanical_puppy_framewise_log.csv"
+        },
+        {
+            "stimulus_id": "blowing_bubbles",
+            "error": "framewise_log_not_found",
+            "paper_gaze_silhouette_score": 0,
+            "paper_gaze_percent_social": 0,
+            "gaze_quality": "missing_log"
+        },
+        {
+            "stimulus_id": "playing_with_blocks",
+            "error": "framewise_log_not_found",
+            "paper_gaze_silhouette_score": 0,
+            "paper_gaze_percent_social": 0,
+            "gaze_quality": "missing_log"
+        }
+    ]
+}

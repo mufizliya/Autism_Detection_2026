@@ -1,0 +1,32 @@
+{
+    "paper_response_to_name_proportion": 0.0,
+    "paper_response_to_name_delay": 0.0,
+    "name_call_count": 3,
+    "name_response_count": 0,
+    "name_call_results": [
+        {
+            "call_index": 1,
+            "during_stimulus": "floating_bubbles",
+            "call_time_sec": 2.5,
+            "responded": false,
+            "delay_sec": null,
+            "reason": "framewise_log_not_found"
+        },
+        {
+            "call_index": 2,
+            "during_stimulus": "mechanical_puppy",
+            "call_time_sec": 2.5,
+            "responded": false,
+            "delay_sec": null,
+            "reason": "framewise_log_not_found"
+        },
+        {
+            "call_index": 3,
+            "during_stimulus": "fun_at_the_park",
+            "call_time_sec": 2.5,
+            "responded": false,
+            "delay_sec": null,
+            "reason": "framewise_log_not_found"
+        }
+    ]
+}

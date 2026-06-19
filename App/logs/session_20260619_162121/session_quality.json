@@ -1,0 +1,22 @@
+{
+    "is_valid": false,
+    "quality_score": 0.885,
+    "quality_level": "Excellent",
+    "checks_passed": 54,
+    "checks_total": 61,
+    "issues": [
+        "Only 1/3 scheduled name-call events were triggered.",
+        "No framewise rows recorded for stimulus: blowing_bubbles",
+        "No framewise rows recorded for stimulus: rhymes_and_toys",
+        "No framewise rows recorded for stimulus: make_me_laugh",
+        "No framewise rows recorded for stimulus: playing_with_blocks",
+        "No framewise rows recorded for stimulus: fun_at_the_park",
+        "Average face presence during stimulus protocol is too low."
+    ],
+    "warnings": [
+        "No bubble-game touches were recorded.",
+        "Touch force is unavailable on desktop/Pygame; this is expected unless running on touch hardware."
+    ],
+    "validator_version": "sensetoknow_style_v2",
+    "note": "Validator checks questionnaire context, continuous video protocol, framewise logs, bubble touch features, and 23 paper-aligned features. It no longer checks removed TrackerManager/name-response standalone modules."
+}

@@ -1,0 +1,49 @@
+{
+    "paper_response_to_name_proportion": 0.3333,
+    "paper_response_to_name_delay": 0.7368,
+    "name_call_count": 3,
+    "name_response_count": 1,
+    "name_call_results": [
+        {
+            "call_index": 1,
+            "during_stimulus": "floating_bubbles",
+            "call_time_sec": 2.5014,
+            "framewise_log": "logs/session_20260619_165231/floating_bubbles_framewise_log.csv",
+            "responded": false,
+            "delay_sec": null,
+            "reason": "no_head_turn_above_threshold",
+            "baseline_yaw": 0.0476,
+            "response_window_rows": 82,
+            "max_yaw_change_in_window": 0.0512,
+            "max_head_movement_in_window": 0.0121
+        },
+        {
+            "call_index": 2,
+            "during_stimulus": "mechanical_puppy",
+            "call_time_sec": 2.5009,
+            "framewise_log": "logs/session_20260619_165231/mechanical_puppy_framewise_log.csv",
+            "responded": true,
+            "delay_sec": 0.7368,
+            "reason": "head_turn_detected",
+            "yaw_change": 0.191,
+            "head_movement": 0.0087,
+            "baseline_yaw": 0.0198,
+            "response_window_rows": 74,
+            "max_yaw_change_in_window": 0.191,
+            "max_head_movement_in_window": 0.0103
+        },
+        {
+            "call_index": 3,
+            "during_stimulus": "fun_at_the_park",
+            "call_time_sec": 2.5075,
+            "framewise_log": "logs/session_20260619_165231/fun_at_the_park_framewise_log.csv",
+            "responded": false,
+            "delay_sec": null,
+            "reason": "no_head_turn_above_threshold",
+            "baseline_yaw": -0.0319,
+            "response_window_rows": 82,
+            "max_yaw_change_in_window": 0.0443,
+            "max_head_movement_in_window": 0.0055
+        }
+    ]
+}

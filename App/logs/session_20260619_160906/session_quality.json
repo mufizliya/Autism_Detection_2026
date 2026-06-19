@@ -1,0 +1,23 @@
+{
+    "is_valid": false,
+    "quality_score": 0.824,
+    "quality_level": "Good",
+    "checks_passed": 42,
+    "checks_total": 51,
+    "issues": [
+        "No video stimulus results were recorded.",
+        "Video protocol still appears to use TrackerManager or does not report uses_tracker_manager=false.",
+        "Video measurement source is not framewise behavior recording."
+    ],
+    "warnings": [
+        "Stimulus protocol is not marked as smooth_playlist=true.",
+        "No scheduled name-call events found.",
+        "No bubble-game touches were recorded.",
+        "Touch force is unavailable on desktop/Pygame; this is expected unless running on touch hardware.",
+        "Attention-to-speech extractor found no speech stimulus.",
+        "Gaze silhouette extractor found no mixed social/non-social stimulus.",
+        "Low valid gaze points for silhouette extraction: 0"
+    ],
+    "validator_version": "sensetoknow_style_v2",
+    "note": "Validator checks questionnaire context, continuous video protocol, framewise logs, bubble touch features, and 23 paper-aligned features. It no longer checks removed TrackerManager/name-response standalone modules."
+}

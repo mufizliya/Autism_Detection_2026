@@ -1,0 +1,14 @@
+{
+    "is_valid": true,
+    "quality_score": 0.967,
+    "quality_level": "Excellent",
+    "checks_passed": 59,
+    "checks_total": 61,
+    "issues": [],
+    "warnings": [
+        "Low face presence ratio for stimuli: dog_in_grass, blowing_bubbles",
+        "Touch force is unavailable on desktop/Pygame; this is expected unless running on touch hardware."
+    ],
+    "validator_version": "sensetoknow_style_v2",
+    "note": "Validator checks questionnaire context, continuous video protocol, framewise logs, bubble touch features, and 23 paper-aligned features. It no longer checks removed TrackerManager/name-response standalone modules."
+}

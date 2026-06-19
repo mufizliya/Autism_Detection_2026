@@ -1,0 +1,62 @@
+{
+    "score": 1,
+    "total_reactions": 1,
+    "reaction_data": [
+        {
+            "x": 1621,
+            "y": 569,
+            "reaction_time_sec": 1.08,
+            "timestamp": "2026-06-19 16:33:19",
+            "status": "popped"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.36,
+        "disengagement": 0.0,
+        "motor_irregularity": 0,
+        "responsiveness": 0.05
+    },
+    "touch_events": [
+        {
+            "touch_id": 1,
+            "start_time": 1781866999.65585,
+            "end_time": 1781866999.655979,
+            "duration_seconds": 0.0001,
+            "start_x": 1641,
+            "start_y": 542,
+            "end_x": 1641,
+            "end_y": 542,
+            "path_points": [
+                [
+                    1641,
+                    542
+                ],
+                [
+                    1641,
+                    542
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 33.6006,
+            "hit": true,
+            "pressure_value": 0
+        }
+    ],
+    "touch_features": {
+        "touch_total_count": 1,
+        "touch_popped_count": 1,
+        "touch_popping_rate": 1.0,
+        "touch_error_std": 0.0,
+        "touch_error_mean": 33.6006,
+        "touch_average_length": 0.0,
+        "touch_average_duration": 0.0001,
+        "touch_average_applied_force": 0.0,
+        "touch_force_available": false,
+        "touch_force_note": "Laptop/Pygame mouse input does not provide real touch force. On Android/iOS/tablet, replace pressure_value with device touch pressure if available."
+    },
+    "paper_pop_the_bubbles_popping_rate": 1.0,
+    "paper_pop_the_bubbles_accuracy_std": 0.0,
+    "paper_pop_the_bubbles_average_touch_length": 0.0,
+    "paper_pop_the_bubbles_average_applied_force": 0.0,
+    "touch_force_available": false
+}
