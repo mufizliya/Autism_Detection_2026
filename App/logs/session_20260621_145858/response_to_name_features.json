@@ -1,0 +1,19 @@
+{
+    "paper_response_to_name_proportion": 0.0,
+    "paper_response_to_name_delay": null,
+    "name_call_count": 1,
+    "name_response_count": 0,
+    "name_call_results": [
+        {
+            "call_index": 1,
+            "during_stimulus": "floating_bubbles",
+            "call_time_sec": 2.506,
+            "framewise_log": "logs/session_20260621_145858/floating_bubbles_framewise_log.csv",
+            "responded": false,
+            "delay_sec": null,
+            "reason": "no_response_window_rows",
+            "response_window_rows": 0,
+            "baseline_yaw": 0.0919
+        }
+    ]
+}

@@ -14,3 +14,6 @@ __pycache__/
 .DS_StoreApp/assets/stimuli/master/*.avi
 App/assets/stimuli/master/*.mp4
 App/assets/stimuli/master/*.mov
+App/assets/stimuli/master/*.avi
+App/assets/stimuli/master/*.mp4
+App/assets/stimuli/master/*.mov

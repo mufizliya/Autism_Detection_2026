@@ -1,0 +1,70 @@
+{
+    "is_valid": false,
+    "quality_score": 0.0,
+    "quality_grade": "Failed",
+    "issues": [
+        {
+            "severity": "error",
+            "code": "wrong_triggered_name_call_count",
+            "message": "Expected 3 triggered name calls, found 1."
+        },
+        {
+            "severity": "error",
+            "code": "stimulus_events_name_call_mismatch",
+            "message": "stimulus_events.json has 1 triggered name calls."
+        },
+        {
+            "severity": "error",
+            "code": "wrong_name_call_count",
+            "message": "Expected 3 name calls, found 1."
+        },
+        {
+            "severity": "error",
+            "code": "name_call_no_response_window",
+            "message": "Name call 1 has no response-window rows. Likely timing mismatch."
+        },
+        {
+            "severity": "warning",
+            "code": "name_call_zero_window_rows",
+            "message": "Name call 1 has zero response-window rows."
+        },
+        {
+            "severity": "warning",
+            "code": "no_name_responses_detected",
+            "message": "No response-to-name events detected. This may be valid behavior, but verify tracking quality."
+        },
+        {
+            "severity": "warning",
+            "code": "low_speech_valid_frames",
+            "message": "Speech valid frames are low: 0."
+        },
+        {
+            "severity": "warning",
+            "code": "low_gaze_valid_points",
+            "message": "Gaze silhouette valid points are low: 0."
+        },
+        {
+            "severity": "error",
+            "code": "paper_feature_coverage_low",
+            "message": "Expected 23 paper features, found 0."
+        },
+        {
+            "severity": "warning",
+            "code": "low_framewise_log_count",
+            "message": "Expected at least 9 framewise logs, found 1."
+        },
+        {
+            "severity": "warning",
+            "code": "low_face_usable_framewise_logs",
+            "message": "Only 1 framewise logs appear to contain face-detected rows."
+        }
+    ],
+    "validator_version": "paper_aligned_strict_v2",
+    "checks": {
+        "expected_video_stimuli": 9,
+        "expected_name_calls": 3,
+        "expected_paper_features": 23,
+        "min_gaze_valid_points": 100,
+        "min_speech_valid_frames": 50
+    }
+}

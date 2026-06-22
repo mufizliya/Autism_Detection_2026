@@ -1,0 +1,20 @@
+{
+    "is_valid": true,
+    "quality_score": 0.98,
+    "quality_grade": "Excellent",
+    "issues": [
+        {
+            "severity": "info",
+            "code": "gaze_one_sided_attention",
+            "message": "Only one AOI side was attended for stimuli: ['mechanical_puppy', 'blowing_bubbles', 'playing_with_blocks']"
+        }
+    ],
+    "validator_version": "paper_aligned_strict_v2",
+    "checks": {
+        "expected_video_stimuli": 9,
+        "expected_name_calls": 3,
+        "expected_paper_features": 23,
+        "min_gaze_valid_points": 100,
+        "min_speech_valid_frames": 50
+    }
+}

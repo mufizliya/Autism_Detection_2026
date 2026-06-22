@@ -1,0 +1,44 @@
+{
+    "scheduled_name_call_events": [
+        {
+            "id": "name_call_1",
+            "type": "name_call_event",
+            "during_stimulus": "floating_bubbles",
+            "call_index": 1,
+            "call_time_sec": 2.5,
+            "mode": "human_cue"
+        },
+        {
+            "id": "name_call_2",
+            "type": "name_call_event",
+            "during_stimulus": "mechanical_puppy",
+            "call_index": 2,
+            "call_time_sec": 2.5,
+            "mode": "human_cue"
+        },
+        {
+            "id": "name_call_3",
+            "type": "name_call_event",
+            "during_stimulus": "fun_at_the_park",
+            "call_index": 3,
+            "call_time_sec": 2.5,
+            "mode": "human_cue"
+        }
+    ],
+    "triggered_name_call_events": [
+        {
+            "id": "name_call_1",
+            "type": "name_call_event",
+            "during_stimulus": "floating_bubbles",
+            "call_index": 1,
+            "call_time_sec": 2.5,
+            "mode": "human_cue",
+            "global_call_time_sec": 2.5,
+            "stimulus_id": "floating_bubbles",
+            "triggered": true,
+            "actual_global_trigger_time_sec": 2.506,
+            "actual_trigger_time_sec": 2.506,
+            "actual_wall_time": 1782034152.636039
+        }
+    ]
+}

@@ -1,0 +1,713 @@
+{
+    "score": 22,
+    "total_reactions": 22,
+    "reaction_data": [
+        {
+            "x": 1080,
+            "y": 197,
+            "reaction_time_sec": 0.94,
+            "timestamp": "2026-06-22 16:15:15",
+            "status": "popped"
+        },
+        {
+            "x": 1242,
+            "y": 1012,
+            "reaction_time_sec": 1.17,
+            "timestamp": "2026-06-22 16:15:16",
+            "status": "popped"
+        },
+        {
+            "x": 1680,
+            "y": 683,
+            "reaction_time_sec": 1.1,
+            "timestamp": "2026-06-22 16:15:18",
+            "status": "popped"
+        },
+        {
+            "x": 1345,
+            "y": 574,
+            "reaction_time_sec": 0.88,
+            "timestamp": "2026-06-22 16:15:19",
+            "status": "popped"
+        },
+        {
+            "x": 568,
+            "y": 232,
+            "reaction_time_sec": 0.99,
+            "timestamp": "2026-06-22 16:15:21",
+            "status": "popped"
+        },
+        {
+            "x": 1403,
+            "y": 259,
+            "reaction_time_sec": 1.1,
+            "timestamp": "2026-06-22 16:15:22",
+            "status": "popped"
+        },
+        {
+            "x": 435,
+            "y": 235,
+            "reaction_time_sec": 0.87,
+            "timestamp": "2026-06-22 16:15:24",
+            "status": "popped"
+        },
+        {
+            "x": 254,
+            "y": 575,
+            "reaction_time_sec": 0.9,
+            "timestamp": "2026-06-22 16:15:25",
+            "status": "popped"
+        },
+        {
+            "x": 1053,
+            "y": 342,
+            "reaction_time_sec": 0.8,
+            "timestamp": "2026-06-22 16:15:27",
+            "status": "popped"
+        },
+        {
+            "x": 221,
+            "y": 497,
+            "reaction_time_sec": 0.91,
+            "timestamp": "2026-06-22 16:15:28",
+            "status": "popped"
+        },
+        {
+            "x": 1608,
+            "y": 640,
+            "reaction_time_sec": 1.04,
+            "timestamp": "2026-06-22 16:15:30",
+            "status": "popped"
+        },
+        {
+            "x": 1252,
+            "y": 610,
+            "reaction_time_sec": 0.94,
+            "timestamp": "2026-06-22 16:15:31",
+            "status": "popped"
+        },
+        {
+            "x": 619,
+            "y": 671,
+            "reaction_time_sec": 0.67,
+            "timestamp": "2026-06-22 16:15:32",
+            "status": "popped"
+        },
+        {
+            "x": 1457,
+            "y": 384,
+            "reaction_time_sec": 0.92,
+            "timestamp": "2026-06-22 16:15:34",
+            "status": "popped"
+        },
+        {
+            "x": 1601,
+            "y": 895,
+            "reaction_time_sec": 1.24,
+            "timestamp": "2026-06-22 16:15:36",
+            "status": "popped"
+        },
+        {
+            "x": 431,
+            "y": 310,
+            "reaction_time_sec": 1.21,
+            "timestamp": "2026-06-22 16:15:37",
+            "status": "popped"
+        },
+        {
+            "x": 1291,
+            "y": 119,
+            "reaction_time_sec": 1.22,
+            "timestamp": "2026-06-22 16:15:39",
+            "status": "popped"
+        },
+        {
+            "x": 1061,
+            "y": 788,
+            "reaction_time_sec": 1.09,
+            "timestamp": "2026-06-22 16:15:40",
+            "status": "popped"
+        },
+        {
+            "x": 490,
+            "y": 901,
+            "reaction_time_sec": 1.0,
+            "timestamp": "2026-06-22 16:15:42",
+            "status": "popped"
+        },
+        {
+            "x": 196,
+            "y": 831,
+            "reaction_time_sec": 1.36,
+            "timestamp": "2026-06-22 16:15:44",
+            "status": "popped"
+        },
+        {
+            "x": 1058,
+            "y": 656,
+            "reaction_time_sec": 0.92,
+            "timestamp": "2026-06-22 16:15:45",
+            "status": "popped"
+        },
+        {
+            "x": 1477,
+            "y": 1032,
+            "reaction_time_sec": 1.38,
+            "timestamp": "2026-06-22 16:15:47",
+            "status": "popped"
+        }
+    ],
+    "behavioral_phenotypes": {
+        "attention_deficit": 0.34,
+        "disengagement": 0.0,
+        "motor_irregularity": 0.03,
+        "responsiveness": 1
+    },
+    "touch_events": [
+        {
+            "touch_id": 1,
+            "start_time": 1782125115.0810208,
+            "end_time": 1782125115.081144,
+            "duration_seconds": 0.0001,
+            "start_x": 1071,
+            "start_y": 216,
+            "end_x": 1071,
+            "end_y": 216,
+            "path_points": [
+                [
+                    1071,
+                    216
+                ],
+                [
+                    1071,
+                    216
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 21.0238,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 2,
+            "start_time": 1782125116.8216681,
+            "end_time": 1782125116.82175,
+            "duration_seconds": 0.0001,
+            "start_x": 1214,
+            "start_y": 1045,
+            "end_x": 1214,
+            "end_y": 1045,
+            "path_points": [
+                [
+                    1214,
+                    1045
+                ],
+                [
+                    1214,
+                    1045
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 43.2782,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 3,
+            "start_time": 1782125118.25873,
+            "end_time": 1782125118.258799,
+            "duration_seconds": 0.0001,
+            "start_x": 1726,
+            "start_y": 678,
+            "end_x": 1726,
+            "end_y": 678,
+            "path_points": [
+                [
+                    1726,
+                    678
+                ],
+                [
+                    1726,
+                    678
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 46.2709,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 4,
+            "start_time": 1782125119.5417652,
+            "end_time": 1782125119.541833,
+            "duration_seconds": 0.0001,
+            "start_x": 1358,
+            "start_y": 582,
+            "end_x": 1358,
+            "end_y": 582,
+            "path_points": [
+                [
+                    1358,
+                    582
+                ],
+                [
+                    1358,
+                    582
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 15.2643,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 5,
+            "start_time": 1782125121.1623979,
+            "end_time": 1782125121.162467,
+            "duration_seconds": 0.0001,
+            "start_x": 612,
+            "start_y": 235,
+            "end_x": 612,
+            "end_y": 235,
+            "path_points": [
+                [
+                    612,
+                    235
+                ],
+                [
+                    612,
+                    235
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 44.1022,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 6,
+            "start_time": 1782125122.794369,
+            "end_time": 1782125122.794438,
+            "duration_seconds": 0.0001,
+            "start_x": 1436,
+            "start_y": 233,
+            "end_x": 1436,
+            "end_y": 233,
+            "path_points": [
+                [
+                    1436,
+                    233
+                ],
+                [
+                    1436,
+                    233
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 42.0119,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 7,
+            "start_time": 1782125124.064311,
+            "end_time": 1782125124.064414,
+            "duration_seconds": 0.0001,
+            "start_x": 371,
+            "start_y": 223,
+            "end_x": 371,
+            "end_y": 223,
+            "path_points": [
+                [
+                    371,
+                    223
+                ],
+                [
+                    371,
+                    223
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 65.1153,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 8,
+            "start_time": 1782125125.608089,
+            "end_time": 1782125125.6081579,
+            "duration_seconds": 0.0001,
+            "start_x": 234,
+            "start_y": 569,
+            "end_x": 234,
+            "end_y": 569,
+            "path_points": [
+                [
+                    234,
+                    569
+                ],
+                [
+                    234,
+                    569
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 20.8806,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 9,
+            "start_time": 1782125127.015287,
+            "end_time": 1782125127.0153549,
+            "duration_seconds": 0.0001,
+            "start_x": 1047,
+            "start_y": 387,
+            "end_x": 1047,
+            "end_y": 387,
+            "path_points": [
+                [
+                    1047,
+                    387
+                ],
+                [
+                    1047,
+                    387
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 45.3982,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 10,
+            "start_time": 1782125128.63059,
+            "end_time": 1782125128.630659,
+            "duration_seconds": 0.0001,
+            "start_x": 215,
+            "start_y": 510,
+            "end_x": 215,
+            "end_y": 510,
+            "path_points": [
+                [
+                    215,
+                    510
+                ],
+                [
+                    215,
+                    510
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 14.3178,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 11,
+            "start_time": 1782125130.266782,
+            "end_time": 1782125130.2668512,
+            "duration_seconds": 0.0001,
+            "start_x": 1633,
+            "start_y": 629,
+            "end_x": 1633,
+            "end_y": 629,
+            "path_points": [
+                [
+                    1633,
+                    629
+                ],
+                [
+                    1633,
+                    629
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 27.313,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 12,
+            "start_time": 1782125131.674477,
+            "end_time": 1782125131.674546,
+            "duration_seconds": 0.0001,
+            "start_x": 1220,
+            "start_y": 583,
+            "end_x": 1220,
+            "end_y": 583,
+            "path_points": [
+                [
+                    1220,
+                    583
+                ],
+                [
+                    1220,
+                    583
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 41.8688,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 13,
+            "start_time": 1782125132.913397,
+            "end_time": 1782125132.913467,
+            "duration_seconds": 0.0001,
+            "start_x": 625,
+            "start_y": 651,
+            "end_x": 625,
+            "end_y": 651,
+            "path_points": [
+                [
+                    625,
+                    651
+                ],
+                [
+                    625,
+                    651
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 20.8806,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 14,
+            "start_time": 1782125134.6749802,
+            "end_time": 1782125134.67505,
+            "duration_seconds": 0.0001,
+            "start_x": 1424,
+            "start_y": 402,
+            "end_x": 1424,
+            "end_y": 402,
+            "path_points": [
+                [
+                    1424,
+                    402
+                ],
+                [
+                    1424,
+                    402
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 37.5899,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 15,
+            "start_time": 1782125136.502315,
+            "end_time": 1782125136.5023842,
+            "duration_seconds": 0.0001,
+            "start_x": 1605,
+            "start_y": 949,
+            "end_x": 1605,
+            "end_y": 949,
+            "path_points": [
+                [
+                    1605,
+                    949
+                ],
+                [
+                    1605,
+                    949
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 54.1479,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 16,
+            "start_time": 1782125137.978697,
+            "end_time": 1782125137.978763,
+            "duration_seconds": 0.0001,
+            "start_x": 445,
+            "start_y": 269,
+            "end_x": 445,
+            "end_y": 269,
+            "path_points": [
+                [
+                    445,
+                    269
+                ],
+                [
+                    445,
+                    269
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 43.3244,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 17,
+            "start_time": 1782125139.503794,
+            "end_time": 1782125139.503863,
+            "duration_seconds": 0.0001,
+            "start_x": 1320,
+            "start_y": 117,
+            "end_x": 1320,
+            "end_y": 117,
+            "path_points": [
+                [
+                    1320,
+                    117
+                ],
+                [
+                    1320,
+                    117
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 29.0689,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 18,
+            "start_time": 1782125140.879199,
+            "end_time": 1782125140.8792691,
+            "duration_seconds": 0.0001,
+            "start_x": 1048,
+            "start_y": 775,
+            "end_x": 1048,
+            "end_y": 775,
+            "path_points": [
+                [
+                    1048,
+                    775
+                ],
+                [
+                    1048,
+                    775
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 18.3848,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 19,
+            "start_time": 1782125142.294616,
+            "end_time": 1782125142.294683,
+            "duration_seconds": 0.0001,
+            "start_x": 456,
+            "start_y": 901,
+            "end_x": 456,
+            "end_y": 901,
+            "path_points": [
+                [
+                    456,
+                    901
+                ],
+                [
+                    456,
+                    901
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 34.0,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 20,
+            "start_time": 1782125144.1589901,
+            "end_time": 1782125144.159057,
+            "duration_seconds": 0.0001,
+            "start_x": 185,
+            "start_y": 845,
+            "end_x": 185,
+            "end_y": 845,
+            "path_points": [
+                [
+                    185,
+                    845
+                ],
+                [
+                    185,
+                    845
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 17.8045,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 21,
+            "start_time": 1782125145.230677,
+            "end_time": 1782125145.230746,
+            "duration_seconds": 0.0001,
+            "start_x": 1044,
+            "start_y": 633,
+            "end_x": 1044,
+            "end_y": 633,
+            "path_points": [
+                [
+                    1044,
+                    633
+                ],
+                [
+                    1044,
+                    633
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 26.9258,
+            "hit": true,
+            "pressure_value": 0
+        },
+        {
+            "touch_id": 22,
+            "start_time": 1782125147.193345,
+            "end_time": 1782125147.193414,
+            "duration_seconds": 0.0001,
+            "start_x": 1468,
+            "start_y": 991,
+            "end_x": 1468,
+            "end_y": 991,
+            "path_points": [
+                [
+                    1468,
+                    991
+                ],
+                [
+                    1468,
+                    991
+                ]
+            ],
+            "touch_path_length": 0.0,
+            "nearest_bubble_distance": 41.9762,
+            "hit": true,
+            "pressure_value": 0
+        }
+    ],
+    "touch_features": {
+        "touch_total_count": 22,
+        "touch_popped_count": 22,
+        "touch_popping_rate": 1.0,
+        "touch_error_std": 13.8153,
+        "touch_error_mean": 34.134,
+        "touch_average_length": 0.0,
+        "touch_average_duration": 0.0001,
+        "touch_average_applied_force": 0.0,
+        "touch_force_available": false,
+        "touch_force_note": "Laptop/Pygame mouse input does not provide real touch force. On Android/iOS/tablet, replace pressure_value with device touch pressure if available."
+    },
+    "paper_pop_the_bubbles_popping_rate": 1.0,
+    "paper_pop_the_bubbles_accuracy_std": 13.8153,
+    "paper_pop_the_bubbles_average_touch_length": 0.0,
+    "paper_pop_the_bubbles_average_applied_force": 0.0,
+    "touch_force_available": false
+}

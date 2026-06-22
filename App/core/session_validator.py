@@ -512,14 +512,34 @@ class SessionValidator:
         issues
     ):
 
-        data = SessionValidator.load_json(
-            os.path.join(
-                session_path,
-                "paper_feature_coverage.json"
-            )
+        coverage_path = os.path.join(
+            session_path,
+            "paper_feature_coverage.json"
         )
 
-        if data is None:
+        aligned_path = os.path.join(
+            session_path,
+            "paper_aligned_features.json"
+        )
+
+        phenotype_path = os.path.join(
+            session_path,
+            "phenotype_vector.json"
+        )
+
+        coverage_data = SessionValidator.load_json(
+            coverage_path
+        )
+
+        aligned_data = SessionValidator.load_json(
+            aligned_path
+        )
+
+        phenotype_data = SessionValidator.load_json(
+            phenotype_path
+        )
+
+        if coverage_data is None:
 
             SessionValidator.add_issue(
                 issues,
@@ -530,18 +550,171 @@ class SessionValidator:
 
             return
 
-        present_count = data.get(
+        # Different versions of our coverage exporter used different names.
+        possible_count_keys = [
             "present_feature_count",
-            data.get(
-                "paper_feature_count",
-                0
-            )
-        )
+            "paper_feature_count",
+            "covered_feature_count",
+            "available_feature_count",
+            "matched_feature_count",
+            "total_present_features",
+            "features_present_count",
+            "feature_count"
+        ]
 
-        missing = data.get(
+        present_count = None
+
+        for key in possible_count_keys:
+
+            if key in coverage_data:
+
+                try:
+
+                    present_count = int(
+                        coverage_data.get(
+                            key,
+                            0
+                        )
+                    )
+
+                    break
+
+                except Exception:
+
+                    pass
+
+        # Some coverage files store lists instead of direct counts.
+        if present_count is None:
+
+            possible_present_list_keys = [
+                "present_features",
+                "covered_features",
+                "available_features",
+                "matched_features"
+            ]
+
+            for key in possible_present_list_keys:
+
+                value = coverage_data.get(
+                    key
+                )
+
+                if isinstance(
+                    value,
+                    list
+                ):
+
+                    present_count = len(
+                        value
+                    )
+
+                    break
+
+        # Fallback 1: count usable paper-aligned feature keys.
+        if present_count is None and isinstance(
+            aligned_data,
+            dict
+        ):
+
+            ignored_keys = [
+                "metadata",
+                "notes",
+                "feature_sources",
+                "coverage",
+                "missing_features",
+                "present_features"
+            ]
+
+            usable_keys = []
+
+            for key, value in aligned_data.items():
+
+                if key in ignored_keys:
+                    continue
+
+                if isinstance(
+                    value,
+                    (int, float, bool)
+                ):
+
+                    usable_keys.append(
+                        key
+                    )
+
+                elif isinstance(
+                    value,
+                    str
+                ) and value != "":
+
+                    usable_keys.append(
+                        key
+                    )
+
+            present_count = len(
+                usable_keys
+            )
+
+        # Fallback 2: count phenotype vector feature keys.
+        if present_count is None and isinstance(
+            phenotype_data,
+            dict
+        ):
+
+            ignored_keys = [
+                "session_id",
+                "label",
+                "child_age",
+                "child_gender",
+                "session_quality_score",
+                "session_quality_grade",
+                "session_is_valid",
+                "validator_version"
+            ]
+
+            usable_keys = []
+
+            for key, value in phenotype_data.items():
+
+                if key in ignored_keys:
+                    continue
+
+                if isinstance(
+                    value,
+                    (int, float, bool)
+                ):
+
+                    usable_keys.append(
+                        key
+                    )
+
+                elif isinstance(
+                    value,
+                    str
+                ) and value != "":
+
+                    usable_keys.append(
+                        key
+                    )
+
+            present_count = len(
+                usable_keys
+            )
+
+        if present_count is None:
+
+            present_count = 0
+
+        missing = coverage_data.get(
             "missing_features",
             []
         )
+
+        if not isinstance(
+            missing,
+            list
+        ):
+
+            missing = []
 
         if present_count < SessionValidator.EXPECTED_PAPER_FEATURES:
 

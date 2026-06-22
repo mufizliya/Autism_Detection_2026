@@ -1,0 +1,607 @@
+{
+    "scq_score": 21,
+    "scq_outcome": "Further evaluation recommended",
+    "scq_social_communication_raw": 2,
+    "scq_social_communication_severity": 0.11,
+    "scq_sensory_sensitivity_raw": 4,
+    "scq_sensory_sensitivity_severity": 1.0,
+    "scq_repetitive_behavior_raw": 9,
+    "scq_repetitive_behavior_severity": 1.0,
+    "scq_emotional_regulation_raw": 4,
+    "scq_emotional_regulation_severity": 1.0,
+    "scq_motor_behavior_raw": 2,
+    "scq_motor_behavior_severity": 1.0,
+    "game_score": 22,
+    "game_total_reactions": 22,
+    "game_avg_reaction_time": 1.0295454545454545,
+    "game_min_reaction_time": 0.67,
+    "game_max_reaction_time": 1.38,
+    "game_popped_count": 22,
+    "game_missed_count": 0,
+    "game_miss_ratio": 0.0,
+    "game_attention_deficit": 0.34,
+    "game_disengagement": 0.0,
+    "game_motor_irregularity": 0.03,
+    "game_responsiveness": 1,
+    "touch_total_count": 22,
+    "touch_popped_count": 22,
+    "paper_pop_the_bubbles_popping_rate": 1.0,
+    "paper_pop_the_bubbles_accuracy_std": 13.8153,
+    "paper_pop_the_bubbles_average_touch_length": 0.0,
+    "paper_pop_the_bubbles_average_applied_force": 0.0,
+    "touch_force_available": 0,
+    "video_test_available": 1,
+    "video_social_video_duration": 0.0,
+    "video_social_video_completed": 0,
+    "video_social_facing_forward_proxy": 0.0,
+    "video_social_face_presence_ratio": 0.0,
+    "video_social_blink_count": 0.0,
+    "video_social_blink_rate_per_min": 0.0,
+    "video_social_away_time_sec": 0.0,
+    "video_social_yaw_variability": 0.0,
+    "video_social_pitch_variability": 0.0,
+    "video_social_gaze_variability": 0.0,
+    "video_social_avg_smile_score": 0.0,
+    "video_social_smile_ratio": 0.0,
+    "video_social_smiling_frames": 0.0,
+    "video_social_pose_presence_ratio": 0.0,
+    "video_social_head_variability": 0.0,
+    "video_social_shoulder_variability": 0.0,
+    "video_social_body_stability_score": 0.0,
+    "video_social_motor_pose_presence_ratio": 0.0,
+    "video_social_arm_stereotypy_score": 0.0,
+    "video_social_oscillation_frequency_hz": 0.0,
+    "video_social_stereotypy_index": 0.0,
+    "video_nonsocial_video_duration": 0.0,
+    "video_nonsocial_video_completed": 0,
+    "video_nonsocial_facing_forward_proxy": 0.0,
+    "video_nonsocial_face_presence_ratio": 0.0,
+    "video_nonsocial_blink_count": 0.0,
+    "video_nonsocial_blink_rate_per_min": 0.0,
+    "video_nonsocial_away_time_sec": 0.0,
+    "video_nonsocial_yaw_variability": 0.0,
+    "video_nonsocial_pitch_variability": 0.0,
+    "video_nonsocial_gaze_variability": 0.0,
+    "video_nonsocial_avg_smile_score": 0.0,
+    "video_nonsocial_smile_ratio": 0.0,
+    "video_nonsocial_smiling_frames": 0.0,
+    "video_nonsocial_pose_presence_ratio": 0.0,
+    "video_nonsocial_head_variability": 0.0,
+    "video_nonsocial_shoulder_variability": 0.0,
+    "video_nonsocial_body_stability_score": 0.0,
+    "video_nonsocial_motor_pose_presence_ratio": 0.0,
+    "video_nonsocial_arm_stereotypy_score": 0.0,
+    "video_nonsocial_oscillation_frequency_hz": 0.0,
+    "video_nonsocial_stereotypy_index": 0.0,
+    "video_social_preference_score": 0.0,
+    "video_nonsocial_preference_score": 0.0,
+    "video_smile_response_difference": 0.0,
+    "video_motor_difference": 0.0,
+    "video_head_movement_difference": 0.0,
+    "video_attention_pattern": "balanced",
+    "paper_ts_framewise_logs_found": 9,
+    "paper_facing_forward_social_movies": 1.0,
+    "paper_facing_forward_nonsocial_movies": 0.9561,
+    "paper_blink_rate_social_movies": 0.0,
+    "paper_blink_rate_nonsocial_movies": 14.4687,
+    "paper_eyebrows_complexity_social_movies": 0.0045,
+    "paper_eyebrows_complexity_nonsocial_movies": 0.0116,
+    "paper_mouth_complexity_social_movies": 0.0005,
+    "paper_mouth_complexity_nonsocial_movies": 0.0044,
+    "paper_head_movement_social_movies": 0.0006,
+    "paper_head_movement_nonsocial_movies": 0.0029,
+    "paper_head_movement_complexity_social_movies": 0.0007,
+    "paper_head_movement_complexity_nonsocial_movies": 0.0059,
+    "paper_head_movement_acceleration_social_movies": 0.0004,
+    "paper_head_movement_acceleration_nonsocial_movies": 0.0017,
+    "paper_gaze_percent_social": 0.0,
+    "paper_gaze_silhouette_score": -0.3516,
+    "paper_attention_to_speech": 0.698,
+    "paper_response_to_name_proportion": 0.6667,
+    "paper_response_to_name_delay": 1.5524,
+    "name_call_count": 3,
+    "name_response_count": 2,
+    "name_call_results": [
+        {
+            "call_index": 1,
+            "during_stimulus": "floating_bubbles",
+            "call_time_sec": 2.5031,
+            "framewise_log": "logs/session_20260622_161328/floating_bubbles_framewise_log.csv",
+            "responded": true,
+            "delay_sec": 2.7859,
+            "reason": "head_turn_detected",
+            "yaw_change": 0.0032,
+            "head_movement": 0.0235,
+            "baseline_yaw": -0.0231,
+            "response_window_rows": 83,
+            "max_yaw_change_in_window": 0.0766,
+            "max_head_movement_in_window": 0.0235
+        },
+        {
+            "call_index": 2,
+            "during_stimulus": "mechanical_puppy",
+            "call_time_sec": 2.5064,
+            "framewise_log": "logs/session_20260622_161328/mechanical_puppy_framewise_log.csv",
+            "responded": false,
+            "delay_sec": null,
+            "reason": "no_head_turn_above_threshold",
+            "baseline_yaw": 0.0111,
+            "response_window_rows": 82,
+            "max_yaw_change_in_window": 0.0092,
+            "max_head_movement_in_window": 0.003
+        },
+        {
+            "call_index": 3,
+            "during_stimulus": "fun_at_the_park",
+            "call_time_sec": 2.5032,
+            "framewise_log": "logs/session_20260622_161328/fun_at_the_park_framewise_log.csv",
+            "responded": true,
+            "delay_sec": 0.319,
+            "reason": "head_turn_detected",
+            "yaw_change": 0.1054,
+            "head_movement": 0.0171,
+            "baseline_yaw": 0.0026,
+            "response_window_rows": 56,
+            "max_yaw_change_in_window": 0.1054,
+            "max_head_movement_in_window": 0.0171
+        }
+    ],
+    "paper_gaze_speech_correlation": 0.698,
+    "speech_valid_frames": 553,
+    "speech_matched_frames": 386,
+    "speech_stimulus_count": 2,
+    "speech_stimulus_results": [
+        {
+            "stimulus_id": "rhymes_and_toys",
+            "framewise_log": "logs/session_20260622_161328/rhymes_and_toys_framewise_log.csv",
+            "speaker_turns": [
+                {
+                    "speaker": "center",
+                    "start_sec": 0.0,
+                    "end_sec": 10.0,
+                    "aoi": {
+                        "x_min": 0.1,
+                        "y_min": 0.05,
+                        "x_max": 0.9,
+                        "y_max": 0.95
+                    }
+                }
+            ],
+            "valid_frames": 291,
+            "matched_frames": 291,
+            "attention_to_speech_score": 1.0,
+            "frame_results_sample": [
+                {
+                    "local_time": 0.0,
+                    "speaker": "center",
+                    "gaze_x": 0.5451,
+                    "gaze_y": 0.5613,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.035,
+                    "speaker": "center",
+                    "gaze_x": 0.5443,
+                    "gaze_y": 0.56,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.069,
+                    "speaker": "center",
+                    "gaze_x": 0.5445,
+                    "gaze_y": 0.5596,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.104,
+                    "speaker": "center",
+                    "gaze_x": 0.5458,
+                    "gaze_y": 0.5578,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.14,
+                    "speaker": "center",
+                    "gaze_x": 0.5465,
+                    "gaze_y": 0.557,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.174,
+                    "speaker": "center",
+                    "gaze_x": 0.5467,
+                    "gaze_y": 0.5573,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.208,
+                    "speaker": "center",
+                    "gaze_x": 0.5468,
+                    "gaze_y": 0.5575,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.242,
+                    "speaker": "center",
+                    "gaze_x": 0.547,
+                    "gaze_y": 0.5577,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.277,
+                    "speaker": "center",
+                    "gaze_x": 0.5477,
+                    "gaze_y": 0.5583,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.311,
+                    "speaker": "center",
+                    "gaze_x": 0.5476,
+                    "gaze_y": 0.5581,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.347,
+                    "speaker": "center",
+                    "gaze_x": 0.5478,
+                    "gaze_y": 0.5584,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.38,
+                    "speaker": "center",
+                    "gaze_x": 0.5477,
+                    "gaze_y": 0.5585,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.414,
+                    "speaker": "center",
+                    "gaze_x": 0.5479,
+                    "gaze_y": 0.5587,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.448,
+                    "speaker": "center",
+                    "gaze_x": 0.5476,
+                    "gaze_y": 0.5584,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.483,
+                    "speaker": "center",
+                    "gaze_x": 0.5473,
+                    "gaze_y": 0.5585,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.519,
+                    "speaker": "center",
+                    "gaze_x": 0.5477,
+                    "gaze_y": 0.5587,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.553,
+                    "speaker": "center",
+                    "gaze_x": 0.5477,
+                    "gaze_y": 0.5587,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.586,
+                    "speaker": "center",
+                    "gaze_x": 0.5477,
+                    "gaze_y": 0.5585,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.622,
+                    "speaker": "center",
+                    "gaze_x": 0.5477,
+                    "gaze_y": 0.5583,
+                    "matched": true
+                },
+                {
+                    "local_time": 0.655,
+                    "speaker": "center",
+                    "gaze_x": 0.5478,
+                    "gaze_y": 0.5582,
+                    "matched": true
+                }
+            ]
+        },
+        {
+            "stimulus_id": "fun_at_the_park",
+            "framewise_log": "logs/session_20260622_161328/fun_at_the_park_framewise_log.csv",
+            "speaker_turns": [
+                {
+                    "speaker": "left",
+                    "start_sec": 0.0,
+                    "end_sec": 2.5,
+                    "aoi": {
+                        "x_min": 0.0,
+                        "y_min": 0.05,
+                        "x_max": 0.5,
+                        "y_max": 0.95
+                    }
+                },
+                {
+                    "speaker": "right",
+                    "start_sec": 2.5,
+                    "end_sec": 5.0,
+                    "aoi": {
+                        "x_min": 0.5,
+                        "y_min": 0.05,
+                        "x_max": 1.0,
+                        "y_max": 0.95
+                    }
+                },
+                {
+                    "speaker": "left",
+                    "start_sec": 5.0,
+                    "end_sec": 7.5,
+                    "aoi": {
+                        "x_min": 0.0,
+                        "y_min": 0.05,
+                        "x_max": 0.5,
+                        "y_max": 0.95
+                    }
+                },
+                {
+                    "speaker": "right",
+                    "start_sec": 7.5,
+                    "end_sec": 10.0,
+                    "aoi": {
+                        "x_min": 0.5,
+                        "y_min": 0.05,
+                        "x_max": 1.0,
+                        "y_max": 0.95
+                    }
+                }
+            ],
+            "valid_frames": 262,
+            "matched_frames": 95,
+            "attention_to_speech_score": 0.3626,
+            "frame_results_sample": [
+                {
+                    "local_time": 0.0,
+                    "speaker": "left",
+                    "gaze_x": 0.5613,
+                    "gaze_y": 0.5816,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.032,
+                    "speaker": "left",
+                    "gaze_x": 0.561,
+                    "gaze_y": 0.5815,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.069,
+                    "speaker": "left",
+                    "gaze_x": 0.5607,
+                    "gaze_y": 0.5813,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.103,
+                    "speaker": "left",
+                    "gaze_x": 0.5571,
+                    "gaze_y": 0.5808,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.138,
+                    "speaker": "left",
+                    "gaze_x": 0.5576,
+                    "gaze_y": 0.5804,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.172,
+                    "speaker": "left",
+                    "gaze_x": 0.5575,
+                    "gaze_y": 0.5795,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.206,
+                    "speaker": "left",
+                    "gaze_x": 0.5567,
+                    "gaze_y": 0.5792,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.241,
+                    "speaker": "left",
+                    "gaze_x": 0.5566,
+                    "gaze_y": 0.5794,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.275,
+                    "speaker": "left",
+                    "gaze_x": 0.5565,
+                    "gaze_y": 0.5786,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.311,
+                    "speaker": "left",
+                    "gaze_x": 0.5566,
+                    "gaze_y": 0.5782,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.344,
+                    "speaker": "left",
+                    "gaze_x": 0.5562,
+                    "gaze_y": 0.5781,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.38,
+                    "speaker": "left",
+                    "gaze_x": 0.5555,
+                    "gaze_y": 0.5774,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.414,
+                    "speaker": "left",
+                    "gaze_x": 0.5552,
+                    "gaze_y": 0.5769,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.447,
+                    "speaker": "left",
+                    "gaze_x": 0.5536,
+                    "gaze_y": 0.5754,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.482,
+                    "speaker": "left",
+                    "gaze_x": 0.5525,
+                    "gaze_y": 0.5749,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.518,
+                    "speaker": "left",
+                    "gaze_x": 0.5513,
+                    "gaze_y": 0.5739,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.551,
+                    "speaker": "left",
+                    "gaze_x": 0.5505,
+                    "gaze_y": 0.5734,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.586,
+                    "speaker": "left",
+                    "gaze_x": 0.5492,
+                    "gaze_y": 0.5729,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.62,
+                    "speaker": "left",
+                    "gaze_x": 0.5481,
+                    "gaze_y": 0.5726,
+                    "matched": false
+                },
+                {
+                    "local_time": 0.654,
+                    "speaker": "left",
+                    "gaze_x": 0.5474,
+                    "gaze_y": 0.5732,
+                    "matched": false
+                }
+            ]
+        }
+    ],
+    "paper_gaze_aoi_preference_score": -1.0,
+    "gaze_silhouette_valid_points": 871,
+    "gaze_silhouette_stimulus_count": 3,
+    "gaze_silhouette_stimulus_results": [
+        {
+            "stimulus_id": "mechanical_puppy",
+            "valid_gaze_points": 291,
+            "face_valid_gaze_points": 291,
+            "social_look_count": 0,
+            "nonsocial_look_count": 291,
+            "other_look_count": 0,
+            "social_nonsocial_aoi_total": 291,
+            "paper_gaze_percent_social": 0.0,
+            "paper_gaze_silhouette_score": -0.3589,
+            "aoi_preference_score": -1.0,
+            "social_aoi": {
+                "label": "person",
+                "x_min": 0.0,
+                "y_min": 0.05,
+                "x_max": 0.45,
+                "y_max": 0.95
+            },
+            "nonsocial_aoi": {
+                "label": "mechanical_puppy",
+                "x_min": 0.45,
+                "y_min": 0.1,
+                "x_max": 1.0,
+                "y_max": 0.95
+            },
+            "gaze_quality": "one_sided_aoi_attention",
+            "silhouette_method": "aoi_rectangle_distance_proxy",
+            "silhouette_note": "Uses actual social/nonsocial AOI rectangles from stimulus_schedule/video_test instead of coarse left/right gaze split.",
+            "framewise_log": "logs/session_20260622_161328/mechanical_puppy_framewise_log.csv"
+        },
+        {
+            "stimulus_id": "blowing_bubbles",
+            "valid_gaze_points": 290,
+            "face_valid_gaze_points": 290,
+            "social_look_count": 0,
+            "nonsocial_look_count": 290,
+            "other_look_count": 0,
+            "social_nonsocial_aoi_total": 290,
+            "paper_gaze_percent_social": 0.0,
+            "paper_gaze_silhouette_score": -0.3158,
+            "aoi_preference_score": -1.0,
+            "social_aoi": {
+                "label": "person_face_body",
+                "x_min": 0.0,
+                "y_min": 0.05,
+                "x_max": 0.5,
+                "y_max": 0.95
+            },
+            "nonsocial_aoi": {
+                "label": "bubbles",
+                "x_min": 0.45,
+                "y_min": 0.05,
+                "x_max": 1.0,
+                "y_max": 0.95
+            },
+            "gaze_quality": "one_sided_aoi_attention",
+            "silhouette_method": "aoi_rectangle_distance_proxy",
+            "silhouette_note": "Uses actual social/nonsocial AOI rectangles from stimulus_schedule/video_test instead of coarse left/right gaze split.",
+            "framewise_log": "logs/session_20260622_161328/blowing_bubbles_framewise_log.csv"
+        },
+        {
+            "stimulus_id": "playing_with_blocks",
+            "valid_gaze_points": 290,
+            "face_valid_gaze_points": 290,
+            "social_look_count": 0,
+            "nonsocial_look_count": 290,
+            "other_look_count": 0,
+            "social_nonsocial_aoi_total": 290,
+            "paper_gaze_percent_social": 0.0,
+            "paper_gaze_silhouette_score": -0.38,
+            "aoi_preference_score": -1.0,
+            "social_aoi": {
+                "label": "person",
+                "x_min": 0.0,
+                "y_min": 0.05,
+                "x_max": 0.5,
+                "y_max": 0.95
+            },
+            "nonsocial_aoi": {
+                "label": "blocks",
+                "x_min": 0.4,
+                "y_min": 0.2,
+                "x_max": 1.0,
+                "y_max": 0.95
+            },
+            "gaze_quality": "one_sided_aoi_attention",
+            "silhouette_method": "aoi_rectangle_distance_proxy",
+            "silhouette_note": "Uses actual social/nonsocial AOI rectangles from stimulus_schedule/video_test instead of coarse left/right gaze split.",
+            "framewise_log": "logs/session_20260622_161328/playing_with_blocks_framewise_log.csv"
+        }
+    ]
+}

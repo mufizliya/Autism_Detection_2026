@@ -1,0 +1,30 @@
+{
+    "is_valid": false,
+    "quality_score": 0.65,
+    "quality_grade": "Failed",
+    "issues": [
+        {
+            "severity": "warning",
+            "code": "no_name_responses_detected",
+            "message": "No response-to-name events detected. This may be valid behavior, but verify tracking quality."
+        },
+        {
+            "severity": "info",
+            "code": "gaze_one_sided_attention",
+            "message": "Only one AOI side was attended for stimuli: ['mechanical_puppy', 'playing_with_blocks']"
+        },
+        {
+            "severity": "error",
+            "code": "paper_feature_coverage_low",
+            "message": "Expected 23 paper features, found 0."
+        }
+    ],
+    "validator_version": "paper_aligned_strict_v2",
+    "checks": {
+        "expected_video_stimuli": 9,
+        "expected_name_calls": 3,
+        "expected_paper_features": 23,
+        "min_gaze_valid_points": 100,
+        "min_speech_valid_frames": 50
+    }
+}
